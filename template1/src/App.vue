@@ -18,7 +18,6 @@ export default {
     },
     onInterceptors () {
       // 请求之前拦截器
-      debugger
       axios.interceptors.request.use((config) => {
         // 请求之前做的事
         return config

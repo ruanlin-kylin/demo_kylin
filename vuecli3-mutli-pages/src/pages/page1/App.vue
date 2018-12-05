@@ -10,6 +10,18 @@
       <el-button @click="toPage2">el-button</el-button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 基础用法 -->
+    <v-icon name="beer"/>
+    <!-- 添加选项 -->
+    <v-icon name="sync" scale="2" spin/>
+    <v-icon name="comment" flip="horizontal"/>
+    <v-icon name="code-branch" label="Forked Repository"/>
+
+    <!-- 堆叠图标 -->
+    <v-icon label="No Photos">
+      <v-icon name="camera"/>
+      <v-icon name="ban" scale="2" class="alert"/>
+    </v-icon>
   </div>
 </template>
 
@@ -26,8 +38,7 @@ export default {
   },
   methods: {
     toPage2() {
-      // window.location.assign("page2");
-      window.location.href = "page2";
+      window.location.assign("page2");
     }
   }
 };

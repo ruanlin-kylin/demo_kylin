@@ -57,8 +57,7 @@ module.exports = {
   //是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。(默认false)
   runtimeCompiler: false,
   //默认情况下babel-loader忽略其中的所有文件node_modules。如果要使用Babel显式转换依赖关系，可以在此选项中列出它
-  transpileDependencies: [],
-
+  transpileDependencies: [/\bvue-awesome\b/],
   // 不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建,map就是为了方便打印错误位置。
   productionSourceMap: false,
   //在生成的HTML中配置crossorigin属性<link rel="stylesheet">和<script>标记。告诉脚本而不发送用户凭据
@@ -67,7 +66,7 @@ module.exports = {
  *设置为在生成的HTML中true启用子资源完整性（SRI）<link rel="stylesheet">和<script>标记。如果您在CDN上托管构建的文件，最好启用此功能以获得额外的安全性。
  *，启用SRI时，由于Chrome中的错误导致资源被下载两次，因此会禁用预加载资源提示
  * */
-  ntegrity: false,
+  // ntegrity: false,
   //默认情况下，只有以文件结尾的文件*.module.[ext]才会被视为CSS模块。将此设置为true允许您.module放入文件名并将所有*.(css|scss|sass|less|styl(us)?)文件视为CSS模块。
   //extract true在生产中，false在开发中,是否将组件中的CSS提取到独立的CSS文件中（而不是在JavaScript中内联并动态注入,在开发模式下禁用提取CSS，因为它与CSS热重新加载不兼容
   //sourceMap是否为CSS启用源映射。将此设置为true可能会影响构建性能

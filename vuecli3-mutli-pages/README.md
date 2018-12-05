@@ -33,20 +33,3 @@
 * 实现多页面应用中不同页面的数据通讯，请使用传统的`storage`,`queryString`,不建议使用`cookie`
 * 添加了[vue-awesome](https://github.com/Justineo/vue-awesome)字体图标库
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

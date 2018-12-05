@@ -32,8 +32,6 @@
 * 每一个`page`页里的`vuex`都是独立的，例如`page1`中你添加的状态管理`vuex`，此时`page1`中的`vuex`数据能直接与`page2`或者`page3`通信
 * 实现多页面应用中不同页面的数据通讯，请使用传统的`storage`,`queryString`,不建议使用`cookie`
 
-# vuecli3-mutli-pages
-
 ## Project setup
 ```
 npm install
@@ -47,16 +45,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration

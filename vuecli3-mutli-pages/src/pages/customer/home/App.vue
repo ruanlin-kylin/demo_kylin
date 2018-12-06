@@ -1,13 +1,10 @@
 <template>
   <div id="app">
-    <img src="../../assets/logo.png">
     <div>
       <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
+        我是商户页面
       </p>
-      <el-button @click="toPage3">el-button</el-button>
+      <el-button @click="toIndex">返回首页</el-button>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
@@ -25,8 +22,8 @@ export default {
     return {};
   },
   methods: {
-    toPage3() {
-      window.location.assign("page3");
+    toIndex() {
+      window.location.assign("../");
     }
   }
 };

@@ -1,48 +1,50 @@
 // vue.config.js 配置说明
 // 这里只列一部分，具体配置惨考文档啊
 module.exports = {
-  // baseUrl  type:{string} default:'/'
-  // 将部署应用程序的基本URL
-  // 将部署应用程序的基本URL。
-  // 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。
-  // https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.
+  // outputDir: 在npm run build 或 yarn build 时 ，生成文件的目录名称（要和baseUrl的生产环境路径一致）
+  outputDir: "dist",
+  //用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
+  assetsDir: "assets",
+  //指定生成的 index.html 的输出路径  (打包之后，改变系统默认的index.html的文件名)
+  // indexPath: "myIndex.html",
+  //默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。你可以通过将这个选项设为 false 来关闭文件名哈希。(false的时候就是让原来的文件名不改变)
+  filenameHashing: false,
 
-  // baseUrl: process.env.NODE_ENV === "production" ? "/online/" : "/",
-
-  // outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'
-
-  // outputDir: 'dist',
-
-  // pages:{ type:Object,Default:undfind }
-  /*
-构建多页面模式的应用程序.每个“页面”都应该有一个相应的JavaScript条目文件。该值应该是一
-个对象，其中键是条目的名称，而该值要么是指定其条目、模板和文件名的对象，要么是指定其条目
-的字符串，
-注意：请保证pages里配置的路径和文件名 在你的文档目录都存在 否则启动服务会报错的
-*/
-  // pages: {
-  // index: {
-  // entry for the page
-  // entry: 'src/index/main.js',
-  // the source template
-  // template: 'public/index.html',
-  // output as dist/index.html
-  // filename: 'index.html'
-  // },
-  // when using the entry-only string format,
-  // template is inferred to be `public/subpage.html`
-  // and falls back to `public/index.html` if not found.
-  // Output filename is inferred to be `subpage.html`.
-  // subpage: 'src/subpage/main.js'
-  // },
-
-  //   lintOnSave：{ type:Boolean default:true } 问你是否使用eslint
+  //   lintOnSave：{ type:Boolean default:true } 问你是否使用eslint,设置为时true，eslint-loader将发出lint错误作为警告。默认情况下，警告仅记录到终端，并且不会使编译失败。
   lintOnSave: true,
-  // productionSourceMap：{ type:Bollean,default:true } 生产源映射
-  // 如果您不需要生产时的源映射，那么将此设置为false可以加速生产构建
+  //如果你想要在生产构建时禁用 eslint-loader，你可以用如下配置
+  // lintOnSave: process.env.NODE_ENV !== "production",
+
+  //是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。(默认false)
+  runtimeCompiler: false,
+  //默认情况下babel-loader忽略其中的所有文件node_modules。如果要使用Babel显式转换依赖关系，可以在此选项中列出它
+  // transpileDependencies: [/\bvue-awesome\b/],
+  // 不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建,map就是为了方便打印错误位置。
   productionSourceMap: false,
-  // devServer:{type:Object} 3个属性host,port,https
-  // 它支持webPack-dev-server的所有选项
+  //在生成的HTML中配置crossorigin属性<link rel="stylesheet">和<script>标记。告诉脚本而不发送用户凭据
+  crossorigin: undefined,
+  /*
+ *设置为在生成的HTML中true启用子资源完整性（SRI）<link rel="stylesheet">和<script>标记。如果您在CDN上托管构建的文件，最好启用此功能以获得额外的安全性。
+ *，启用SRI时，由于Chrome中的错误导致资源被下载两次，因此会禁用预加载资源提示
+ * */
+  // ntegrity: false,
+  //默认情况下，只有以文件结尾的文件*.module.[ext]才会被视为CSS模块。将此设置为true允许您.module放入文件名并将所有*.(css|scss|sass|less|styl(us)?)文件视为CSS模块。
+  //extract true在生产中，false在开发中,是否将组件中的CSS提取到独立的CSS文件中（而不是在JavaScript中内联并动态注入,在开发模式下禁用提取CSS，因为它与CSS热重新加载不兼容
+  //sourceMap是否为CSS启用源映射。将此设置为true可能会影响构建性能
+  //将选项传递给与CSS相关的加载器
+  css: {
+    modules: false,
+    extract: true,
+    sourceMap: false,
+    loaderOptions: {
+      css: {
+        // options here will be passed to css-loader
+      },
+      postcss: {
+        // options here will be passed to postcss-loader
+      }
+    }
+  },
 
   devServer: {
     port: 8085, // 端口号

@@ -10,6 +10,10 @@ export default new Router({
   routes: [
     {
       path: "/",
+      directives: "/home"
+    },
+    {
+      path: "/home",
       name: "home",
       component: Home
     },

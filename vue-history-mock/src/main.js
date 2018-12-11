@@ -6,13 +6,25 @@ import store from "./store";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import "./plugins/element.js";
-
-// 引入mockjs
 import "./mock/mock.js";
+
+import PageAside from "./components/Aside.vue";
+import PageHeader from "./components/Header.vue";
+import PageMain from "./components/Main.vue";
+import PageFooter from "./components/Footer.vue";
+import PageRow from "./components/Row.vue";
+import PageColumn from "./components/Column.vue";
 
 Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false;
+
+Vue.component(PageAside.name, PageAside);
+Vue.component(PageHeader.name, PageHeader);
+Vue.component(PageMain.name, PageMain);
+Vue.component(PageFooter.name, PageFooter);
+Vue.component(PageRow.name, PageRow);
+Vue.component(PageColumn.name, PageColumn);
 
 // 添加请求拦截器
 axios.interceptors.request.use(

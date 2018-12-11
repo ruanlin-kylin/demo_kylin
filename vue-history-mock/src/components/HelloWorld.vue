@@ -3,6 +3,8 @@
     <div v-for="item in userData" :key="item.id">
       <a>{{item.name}}</a>
     </div>
+    <el-button @click="gohome">gohome</el-button>
+    <el-button @click="goabout">goabout</el-button>
   </div>
 </template>
 
@@ -22,24 +24,17 @@ export default {
       this.userData = res.data.list;
     });
   },
-  methods: {}
+  methods: {
+    gohome() {
+      this.$router.push("/home");
+    },
+    goabout() {
+      this.$router.push("/about");
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>

@@ -6,7 +6,7 @@ const Random = Mock.Random;
 // mock一组数据
 const produceNewsData = function() {
   let articles = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     let newArticleObject = {
       title: Random.csentence(5, 30), //  Random.csentence( min, max )
       thumbnail_pic_s: Random.dataImage("300x250", "mock的图片"), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码

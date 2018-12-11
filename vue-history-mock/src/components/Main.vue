@@ -30,5 +30,7 @@ export default {
   display: flex;
   flex: 1;
   background: burlywood;
+  justify-content: center;
+  align-items: center;
 }
 </style>

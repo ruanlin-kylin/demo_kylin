@@ -1,10 +1,13 @@
-const cheerio = require('cheerio');
-const superagent = require('superagent');
-const async = require('async');
-const fs = require('fs');
-const url = require('url');
-const request = require('request');
-const hupuUrl = 'https://bbs.hupu.com/selfie-1';
+const express = require('express');
+const app = express();
+app.set('view engine','html');
+app.engine('html', require('ejs').renderFile);
+app.set('views', __dirname + '/views');   
 
+app.get('/',(req,res)=>{
+   res.render('template',{
+      'message':'你的优乐美，你是我的OK绷'
+   })
+})
 
-
+app.listen(5000,()=>console.log('Serve running'))

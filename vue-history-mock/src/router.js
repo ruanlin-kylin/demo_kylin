@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      directives: "/home"
+      redirect: "/home"
     },
     {
       path: "/home",

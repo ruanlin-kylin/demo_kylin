@@ -6,3 +6,5 @@
 * [`vue-cli2`SPA模板](https://github.com/kylinBlack/demo_kylin/tree/master/vue-cli2)
 
 * [`vue-cli3`SPA模板](https://github.com/kylinBlack/demo_kylin/tree/master/vue-cli3)
+
+* [`react`模板](https://github.com/kylinBlack/demo_kylin/tree/master/myreact)

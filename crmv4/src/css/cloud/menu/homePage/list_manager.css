@@ -1,0 +1,720 @@
+.content{
+    width:100%;
+    height:100%;
+}
+.content .content_table{
+    padding: 10px 25px 0px;
+    font-size: 14px;
+}
+.content .content_table .content_tab_title{
+    height: 50px;
+    width: 100%;
+}
+
+.content .content_table .list_ul li{
+    float: left;
+    padding: 8px 10px;
+    cursor: pointer;
+    width: 110px;
+    text-align: center;
+    font-size: 15px;
+}
+.content_table .list_m_content{
+    display: none;
+    /*width: 920px;*/
+    width:100%;
+    margin: 20px 0px;
+    padding:10px 5px;
+    background-color: white;
+}
+.content_table .list_m_content .list_qd_table{
+    width:100%;
+}
+.customer_table_style{
+    width:100%;
+}
+.customer_table_style thead{
+    background: #dee9f2;
+    color: #38454f;
+    font-weight: normal;
+}
+.customer_table_style th{
+    height:38px;
+    line-height: 38px;
+    padding-left: 5px;
+    color: #38454f;
+    font-weight: normal;
+}
+.customer_table_style .column_left_td{
+    border-right: 1px solid #e9eef1;
+    text-align: center;
+}
+.customer_table_style .column_right_td{
+    border-left: 1px solid #e9eef1;
+    text-align: center;
+}
+.customer_table_style td{
+    padding:5px;
+}
+#checkSqlBtn{
+    margin-top: 10px;
+    margin-left: 90px;
+}
+.list_m_content .list_row{
+    display: -webkit-box;
+    /*height:35px;
+    line-height: 35px;*/
+    width:95%;
+    margin: 10px 0px;
+}
+.list_m_content .list_m_script{
+    /*display: -webkit-box;*/
+    margin: 10px 0px;
+    position: relative;
+}
+.list_m_content .report_l_title{
+    width: 90px;
+}
+.list_m_content .list_script_con{
+    width:100%;
+    outline:none;
+    /*overflow: hidden;*/
+    overflow-y: auto;
+    /*resize: none;*/
+    border:solid 1px rgba(212, 222, 229, 1);
+}
+.list_m_content .list_sql_table{
+    /*width: 845px;*/
+    position: absolute;
+    left:90px;
+    right:0px;
+    height:250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border:solid 1px rgba(212, 222, 229, 1);
+}
+#scriptSqlTable{
+
+}
+#scriptSqlTable td{
+    line-height: 30px;
+}
+#scriptSqlTabPage{
+    height:35px !important;
+}
+.list_m_content .list_sql_btn{
+    /*text-align: center;*/
+    margin-top: 10px;
+    width: 845px;
+}
+.list_m_content .list_sql_table button{
+    text-align: center;
+}
+.list_check{
+    border-bottom: 3px solid rgba(72, 160, 220, 1);
+}
+
+/*字段转换*/
+.field_value_conver{
+    /*width: 920px;*/
+    width:100%;
+    padding:0px 10px;
+}
+.field_value_conver .field_color_con{
+    width:100%;
+}
+.list_show_btn_ok{
+    width: 100%;
+    /*text-align: center;*/
+    margin: 20px 0px;
+    padding:0px 10px;
+}
+.field_value_conver .panel-sm-tit{
+    height: 50px;
+    line-height: 50px;
+    clear: both;
+}
+.field_value_conver .add_field_conver_btn{
+    float: right;
+    margin-top: 10px;
+}
+.field_value_conver .add_field_reference_btn{
+    float: right;
+    margin-top: 10px;
+}
+.field_value_conver .add_field_color_btn{
+    float: right;
+    margin-top: 10px;
+}
+.field_value_conver .field_conver_con{
+    height: auto;
+    /*min-height: 200px;*/
+}
+.field_value_conver .field_conver_item{
+    /*width: 920px;*/
+    width:100%;
+    /*height: 100px;*/
+    border:solid 1px rgba(212, 222, 229, 1);
+    background: #F6F6F6;
+    margin-top: 10px;
+    min-height: 100px;
+    clear: both;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+}
+.field_value_conver .field_color_item{
+    width: 100%;
+    /*height: 100px;*/
+    /*min-height: 120px;*/
+    height:120px;
+    border:solid 1px rgba(212, 222, 229, 1);
+    background: #F6F6F6;
+    margin-top: 10px;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+}
+.input_conver{
+    width: 120px;
+}
+.field_value_conver .field_conver_item .field_conver_l{
+    /*width: 305px;*/
+    flex:2;
+    height: 80px;
+    margin-top: 10px;
+    /*float: left;*/
+}
+.field_value_conver .field_conver_item .field_conver_center{
+    /*width: 305px;*/
+    height: 80px;
+    margin-top: 10px;
+    /*float: left;*/
+    flex:2;
+}
+.field_value_conver .field_conver_item .field_conver_title{
+    padding: 10px;
+}
+.field_value_conver .field_conver_item .field_conver_l .select_field{
+    width:313px;
+    padding-right:0px;
+    margin:0px 10px;
+}
+.field_value_conver .field_conver_item .field_conver_l .value_conver_info{
+    width: 313px;
+    margin: 10px;
+    float: left;
+}
+.field_value_conver .field_conver_item .field_conver_l .value_reference_info{
+    width: 100%;
+}
+.field_value_conver .value_conver_info .conver_c_img{
+    margin: 0px 20px;
+}
+.field_value_conver .field_conver_item .field_conver_l .value_conver_button{
+    width: 70px;
+    float: left;
+    margin: 10px 0px;
+}
+.field_value_conver .field_conver_item .field_conver_c{
+    /*width: 350px;*/
+    width: 340px;
+    border-left: solid 1px rgba(212, 222, 229, 1);
+    border-right:solid 1px rgba(212, 222, 229, 1);
+    float: left;
+    /*height: 80px;*/
+    margin-top: 10px;
+}
+.field_value_conver .field_conver_item .field_conver_right{
+    /*width: 305px;*/
+    height: 80px;
+    margin-top: 10px;
+    /*float: left;*/
+    flex:2;
+}
+.field_value_conver .field_conver_item .field_conver_btn{
+    /*width: 305px;*/
+    height: 80px;
+    margin-top: 10px;
+    /*float: left;*/
+    flex:1;
+}
+.field_value_conver .conver_c_title{
+    padding: 2px 10px;
+}
+.field_value_conver .conver_c_result{
+    height: 60px;
+    width: 100%;
+    overflow-y: auto;
+}
+.field_value_conver .field_conver_item .conver_c_result .conver_c_result{
+    margin: 10px;
+}
+.field_value_conver .field_conver_item .conver_c_result .conver_c_result_txt{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border:solid 1px rgba(212, 222, 229, 1);
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+    cursor: pointer;
+}
+.field_value_conver .field_color_item .color_c_result .conver_c_result_txt{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    border:solid 1px rgba(212, 222, 229, 1);
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.field_value_conver .field_conver_item .conver_c_result .reference_c_result_txt{
+    /*width: 70px;
+    height: 30px;
+    line-height: 30px;*/
+    text-align: center;
+    border:solid 1px rgba(212, 222, 229, 1);
+    float: left;
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.field_value_conver .field_conver_item .conver_c_result .conver_c_result_txt .conver_colose_div{
+    position: absolute;background: red;width: 12px;height: 12px;line-height: 12px;color: #ffffff;right: 0px;top:0px;text-align: center;border-radius: 2px;
+}
+.field_value_conver .field_color_item .color_c_result .conver_c_result_txt .conver_colose_div{
+    position: absolute;
+    background: red;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    color: #ffffff;
+    right: 0px;
+    top: 0px;
+    text-align: center;
+    border-radius: 2px;
+}
+.field_value_conver .field_conver_item .conver_c_result .reference_c_result_txt .conver_colose_div{
+    position: absolute;background: red;width: 12px;height: 12px;line-height: 12px;color: #ffffff;right: 0px;top:0px;text-align: center;border-radius: 2px;
+}
+.field_value_conver .field_conver_item .field_conver_r{
+    /*width: 140px;*/
+    width: 128px;
+    float: left;
+    height: 80px;
+    margin-top: 10px;
+}
+.field_value_conver .conver_r_btn{
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+}
+.field_value_conver .conver_r_del_img{
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+/*字段标记颜色*/
+.field_value_conver .field_color_item .field_color_l{
+    /*width: 460px;*/
+   /* height: 80px;
+    margin-top: 10px;*/
+    margin: 10px 0px;
+    /*float: left;*/
+    flex:4;
+}
+.field_value_conver .field_color_item .field_color_l .select_color{
+    width:100px;
+    padding-right:0px;
+    margin:0px 10px;
+    float: left;
+}
+.field_value_conver .field_color_item .field_color_l .value_color_info{
+    width: 313px;
+    margin: 10px;
+    float: left;
+}
+.field_value_conver .field_color_item .field_color_c{
+    /*width: 290px;*/
+    flex:2;
+    border-left: solid 1px rgba(212, 222, 229, 1);
+    border-right:solid 1px rgba(212, 222, 229, 1);
+    float: left;
+   /* height: 80px;
+    margin-top: 10px;*/
+    margin: 10px 0px;
+    /*min-height: 100px;*/
+    height:100px;
+}
+.field_value_conver .field_color_item .color_c_result{
+    margin: 10px;
+}
+.field_value_conver .field_color_item .color_c_result .color_c_result_txt{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border:solid 1px rgba(212, 222, 229, 1);
+    float: left;
+    margin-left: 10px;
+}
+.field_value_conver .field_color_item .field_color_r{
+    /*width: 140px;*/
+    /*width: 167px;*/
+    /*float: left;*/
+    flex:1;
+    /*height: 80px;
+    margin-top: 10px;*/
+    margin: 10px 0px;
+}
+.field_color_item .f_c_condition_title{
+    margin: 10px;
+}
+.field_color_item .conditon_select_array{
+    width: 100%;
+    min-height: 35px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.field_color_item .f_c_condition_title .f_c_condition_img{
+    cursor: pointer;
+}
+.field_color_item .f_c_condition_content .conditon_select_item{
+   float: left;
+    width: auto;
+    min-width: 140px;
+}
+.field_color_item .f_c_condition_content .conditon_select_img{
+    height: 30px;
+    width:40px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+/*字段标记颜色结束*/
+
+/*按钮列表设置*/
+.condition_set .condition_item .btn_select_img{
+    height: 50px;
+    width: 40px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+
+
+
+.panel-sm-tit {
+    height: 40px;
+    line-height: 40px;
+}
+.arrow-label {
+    float: none;
+}
+.arrow-label, .define-list .l-t {
+    background: url(../../img/arrow-label.png) no-repeat 0 center;
+}
+
+/*
+列表筛选菜单*/
+.condition_basic_div{
+    /*width: 920px;*/
+    width:100%;
+    height:auto;
+}
+.condition_basic_div .condition_basic_info{
+    height: 35px;
+    display: flex;
+    margin: 10px 10px 10px 20px;
+}
+.condition_basic_info .add_condition_name{
+    flex: 1;
+}
+.condition_basic_info .serial_number{
+    flex: 1;
+}
+.condition_basic_div .is_enable_div{
+    margin: 10px 10px 10px 20px;
+}
+.condition_basic_div .is_enable_div .radio_enable_img{
+    cursor: pointer;
+}
+.condition_basic_div .span_title{
+    width:90px;
+    text-align: right;
+    float: left;
+    height: 35px;
+    line-height: 35px;
+}
+.relation_save_btn{
+    float: right;
+}
+.relation_set_save_btn{
+    float: right;
+}
+.condition_info_div{
+    /*min-height: 80px;*/
+    height:auto;
+    width: 100%;
+}
+.condition_setting{
+    margin: 20px;
+}
+.condition_info_div .relation_item{
+    height:60px;
+    width:98%;
+    background: #F6F6F6;
+    border:solid 1px rgba(212, 222, 229, 1);
+    margin: 20px;
+}
+.condition_info_div .relation_item .relation_title{
+    width:70px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+}
+.condition_info_div .relation_item .relation_select{
+    height:60px;
+    line-height: 60px;
+}
+.condition_info_div .relation_item .relation_select img{
+    cursor: pointer;
+    margin: 20px 6px;
+}
+.condition_relation_set textarea{
+    outline: none;
+    overflow: hidden;
+    resize: none;
+    border: solid 1px rgba(212, 222, 229, 1);
+}
+.condition_diagnosis{
+    width:100%;
+    height:120px;
+    margin-top: 30px;
+}
+.condition_diagnosis .condition_diagnoisis_item{
+    width:100%;
+    height:100%;
+    background: #F6F6F6;
+    border: solid 1px rgba(212, 222, 229, 1);
+}
+.edit-btn{
+    cursor: pointer;
+}
+.delete-btn{
+    cursor: pointer;
+}
+.list_m_content .list_qd_ok_button{
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20px;
+}
+.copy-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/copy_white.png) no-repeat 10px center;
+}
+.pencil-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/pencil_white.png) no-repeat 10px center;
+}
+
+.delete-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/delete_white.png) no-repeat 10px center;
+}
+.add-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/add_white.png) no-repeat 10px center;
+}
+.download-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/download_white.png) no-repeat 10px center;
+}
+.label-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/lable_white.png) no-repeat 10px center;
+}
+.queding-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/queding_white.png) no-repeat 10px center;
+}
+.del-btn-check-select{
+    background: rgba(72, 160, 220, 1) url(../../img/list/del_white.png) no-repeat 10px center;
+}
+.condition_con {
+    height: 90px;
+    background: #F6F6F6;
+    margin-bottom: 10px;
+    border: solid 1px rgba(191, 207, 219, 1);
+    padding: 10px;
+}
+.condition_from_tab1 {
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) #48a0dc;
+    border-style: solid;
+    border-width: 10px;
+    height: 0px;
+    width: 0px;
+    position:absolute;
+    /*left: 48px;*/
+    left: 25px;
+}
+
+.condition_from_tab2{
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) #ffffff;/*black不是背景色，便于观察*/
+    border-style: solid;
+    border-width: 10px;
+    height: 0px;
+    width: 0px;
+    position:absolute;
+    margin-top:2px;
+    z-index:1;
+    left: 25px;
+}
+.condition_from_tab3{
+    position:absolute;
+    width:100%;
+    /*height:200px;*/
+    min-height: 200px;
+    border:1px solid #48a0dc;/*需要设置边界宽度*/
+    margin-top:19px;
+    margin-bottom: 15px;
+ }
+.condition_from_tab3 .paramsNameSetting{
+    width:auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+.condition_from_tab3 .paramsNameSetting .paramName{
+    width:210px;
+}
+
+.condition_from_page .condition_form_table{
+    display: none;
+}
+
+.display_field_title{
+    height:25px;
+    line-height: 25px;
+}
+.display_mobile_set{
+    width: 100%;
+    height:120px;
+    border:solid 1px rgba(212, 222, 229, 1);
+    padding: 10px;
+    margin: 12px;
+}
+
+#listButtonTable .delete-btn{
+    cursor: pointer;
+}
+#listButtonTable .edit-btn{
+    cursor: pointer;
+}
+.conditionFromTable .tj-set-child{
+    padding-left: 75px;
+}
+.conditionFromTable .conditionFromTitle{
+    margin: 10px;
+}
+
+/*.conditionFromTable td{
+    padding: 5px 10px;
+}*/
+.del-tj-w {
+    display: inline-block;
+    width: 20px;
+    vertical-align: middle;
+}
+.del-tj {
+    display: block;
+    width: 20px;
+    height: 35px;
+    cursor: pointer;
+    background: url(../../../assetsv1/img/delete-selete.png) no-repeat center center;
+}
+.condition_form_table .selectListTab{
+    height: 45px;
+    margin: 10px;
+}
+.condition_form_table .selectListTab a{
+    height: 35px;
+   line-height: 35px;
+}
+.condition_form_table .choice_list_title{
+    float: left;
+    height:35px;
+    line-height: 35px;
+}
+.condition_form_table .addListParameter{
+    margin: 10px;
+}
+.condition_form_table .addListParameter .addListParamTitle{
+
+}
+.condition_form_table .addListParameter .addParamItemArray{
+    margin: 10px 0px;
+}
+.condition_form_table .addFormItemArray{
+    margin: 10px 0px;
+}
+.condition_form_table .addListParameter .addParamItemArray .tj-set-child{
+    height: 35px;
+    padding-left: 60px;
+}
+.condition_form_table .addListParameter .addParamPageItemArray .tj-set-child{
+    height: 35px;
+    padding-left: 60px;
+}
+.condition_form_table .addListParameter .addParamCustomItemArray .tj-set-child{
+    height: 35px;
+    padding-left: 60px;
+    clear: both;
+}
+.condition_form_table .addListParameter .addParamItem{
+    position: relative;
+    height: 35px;
+    padding-left: 60px;
+    clear: both;
+}
+.condition_form_table .addListParameter .addParamCon{
+    padding: 10px;
+    width:100%;
+    min-height: 65px;
+    border:solid 1px rgba(212, 222, 229, 1);
+}
+.maintenanceHead{
+    width:100%;
+    height:30px;
+    padding-left: 60px;
+}
+
+.maintenanceHead .pageParam{
+    float: left;
+    /*width: 160px;*/
+    width: 220px;
+    height:30px;
+    line-height: 30px;
+}
+.maintenanceHead .paramVal{
+    float: left;
+    width: 220px;
+    height:30px;
+    line-height: 30px;
+}
+.maintenanceContent .paramValSelect{
+    width: 160px;
+    float: left;
+}
+.maintenanceContent .maintenanceItem{
+    width: 100%;
+    clear: both;
+    height: 35px;
+    margin: 5px 0px;
+}
+.maintenanceContent{
+    /*padding-left: 60px;*/
+}

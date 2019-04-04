@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>搜素过滤</title>
+	<!-- <link rel="stylesheet" href="../../../../src/css/cloud/menu/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="../../../../src/scripts/js/plug-in/searchFilter/style/searchFilter.css">
+	<!-- <link rel="stylesheet" href="src/scripts/js/plug-in/searchFilter/style/searchFilter.css"> -->
+</head>
+<body>
+    <!-- 搜索开始 -->
+		<div class="search_head_div " style="/*margin-bottom: 22px;*/">
+			<div id="search" class="search">
+	            <div class="dropdown">
+	                <span class="pointer" style="position:relative;">
+		                <span id="dropdownTitle">全部数据</span>
+						<span class="pl6" style="position:relative;">
+							<!-- <img src="../../../images/searchFilter/dropdown.png"  data-src="../../../images/searchFilter/dropdown.png" style="height:auto;"> -->
+							<img src="../../../images/searchFilter/dropdown.png"  data-src="../../../images/searchFilter/dropdown.png" style="height:auto;">
+							<!-- <img src="../../../images/searchFilter/dropdown.png"> -->
+						</span>
+		            </span>
+	                <ul class="dropdown-content">
+	                	<li key_id="0">全部数据</li>
+	                    <li data-toggle="modal" data-target="#addClassModal">
+	                        <span>
+	                            <span>
+									<img class="middle" src="../../../images/searchFilter/set_icon.png" alt="设置">
+	                                <span>设置</span>
+	                            </span>
+	                        </span>
+	                    </li>
+	                </ul>
+	            </div>
+		        <!-- 搜索框-->
+		        <div class="form searchContent inlineBlock">
+		             <span style="position: relative;">
+		                <input type="text" class="searchText" name="keyword" onkeydown="javascript:if(event.keyCode==13){searchTable();};"/>
+		                <span style="position: absolute;right: 20px;top: 0;color: #48a1dd;cursor: pointer" onclick="searchTable();">
+							<img class="middle" src="../../../images/searchFilter/search_icon.png" alt="">
+		                    <span>搜索</span>
+		                </span>
+		            </span>
+		            <span id="quickQueryBtn" class="pointer" data-toggle="modal" data-target="#queryModal">
+						<img class="middle" src="../../../images/searchFilter/quick_search.png" alt="" style="height: 30px;width: 30px;">
+		            </span>
+		        </div>
+		        <div class="btn-wrap button_content" style="padding-top:7px;padding-left:10px;">
+				</div>
+	        </div>
+	        <div  class="modal fade"  id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel" data-backdrop="static">
+	            <div id="addClassModalDialog" class="modal-dialog" role="document">
+	                <div class="modal-content">
+	                    <div class="modal-header modalColor">
+	                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                        <h5 class="modal-title" id="addClassModalLabel">
+	                            <span>
+									<img class="middle" src="../../../images/searchFilter/set_icon.png" alt="设置分类"/>
+	                                <span class="middle">设置分类</span>
+	                            </span>
+	                        </h5>
+	                    </div>
+	                    <div class="modal-body">
+	                        <div class="action" style="padding-top: 0;height: 40px;">
+	                            <span class="pointer pl6" data-toggle="modal" data-target="#addConditionModal" onclick="resetConditionModal();">
+	                                <span>
+										<img class="middle" src="../../../images/searchFilter/add-selete.png" alt="添加分类"/>
+	                                    <span class="middle">添加分类</span>
+	                                </span>
+	                            </span>
+	                            <span class="pointer pl12" data-toggle="modal" data-target="#addLine" onclick="javascript:$('#addLine input').val('');">
+									<img class="middle" src="../../../images/searchFilter/add-selete.png" alt="添加分线栏"/>
+	                                <span class="middle">添加分线栏</span>
+	                            </span>
+	                            <span class="pointer pl12" onclick="removeClassify()">
+									 <img class="middle" src="../../../images/searchFilter/delete-selete.png" alt="删除"/>
+	                                 <span class="middle">删除</span>
+	                            </span>
+	                        </div>
+	                        <input type="hidden" id="tableConditionSettingId">
+	                        <table id="addClassTable" class="connectedSortable" style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+	                            <thead>
+	                                <tr bgcolor="#e4e8ec">
+	                                    <td>名称</td>
+	                                    <td>是否显示</td>
+	                                    <td>设置为默认</td>
+	                                    <td>操作</td>
+	                                </tr>
+	                            </thead>
+	                            <tbody></tbody>
+	                        </table>
+	                    </div>
+	                    <div class="modal-footer textCenter">
+	                        <button type="button" class="btn btn-primary" onclick="saveClassifySetting(true)">保存</button>
+	                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div  class="modal fade"  id="addConditionModal" tabindex="-1" role="dialog" aria-labelledby="addConditionModalLabel" data-backdrop="static">
+	            <div id="modalDialog" class="modal-dialog" role="document">
+	                <div class="modal-content">
+	                    <div class="modal-header modalColor">
+	                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                        <h5 class="modal-title" id="addConditionModalLabel">
+								<span><img class="middle" src="../../../images/searchFilter/set_icon.png" alt="设置分类"/></span>
+	                            <span class="middle">设置分类</span>
+	                        </h5>
+	                    </div>
+	                    <div class="modal-body">
+	                        <div class="action operation">
+	                            <span id="backToPre">回退</span>
+	                            <span class="right pointer" onclick="addFieldSearch()">
+	                                <span>
+										<img class="middle" src="../../../images/searchFilter/addCondition.png" alt="添加操作"/>
+	                                    <span class="middle">添加操作</span>
+	                                </span>
+	                            </span>
+	                        </div>
+	                        <input type="hidden" name="classify_id">
+	                     	分类名称：
+	                        <input type="text" style="width: 350px;" name="classify_name" class="input" placeholder="请输入分类名称"  maxlength="10">
+	                        <table name="addConditionTable" class="connectedSortable" style="width: 100%;margin-top:10px;" border="0" cellspacing="0" cellpadding="0">
+	                        </table>
+	                        <div>
+	                        	<h5 class="pl6" style="margin:5px 0px;">筛选器逻辑编辑，不设置默认为AND例子 (1 AND 2) OR 3</h5>
+	                            <textarea class="form-control" name="sqlExpression" onkeyup="value=value.replace(/[^\w\(\)\s]/ig,'')"></textarea>
+	                        </div>
+	                    </div>
+	                    <div class="modal-footer textCenter">
+	                        <button type="button" class="btn btn-primary" onclick="saveClassify(this)">保存</button>
+	                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+			<!-- 模态框（Modal）保存分线栏 -->
+		    <div class="modal fade" id="addLine" tabindex="-1" role="dialog" aria-labelledby="saveQueryDataToClassLabel" aria-hidden="true" data-backdrop="static">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		                <div class="modal-header modalColor" style="padding: 10px">
+		                    <!--<button type="button" class="close" data-miss="modal" aria-hidden="true">&times;</button>-->
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+		                    <h5 class="modal-title" id="saveQueryDataToClassLabel">分线栏</h5>
+		                </div>
+		                <div class="modal-body">
+		                    <form role="form" id="saveClass" style="margin:20px 0 0 50px;">
+		                        <div class="form-group">
+		                            <label class="queryLabel">
+		                                <span>分线栏名称</span>
+		                                <span class="pl3">:</span>
+		                            </label>
+		                            <span class="pl9">
+										<input type="hidden" name="classify_id">
+		                                <input type="text" name="classify_name">
+		                            </span>
+		                        </div>
+		                    </form>
+		                </div>
+		                <div class="modal-footer textCenter">
+		                    <button type="button" class="btn btn-primary" onclick="addLine()">确定</button>
+		                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	        <!-- 模态框（Modal）快速查询 -->
+		    <div class="modal fade" id="queryModal" tabindex="-1" role="dialog" aria-labelledby="queryModalLabel" aria-hidden="true" data-backdrop="static">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		                <div class="modal-header modalColor" style="padding: 10px">
+		                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+							 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                    <h5 class="modal-title" id="queryModalLabel">快速查询</h5>
+		                </div>
+		                <div class="modal-body" style="min-height: 300px">
+		                    <form role="form" id="queryForm" class="form-horizontal">
+		                    </form>
+		                </div>
+		                <div class="modal-footer">
+		                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#saveQueryDataToClass" onclick="javascript:$('#saveQueryDataToClass').find('[name=classify_name]').val('');">保存到分类</button>
+		                    <button type="button" class="btn btn-primary" onclick="searchTable()" data-dismiss="modal">查询</button>
+		                    <button type="button" class="btn btn-default" id="clearQueryData">清空</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <!-- 模态框（Modal）保存查询到分类 -->
+		    <div class="modal fade" id="saveQueryDataToClass" tabindex="-1" role="dialog" aria-labelledby="saveQueryDataToClassLabel" aria-hidden="true" data-backdrop="static">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		                <div class="modal-header modalColor" style="padding: 10px">
+		                    <!--<button type="button" class="close" data-miss="modal" aria-hidden="true">&times;</button>-->
+							 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                    <h5 class="modal-title" id="saveQueryDataToClassLabel">快速查询</h5>
+		                </div>
+		                <div class="modal-body">
+		                    <form role="form" id="saveClass" style="margin:20px 0 0 50px;">
+		                        <div class="form-group">
+		                            <label class="queryLabel">
+		                                <span>分类名称</span>
+		                            </label>
+		                            <span class="pl9">
+		                                <input type="text" name="classify_name" class="form-control" maxlength="10">
+		                            </span>
+		                        </div>
+		                    </form>
+		                </div>
+		                <div class="modal-footer textCenter">
+		                    <button type="button" class="btn btn-primary" onclick="saveQuickQuery()">确定</button>
+		                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+        <!-- 搜索结束 -->
+</body>
+<!--<script type="text/javascript" src="../../../src/scripts/js/plug-in/searchFilter/searchFilter.js"></script>-->
+<!--<script type="text/javascript" src="../../../src/scripts/js/cloud/menu/search_filter.js"></script>-->
+<script src="../../../../src/scripts/js/cloud/menu/search.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/filter.js"></script>
+<script src="../../../../src/scripts/js/common/common.js"></script>
+</html>

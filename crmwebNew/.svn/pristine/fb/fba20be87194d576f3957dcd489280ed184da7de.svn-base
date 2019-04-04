@@ -1,0 +1,63 @@
+.search-title {
+    float: left;
+    color: #333;
+    font-weight: normal;
+    line-height: 25px;
+}
+.search-con-wrapper .search-price, .search-con-wrapper .search-sequare, .search-con-wrapper .search-layout, .search-con-wrapper .search-floor, .search-con-wrapper .search-direction, .search-con-wrapper .search-fixment, .search-con-wrapper .search-other {
+    margin-left: 0;
+    padding-left: 33px;
+    overflow: hidden;
+}
+.search-price li, .search-sequare li, .search-layout li, .search-floor li, .search-direction li, .search-fixment li {
+    width: 166px;
+    margin-right: 0!important;
+    margin-bottom: 10px;
+}
+.search-con-wrapper a {
+    white-space: nowrap;
+}
+a, a:link {
+    color: #2e2e2e;
+    text-decoration: none;
+    outline: 0;
+    cursor: pointer;
+}
+.search-checkbox {
+    text-align: center;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #ccc;
+    display: block;
+    float: left;
+    margin-top: 5px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 6px;
+}
+.search-con-wrapper ul {
+    padding-bottom: 10px;
+}
+.search-price, .search-sequare {
+    line-height: 27px;
+}
+.search-price, .search-sequare, .search-layout, .search-floor, .search-direction, .search-fixment, .search-direction, .search-fixment {
+    width: 1000px;
+    height: 24px;
+    float: left;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+.search-con-wrapper li {
+    float: left;
+    line-height: 24px;
+    margin-right: 26px;
+    white-space: nowrap;
+}

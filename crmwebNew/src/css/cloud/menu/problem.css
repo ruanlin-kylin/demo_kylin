@@ -1,0 +1,279 @@
+html,body{
+    margin:0px;
+    height:100%;
+}
+.btn-a-href{
+    padding:3px 0px;
+}
+.common-index{
+    width:100%;
+    height:100%;
+    background: #f1f5f8;
+}
+.common-container{
+    width:100%;
+    height:100%;
+}
+.common-content{
+    position: relative;
+    width:100%;
+    height:100%;
+    /*overflow: hidden;*/
+}
+
+.common-content .problem-content{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    /*right: 85px;*/
+    right:0px;
+    bottom:50px;
+}
+.common-content .problem-trajectory{
+    position: absolute;
+    top:0px;
+    right:0px;
+    bottom: 0px;
+    background: #ffffff;
+    width:85px;
+    /*width: 500px;  */
+    height:100%;
+    overflow: hidden;
+    box-shadow: -3px 0px 9.5px 0.5px rgba(62, 62, 62, 0.25);
+}
+.common-content .problem-tt-title{
+    padding-left: 12px;
+    font-size:14px;
+    color: #48a0dc;
+    height:40px;
+    line-height: 40px;
+}
+.common-content .problem-content .nav-bar-header{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.problem-content .problem-con{
+    margin: 0px 10px;
+    /*overflow-y: auto;  */
+}
+.problem-content .problem-con .problem-con-left{
+    margin-right: 5px;
+    padding: 0px 10px;
+    width: 60%;
+    float: left;
+    height:100%;
+}
+.problem-content .problem-con .problem-similar{
+    margin-left: 5px;
+    padding: 0px 10px;
+    width: 39%;
+    float: left;
+    height: 80%;
+}
+.problem-con-left{
+    background: #fff;
+}
+.problem-similar{
+    background: #fff;
+}
+.panel-sm-tit {
+    height: 40px;
+    line-height: 40px;
+}
+.common-content .p-zs-title{
+    overflow: hidden;/*超出部分隐藏*/
+    white-space: nowrap;/*不换行*/
+    text-overflow:ellipsis;/*超出部分文字以...显示*/
+    font-size:16px;
+}
+
+
+.problem-similar-question{
+    padding-bottom: 20px;
+    margin: 10px 0px;
+}
+.problem-similar-question .similar-question-title{
+    font-size: 14px;
+}
+.similar-question-btns{
+    margin: 10px;
+}
+.default-label{
+    height: 30px;
+    padding: 0 20px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #999999;
+    position: relative;
+    line-height: 30px;
+    background-color: #eeeeee;
+    border-radius: 15px 15px 15px 15px;
+    border:1px solid #d2d2d2;
+}
+.select-label{
+    height: 30px;
+    padding: 0 20px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    position: relative;
+    line-height: 30px;
+    background-color: rgba(68, 202, 203, 1);
+    border-radius: 15px 15px 15px 15px;
+    border:1px solid #44cacb;
+}
+.select-lable-del{
+    height: 30px;
+    padding: 0 28px 0 14px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    position: relative;
+    line-height: 30px;
+    background-color: rgba(68, 202, 203, 1);
+    border-radius: 15px 15px 15px 15px;
+}
+.delete-form-field{
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url(../../../../../crmweb/assetsv1/img/delete-circle.png) no-repeat center center;
+}
+.problem-con .problem-zs{
+    height: 120px;
+    position: relative;
+}
+.problem-zs .zs-dl{
+    padding: 5px 0px 20px 0px;
+    margin-top: 8px;
+}
+.problem-zs .p-zs-btns{
+    position: absolute;
+    margin-top: 10px;
+}
+.p-zs-level-status{
+    height: 30px;
+    width: 100%;
+}
+.problem-zs .level_info{
+    width:170px;
+    float: left;
+    margin-top: 8px;
+}
+.problem-zs .status_info{
+    float: left;
+    margin-top: 8px;
+}
+.problem-zs .level_title{
+    float: left;
+    color: #b6b6b6;
+}
+.problem-zs .stauts_img{
+    float: left;
+    height: 30px;
+    line-height: 26px;
+    margin-top: -5px;
+}
+.problem-panel-sm{
+    font-size: 14px;
+}
+.problem-panel-btns{
+    margin-top: 10px;
+}
+.problem-added ul li{
+    margin: 0px 20px;
+}
+.added-item{
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+}
+.added-item .added-txt{
+    float: left;
+}
+.added-item .added-result{
+    float: right;
+    margin-right: 30px;
+}
+.problem-reply .replay-text{
+    font-size:16px;
+    color: #000;
+}
+.problem-reply .replay-title-info{
+    height: 30px;
+    line-height: 30px;
+}
+.problem-reply .replay-title-info .replay-user-info{
+    float: left;
+}
+.problem-reply .replay-title-info .replay-user-info .replay-user-name{
+    color: #2f91d3;
+    font-size: 16px;
+}
+.problem-reply .replay-title-info .replay-user-info .replay-user-time{
+    color: #b8b8b8;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.problem-reply .replay-title-info .replay-msg-img{
+    float: right;
+    margin-right: 15px;
+}
+.replay-comments{
+    width:99%;
+    border:1px solid #e3e6e8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height:205px;
+    margin-bottom: 10px;
+}
+.replay-comments .replay-content{
+    margin: 10px;
+}
+.replay-textarea{
+    border:1px solid #e3e6e8;
+    width:98%;
+    margin: 10px;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+}
+.replay-btn{
+    float: right;
+}
+.rejected-why{
+    margin: 10px 0px;
+}
+.turn-product{
+    margin: 0px;
+}
+.trun-add-pepole{
+    margin-left: 90px;
+    margin-top: 10px;
+    padding: 5px;
+    height: 65px;
+    overflow: auto;
+}
+.next-resolved-bcn-btns{
+    width:100%;
+    height: 40px;
+    text-align: center;
+}
+.circular-panel{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    color: white;
+}

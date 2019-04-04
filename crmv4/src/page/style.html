@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" href="../../src/css/common/common-style.css" />
+    <link rel="stylesheet" href="../../src/css/style/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../../src/scripts/js/plug-in/magicSuggest/magicsuggest-min.css" />
+    <script type="text/javascript" src="../../src/scripts/js/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../../src/scripts/js/jquery/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../src/scripts/js/plug-in/magicSuggest/magicsuggest-min.js"></script>
+    <script type="text/javascript" src="../../src/scripts/js/plug-in/laydate/laydate.js"></script>
+    <style>
+        .wrap {
+            padding: 50px;
+            /*display: none;*/
+        }
+
+        .color li {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .ms-ctn .ms-sel-item {
+            border-radius: 10px;
+            color: #333;
+        }
+
+        .ms-res-ctn .ms-res-item {
+            color: #333;
+        }
+
+        .ms-res-ctn .ms-res-item-active {
+            background-color: #eaf3ff;
+            color: #1877ff;
+        }
+
+        .layui-laydate .layui-this {
+            background-color: #1877ff !important;
+            color: #fff !important;
+        }
+
+        .layui-laydate-content td,
+        .layui-laydate-content th {
+            width: 30px;
+            height: 30px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .laydate-footer-btns span {
+            background-color: #f5f5f5;
+            margin-right: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .laydate-btns-confirm {
+            background-color: #1877ff !important;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!--按钮-->
+    <div class="wrap">
+        <!--字体大小展示-->
+        <div class="font">
+            <li class="font-size-18">字体18px</li>
+            <li class="font-size-16">字体16px</li>
+            <li class="font-size-14">字体14px</li>
+        </div>
+        <hr>
+        <!--字体颜色背景以及颜色-->
+        <div class="color">
+            <li class="font-style-333"> 
+                颜色
+            </li>
+            <li class="font-style-666">
+                颜色
+            </li>
+            <li class="font-style-ccc">
+                颜色
+            </li>
+            <li class="bg-style-c8e0ed">
+                颜色
+            </li>
+            <li class="bg-style-f5f5f5">
+                颜色
+            </li>
+            <li class="font-style-1877ff">
+                颜色
+            </li>
+            <li class="font-style-2274ac">
+                颜色
+            </li>
+        </div>
+        <hr>
+        <!--下载新增按钮-->
+        <span class="default-btn default-ok">确定</span>
+        <span class="default-btn btn-cancle">取消</span>
+        <hr>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name">&#xe621;</em><i class="btn-text"></i>
+        </span>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name">&#xe70e;</em><i  class="btn-text"></i>
+        </span>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name">&#xe621;</em><i  class="btn-text">下载</i>
+        </span>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name">&#xe63d;</em><i  class="btn-text">新增</i>
+        </span>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name"></em><i  class="btn-text">下载</i>
+        </span>
+        <span class="btn-edit-status">
+            <em class="iconfont iconfont-name"></em><i  class="btn-text">新增</i>
+        </span>
+        <hr>
+        <!--开关按钮-->
+        <input class="mui-switch mui-switch-animbg" type="checkbox" a="0">
+        <input class="mui-switch mui-switch-animbg" type="checkbox" checked="checked" a="1">
+        <hr>
+        <!--搜索框-->
+        <div class="input-wrap">
+            <input class="input-search" type="text" name="" value="" placeholder="请输入搜索内容">
+            <span class="search-input-icon iconfont">&#xe645;</span>
+        </div>
+        <hr>
+        <!--单选框  复选框-->
+        <span class="single-check-part">
+             <em b="0" class="single-check"></em>
+             <em b="1" class="single-uncheck"></em>
+        </span>
+        <hr>
+        <!--复选框背景图片来展示-->
+        <hr>
+        <span>复选框背景图片来展示</span>
+        <hr>
+        <span class="checkbox-isShow">
+             <em a="0" key_mark="is_empty" class="checkbox-mine"></em>
+             <em a="1" key_mark="is_show" class="checkbox-mine checkbox-mine-ed"></em>
+             <em a="2" key_mark="is_not_allow" class="checkbox-mine checkbox-mine-gray"></em>
+        </span>
+        <hr>
+        <div>表单格式</div>
+        <div class="form-wrap-style">
+            <lable>
+                <font class="form-title-icon">*</font><span class="form-title-text">电话：</span></lable>
+            <input onblur="form_input_blur(this)" class="form-input-style-normal" type="text">
+        </div>
+        <div class="form-wrap-style" style="margin-top:10px;">
+            <lable>
+                <font class="form-title-icon">*</font><span class="form-title-text">家庭住址：</span></lable>
+            <input onblur="form_input_blur(this)" class="form-input-style-normal" type="text">
+        </div>
+        <div class="form-wrap-style" style="margin-top:10px;">
+            <lable>
+                <font class="form-title-icon">*</font><span class="form-title-text">家庭住址2：</span></lable>
+                <input  readonly="readonly" class="form-input-style-disabled " type="text">
+        </div>
+        <hr>
+        <span class="icon-add-normal"><i class="iconfont icon-add">&#xe66a;</i>添加</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="icon-edit-normal"><i class="iconfont icon-edit">&#xe648;</i>编辑</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="icon-delete-normal"><i class="iconfont icon-delete">&#xe611;</i>删除</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <hr>
+        <!--16px小图标-->
+        <span class="icon-version-normal"><i class="iconfont icon-version">&#xe667;</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="icon-passwordEdit-normal"><i class="iconfont icon-passwordEdit">&#xe601;</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="icon-loginout-normal"><i class="iconfont icon-loginout">&#xe6d3;</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="icon-close-normal"><i class="icon-close">x</i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <hr>
+        <!--下拉框-->
+        <div id="ms1" class="form-control" required></div>
+
+    </div>
+    <div class="col-sm-3" style="margin:30px;">
+        <font color="red">*</font> <label>期望到货日期：</label>
+        <input class="form-control date-picker" mindate="" maxdate="" onkeydown="javascript:date_fun_dateDubbo(this);" onblur="javascript:date_fun_dateBlur(this);"
+            key_name="期望到货日期" key="extend_element" value="" key_id="plan_get_date" type="text" name="plan_get_date" placeholder=""
+            id="plan_get_date" db_type="date" format="yyyy-MM-dd" lay-key="1" autocomplete="off">
+    </div>
+
+
+
+</body>
+
+<script>
+    /*圆形按钮*/
+    $(".mui-switch-animbg").on("click", function () {
+        var that = $(this);
+        var a = that.attr("a");
+        if (a == 0) {
+            a = 1;
+            that.attr("checked", "checked");
+        } else {
+            a = 0;
+            that.attr("checked", "flase");
+        }
+    })
+
+    /*是否勾选*/
+    $(".checkbox-isShow").on("click", ".checkbox-mine", function () {
+        var that = $(this);
+        var a = that.attr("a");
+        if (a == 0) {
+            that.attr("a", "1");
+            that.addClass("checkbox-mine-ed");
+        } else {
+            that.attr("a", "0");
+            that.removeClass("checkbox-mine-ed");
+        }
+        if (a == 2) {
+            return false;
+        }
+    })
+    /*单选框*/
+    $(".single-check-part").on("click", "em", function () {
+        var that = $(this);
+        var b = that.attr("b")
+        if (b == 0) {
+            that.attr("b", "1");
+            that.addClass("single-uncheck").removeClass("single-check");
+        } else {
+            that.attr("b", "0");
+            that.removeClass("single-uncheck").addClass("single-check");
+        }
+    })
+    //input失焦点
+    function form_input_blur(_this) {
+        var that = $(_this);
+        var value = that.val().trim();
+        if (value == "" || value == "undefined") {
+            that.addClass("form-input-style-error");
+            that.attr("placeholder", "输入字符不能为空")
+
+        } else {
+            that.removeClass("form-input-style-error");
+        }
+    }
+    // magicSuggest 简单封装以及样式调整
+    var objId = $("#ms1")
+    var applyData = [{
+            key: "self",
+            name: "自主采购"
+        }, {
+            key: "group",
+            name: "集团采购"
+        },
+        {
+            key: "group1",
+            name: "集团采购1"
+        },
+        {
+            key: "group2",
+            name: "集团采购2"
+        }
+    ];
+    var styleStr = "width:380px;";
+
+    function callback() {
+        alert(1);
+
+    }
+    /*
+    objId 当前div对象盒子的id    
+    applyData 下拉框对象
+    selectNum 被选中对象个数
+    styleStr 当前样式 宽度 颜色 位置等
+    keyId   applyData中的键   
+    keyvalue applyData中的值
+    callback  选择之后处理的回调函数,按需加上
+    */
+    magicSuggestJs(objId, applyData, 1, styleStr, "key", "name", callback);
+
+    function magicSuggestJs(objId, applyData, selectNum, styleStr, keyId, keyvalue, callback) {
+        var magicSuggestObj = objId.magicSuggest({
+            data: applyData,
+            allowFreeEntries: false,
+            autoSelect: true,
+            valueField: keyId,
+            maxSelection: selectNum, //设置选择个数
+            placeholder: "请选择",
+            style: styleStr,
+            maxSelectionRenderer: function () {
+                return "";
+            },
+            selectionRenderer: function (data) {
+                return data[keyvalue];
+
+            },
+            renderer: function (data) {
+                return data[keyvalue];
+
+            }
+        });
+    }
+
+    function date_fun_dateDubbo(me) {
+        //alert("dateDubbo:" + JSON.stringify(me));
+        if (event.keyCode == 13) {
+            $(me).blur();
+            $(".layui-laydate").hide();
+        }
+    }
+
+    function date_fun_dateBlur(me) {
+        // alert("dateBlur:" + JSON.stringify(me));
+        me = $(me);
+        var value = $.trim(me.val());
+        var reg = /^[0-9]+$/;
+        if (value.length == 8 && reg.test(value)) {
+            me.val(value.substring(0, 4) + "-" + value.substring(4, 6) + "-" + value.substring(6, 8))
+        }
+    }
+    laydate.render({
+        elem: '#plan_get_date',
+        done: function (value, date, endDate) {
+            $(date).val(value);
+        }
+    });
+
+    // var data = {}
+    // var headData = ['aa', 'b']
+    // var colModelData = {
+    //     name: "zhangsan",
+    //     index: "lisi"
+    // }
+    // var mesg = "";
+
+    // stableButtonTable(data, headData, '.tableClass', "id", colModelData);
+
+    function stableButtonTable(urlData, headData, tableClass, tableId, colModelData, callBack) {
+        var json = [{
+            name: colModelData.name,
+            index: colModelData.index
+        }]
+        var dataStr = urlData;
+        //var currentTabWidthList = judgeTableWidthArray(tableId,6);  //用来判断之前有没有移动过此表格 tableId表格的id 第二个参数为表格的列数
+        $('.' + tableClass).resize(function () {
+            $('#' + tableId).setGridWidth($('.' + tableClass).width() * 1);
+        });
+        stableButtonTableGrid = jQuery('#' + tableId).jqGrid({
+            url: mesg,
+            // data: dataList,
+            mtype: "post",
+            datatype: "json",
+            postData: dataStr,
+            // prmNames:dataStr,
+            styleUI: 'Bootstrap',
+            colNames: headData,
+            gridComplete: function () {
+                var self = $("#" + tableId);
+                $("tr", $(self)).hover(function () {
+                    $(this).addClass('jq-select-row-bg');
+                }, function () {
+                    $(this).removeClass('jq-select-row-bg');
+                });
+                $("#" + tableId).closest(".ui-jqgrid-bdiv").css({
+                    "overflow-x": "hidden"
+                });
+            },
+            colModel: json,
+            height: "auto",
+            // rownumbers:true,
+            viewrecords: true, //定义是否要显示总记录数
+            rowNum: 10,
+            //rowList:['0','1','2'],  //一个下拉选择框，用来改变显示记录数，当选择时会覆盖rowNum参数传递到后台
+            pager: "#scriptListTabPage",
+            pgbuttons: true,
+            pginput: true,
+            scroll: false,
+            forceFit: true,
+            shrinkToFit: true,
+            autowidth: true,
+            resizeStop: function (newwidth, index) { //newwidth：列改变后的宽度；index：当前列在colModel中的位置索引 newwidth:下一列的宽度 index上一列的索引
+                updateAllTableWidth(tableId, index, newwidth);
+            },
+            beforeSelectRow: function (rowid, e) {},
+            loadComplete: function () {
+
+            }
+        }).trigger("reloadGrid");
+    }
+
+
+</script>
+
+
+</html>

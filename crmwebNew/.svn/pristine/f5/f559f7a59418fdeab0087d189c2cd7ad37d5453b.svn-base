@@ -1,0 +1,30 @@
+ /*头部样式*/
+ .head-container{
+    height: 54px;
+    background: #3b8cff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.logo{
+    float: left;
+    width: 276px;
+    height: 54px;
+    background-color: #2869c5;
+}
+.logo img {
+    display: block;
+    width:140px;
+    height:35px;
+    margin-top: 9px;
+    margin-left: 64px;
+}
+.slide-nav{
+    float: left;
+    height: 54px;
+    width: 50px;
+    background: url(../images/common/head/slide-nav.png) no-repeat right center;
+    cursor: pointer;
+}

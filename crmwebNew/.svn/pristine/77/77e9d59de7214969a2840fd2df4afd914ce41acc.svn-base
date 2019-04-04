@@ -1,0 +1,166 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: #F4F4F4;
+}
+
+.bg-fff{
+    background: #fff;
+}
+
+.bg-6fa7f5{
+    background: #6fa7f5;
+}
+
+.bg-6fc7f5{
+    background: #6fc7f5;
+}
+.bg-6ed4da{
+    background: #6ed4da;
+}
+.bg-70dcbf{
+    background: #70dcbf;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+.page-container{
+    height: 100%;
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: hidden;
+}
+
+.page-container-header{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.page-operate{
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+}
+
+.chart{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.chart .chart-title{
+    color: #fff;
+    margin:20px ;
+}
+
+.chart .chart-number{
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+}
+
+.chart .chart-nav{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e2e1e1;
+}
+
+.chart .chart-nav .chart-operate{
+    float: right;
+    margin-right: 20px;
+    color: #3b8cff ;
+}
+
+.chart .chart-nav .chart-operate .filter,.chart .chart-nav .chart-operate .setting{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+.chart .chart-nav .chart-nav-title{
+    padding-left: 20px;
+    font-size: 16px;
+    float: left;
+}
+.chart .chart-nav .chart-nav-list{
+    padding-left: 20px;
+    display: inline-block;
+}
+.chart .chart-nav .chart-nav-list li{
+    list-style: none;
+    width: 80px;
+    text-align: center;
+    float: left;
+}
+.chart .chart-nav .chart-nav-list li:hover{
+    color: #3b8cff;
+    cursor: pointer;
+}
+.chart-container{
+    padding: 10px;
+}
+
+.selected{
+    color: #3b8cff;
+    border-bottom: 1px solid #3b8cff;
+}
+.follow-up{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.modal .modalColor {
+    background: #48a1dd;
+    color: #fff;
+}
+#configForm label{
+    font-weight: normal;
+}
+.textCenter{
+    text-align: center;
+}
+.require{
+    color: #ff0000;
+}
+.presentation a{
+    position: relative;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ul.panelContent li{
+    position: relative;
+}
+ul.operate-panel{
+    position:absolute;
+    top: -25px;
+    left:150px;
+    width: 120px;
+    list-style: none;
+    background: #fff;
+    z-index: 1001;
+    border: 1px solid #eee;
+}
+ul.operate-panel li{
+    height: 30px;
+    line-height: 30px;
+}
+
+span#selectedPanel {
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+}

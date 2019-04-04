@@ -1,0 +1,13 @@
+.checkPass {
+    width:142px;
+    height: 67px;
+    /* background:url(../../../images/img/finished.png) no-repeat 62px center; */
+    background: url(../../images/common/finished.png) no-repeat 62px center;
+}
+
+.checkUnPass {
+    width:142px;
+    height: 67px;
+    /* background:url(../../../assetsv1/img/unFinish.png) no-repeat 62px center; */
+    background: url(../../images/common/unFinish.png) no-repeat 62px center;
+}

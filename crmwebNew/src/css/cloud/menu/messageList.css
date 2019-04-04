@@ -1,0 +1,125 @@
+/*本界面样式*/
+.message-container{
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background: #F7F8FA;
+}
+.message-header{
+    color: #333333;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+/*左侧*/
+.message-menu-list{
+    height: 800px;
+    background-color: #ffffff;
+    border: solid 2px rgba(234, 234, 234, 0.71);
+}
+.message-list .list-item{
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+.message-list .list-item.list-item-active{
+    height: 44px;
+    line-height: 44px;
+    background-color: #3b8cff;
+    color: #fff;
+    padding-left: 20px;
+}
+.message-list .list-item:hover{
+    background: #cad9e2;
+    color: #1877ff;
+}
+
+/*右侧*/
+.message-info-list{
+    display: inline-block;
+    overflow: hidden;
+}
+.border-color{
+    border-bottom: 1px solid #e2e1e1;
+    font-size: 16px;
+}
+.mark-as-read{
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #3f74bf ;
+    cursor: pointer;
+}
+.message-info-list .message-info-item{
+    float: left;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.message-info-list .message-info-item:hover{
+    color: #3f74bf;
+}
+
+.message-info-list .message-info-item.info-time-active{
+    border-bottom: 1px solid #1877ff;
+    color: #1877ff;
+}
+.detail-info{
+    margin: 10px 0;
+}
+.detail-info .detail-info-item{
+    margin-bottom: 10px;
+    background: #fff;
+    border: solid 2px rgba(234, 234, 234, 0.71);
+}
+.info-time{
+    float: right;
+    margin-right: 20px;
+    color: #9a9a9a;
+}
+
+.result-info,.result-detail{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+.result-info{
+    cursor: pointer;
+}
+.result-detail{
+    display: none;
+    border-top: 1px solid #ececec;
+    padding-left: 30px;
+}
+.unread{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fc3d18;
+}
+.read{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+}
+.unread-font-color{
+    color: #3d5e8d;
+}
+.read-font-color{
+    color: #666;
+}
+.query-detail{
+    padding-left: 20px;
+    color: #3f74bf;
+    cursor: pointer;
+}

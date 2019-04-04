@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home_page首页</title>
+    <link type="text/css" rel="stylesheel" href="../../../../src/css/cloud/menu/tableList.css">
+     <link href="../../../../src/css/common/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        background: #F4F4F4;
+    }
+
+    .bg-fff {
+        background: #fff;
+    }
+
+    .bg-6fa7f5 {
+        background: #6fa7f5;
+    }
+
+    .bg-6fc7f5 {
+        background: #6fc7f5;
+    }
+
+    .bg-6ed4da {
+        background: #6ed4da;
+    }
+
+    .bg-70dcbf {
+        background: #70dcbf;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .page-container {
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .page-container-header {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+    }
+
+    .page-operate {
+        float: right;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 20px;
+    }
+
+    .chart {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .chart .chart-title {
+        color: #fff;
+        margin: 20px;
+    }
+
+    .chart .chart-number {
+        color: #fff;
+        text-align: center;
+        font-size: 36px;
+    }
+
+    .chart .chart-nav {
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px solid #e2e1e1;
+    }
+
+    .chart .chart-nav .chart-operate {
+        float: right;
+        margin-right: 20px;
+        color: #3b8cff;
+    }
+
+    .chart .chart-nav .chart-operate .filter,
+    .chart .chart-nav .chart-operate .setting {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .chart .chart-nav .chart-nav-title {
+        padding-left: 20px;
+        font-size: 16px;
+        float: left;
+    }
+
+    .chart .chart-nav .chart-nav-list {
+        padding-left: 20px;
+        display: inline-block;
+    }
+
+    .chart .chart-nav .chart-nav-list li {
+        list-style: none;
+        width: 80px;
+        text-align: center;
+        float: left;
+    }
+
+    .chart .chart-nav .chart-nav-list li:hover {
+        color: #3b8cff;
+        cursor: pointer;
+    }
+
+    .chart-container {
+        padding: 10px;
+    }
+
+    .selected {
+        color: #3b8cff;
+        border-bottom: 1px solid #3b8cff;
+    }
+
+    .follow-up {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        background: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .modal .modalColor {
+        background: #48a1dd;
+        color: #fff;
+    }
+
+    #configForm label {
+        font-weight: normal;
+    }
+
+    .textCenter {
+        text-align: center;
+    }
+
+    .require {
+        color: #ff0000;
+    }
+
+    .presentation a {
+        position: relative;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    ul.panelContent li {
+        position: relative;
+    }
+
+    ul.operate-panel {
+        position: absolute;
+        top: -25px;
+        left: 150px;
+        width: 120px;
+        list-style: none;
+        background: #fff;
+        z-index: 1001;
+        border: 1px solid #eee;
+    }
+
+    ul.operate-panel li {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .list-title {
+        margin: 0px;
+        border: none;
+    }
+
+    .list-title span {
+        padding: 3px 20px 3px;
+    }
+
+    .layui-layer-setwin .layui-layer-close2 {
+        right: -10px;
+        top: -11px;
+    }
+</style>
+<script>
+    var isUserAdmin = false;
+
+    function Notify(msg) {
+        tipsMsg(msg, "FAIL");
+    }
+</script>
+
+<body id="body">
+    <div class="modal fade" id="managerHomePage" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modalColor">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="addClassModalLabel">
+                        <span>
+                        <img class="middle" src="../../../images/searchFilter/set_icon.png" alt="设置分类"/>
+                        <span class="middle">设置分类</span>
+                        </span>
+                    </h5>
+                </div>
+                #include("./searchFilter.html")
+                <div class="modal-body">
+                    <div class="action" style="padding-top: 0;height: 40px;">
+                        <span class="pointer pl6 add_page_btn">
+	                                <span onclick="javascript:window.location.href='./definedPageEdit.html';">
+	                                    <img class="middle" src="../../../images/searchFilter/add-selete.png" alt="添加首页"/>
+	                                    <span class="middle">添加首页</span>
+                        </span>
+                        </span>
+                    </div>
+                    <input type="hidden" id="tableConditionSettingId">
+                    <table id="homePageTable" class="connectedSortable" style="width: 100%" border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr bgcolor="#e4e8ec">
+                                <td>名称</td>
+                                <td>是否显示</td>
+                                <td>设置为默认</td>
+                                <td class="handler_td">操作</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="modal-footer textCenter">
+                    <button type="button" class="btn btn-primary" onclick="javascript:submit();">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧隐藏面板 -->
+    <div class="page-container" id="divparent">
+        <div class="row">
+            <div class="col-xs-6 showLink">
+                <div class="dropdown" style="display: inline-block;margin-left: 10px;cursor: pointer;min-width: 400px;">
+                    <a data-toggle="dropdown" href="javascript:void(0);" class="btn btn-default select-panel" style="min-width:200px;text-align:left;background:#fff;">
+                    <span id="selectedPanel" class="pagePortalThemes" value="" title="默认面板 ">默认面板 </span>
+                    <i class="" style="position: absolute; top:10px;left:170px;font-size:16px">
+                        <i class="fa fa-angle-down" href="javascript:void(0);"  style="margin-left:15px"></i>
+                    </i>
+                </a>
+                    <ul class="dropdown-menu panelContent selectPanel" role="menu" aria-labelledby="dropdownMenu1" style="min-width:200px;">
+                    </ul>
+                    <span class="show-panel-operate" style="display: none;">
+                     <a class="fa fa-plus" href="./definedPageEdit.html" id="newPanel" style="margin-left:15px">&nbsp;添加面板</a>
+                    <a class="fa fa-cog" href="javascript:void(0);" id="managerPanel" style="margin-left:15px">&nbsp;管理面板</a>
+                </span>
+                </div>
+            </div>
+        </div>
+        <div id="parentContext"></div>
+    </div>
+    <div class="right-wrap new-right-wrap before-right-wrap" id="config_btn_panel" style="z-index: 1070;">
+    </div>
+    <div class="right-wraps new-right-wrap before-right-wrap" id="fb_btn_panel" style="z-index: 1070;" name="bbbc">
+        <div class="clearfix head-line"><em class="back-btn" onclick="javascript:closeFBWindow();"></em></div>
+        <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px 2px;" id="from_table">
+            <div class="tabbable" id="table_block">
+            </div>
+        </div>
+    </div>
+    <!-- 单击数组组件弹出列表 -->
+    <div id="digitalModal" style="display:none;overflow-x:hidden;"></div>
+</body>
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/plug-in/echarts-2.2.7/echarts.js"></script
+<script data-require-id="echarts/chart/line" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/line.js" async=""></script>
+<script data-require-id="echarts/chart/bar" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/bar.js" async=""></script>
+<script data-require-id="echarts/chart/pie" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/pie.js" async=""></script>
+<script src="../../../../src/scripts/js/cloud/menu/index_common.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/common_definedV1.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/button_form.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/chart_initV1.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/tableListJs.js"></script>
+<script src="../../../../src/scripts/js/plug-in/zyupload/core/zyFile.js"></script>
+<script src="../../../../src/scripts/js/plug-in/zyupload/control/js/zyUpload.js"></script>
+<script src="../../../../src/scripts/js/jquery/checkTool.js"></script>
+<script type="text/javascript">
+    var allPageList = [];
+    $(function () {
+        var pageConfig;
+        $.get(ctx + "/cloud/defined/page/getPageList", function (json) {
+            if (json.result == "SUCCESS") {
+                var defaultDb;
+                if (json.map && json.map.isAdmin && json.map.isAdmin == "1") {
+                    isUserAdmin = true;
+                }
+                if (json.list && json.list.length > 0) {
+                    allPageList = json.list;
+                    var dataList = initShowPage(json.list);
+                    for (var i = 0; i < dataList.length; i++) {
+                        var db = dataList[i];
+                        if (db.default == 1) {
+                            defaultDb = db;
+                        }
+                        $("#homePageTable").find("tbody").append('<tr><td>' + db.name + '</td>' +
+                            '<td><input type="hidden" name="id" value="' + db.id + '">' +
+                            '<div class="div1 ' + ((db.isHide && db.isHide == 1) ? "open1" :
+                                "close1") + '">' +
+                            '<span class="left"></span>' +
+                            '<span class="right"></span>' +
+                            '<div class="div2 ' + ((db.isHide && db.isHide == 1) ? "open2" :
+                                "close2") + '"></div>' +
+                            '</div>' +
+                            '</td>' +
+                            '<td>' +
+                            '<span class="checkboxContent" style="position: relative;">' +
+                            '<input type="checkbox" name="default" ' + ((db.default && db.default ==
+                                "1") ? "checked" : "") + '  id="' + db.id + '"/>' +
+                            '<label for="' + db.id + '"></label>' +
+                            '</span>' +
+                            '</td><td class="handler_td">' +
+                            '<span class="pointer pl12">' +
+                            '<img class="middle"  key_id="' + db.id +
+                            '" onclick="deleteHomePage(this)" src="../../../../src/images/searchFilter/delete-selete.png" alt="删除"/>' +
+                            '</span>' +
+                            '<span class="pointer pl12">' +
+                            '<a href="./definedPageEdit.html?id=' + db.id +
+                            '"><img class="middle" src="../../../../src/images/searchFilter/pencil-selete.png" alt="编辑" title="编辑" data-toggle="modal" data-target="#addConditionModal">' +
+                            '</span>' +
+                            '</td></tr>');
+                        if (!(db.isHide && db.isHide == 1)) {
+                            $(".selectPanel").append(
+                                '<li role="presentation" key_id="' + db.id + '" key_title="' + db.name +
+                                '">' +
+                                '<a class="panel-item" role="menuitem" tabindex="-1" href="#" style="padding:3px 15px;">' +
+                                db.name +
+                                //'<i class="operate-entrance" style="position: absolute; top:0;left:170px;font-size:16px;display: none;">' +
+                                //'<i class="fa fa-angle-right"  style="margin-left:15px"></i>' +
+                                //'</i>'+
+                                '</a>' +
+                                '</li>'
+                            );
+                        }
+                    }
+                    $("#homePageTable").find("tbody").find("tr").each(function (i, obj) {
+                        obj = $(obj);
+                        if (obj.find(".div1").hasClass("open1")) {
+                            obj.find("input[name=default]").attr("disabled", "disabled");
+                        }
+                    });
+                    $("#homePageTable").on('click', '.div1', function () {
+                        $(this).toggleClass('close1');
+                        $(this).toggleClass('open1');
+                        $(this).find(".div2").toggleClass('close2');
+                        $(this).find(".div2").toggleClass('open2');
+                        if ($(this).hasClass("open1")) {
+                            if ($(this).parent().parent().find("input[name=default]").prop(
+                                    "checked")) {
+                                $(this).parent().parent().find("input[name=default]").attr(
+                                    "checked", false);
+                            }
+                            $(this).parent().parent().find("input[name=default]").attr(
+                                "disabled", "disabled");
+                        } else {
+                            $(this).parent().parent().find("input[name=default]").removeAttr(
+                                "disabled");
+                        }
+                    });
+                    $("#homePageTable").on("click", "input[name=default]", function () {
+                        if ($(this).prop("checked")) {
+                            $("#homePageTable").find("input[name=default]").not(this).prop(
+                                "checked", false);
+                        }
+                    });
+                    $("#homePageTable tbody").sortable({
+                        cursor: "pointer",
+                        items: "tr",
+                        opacity: 0.6,
+                        delay: 300,
+                        sort: true,
+                        disabled: false,
+                        revert: false,
+                        stop: function (event, ui) {}
+                    });
+                    if ($(".selectPanel").find("li").length > 0) {
+                        if (!defaultDb) {
+                            for (var i = 0; i < json.list.length; i++) {
+                                if (!json.list[i].isHide) {
+                                    defaultDb = json.list[i];
+                                    break;
+                                }
+                            }
+                        }
+                        $("#selectedPanel").attr("title", defaultDb.name);
+                        $("#selectedPanel").attr("key_id", defaultDb.id);
+                        $("#selectedPanel").text(defaultDb.name);
+                        initPage(defaultDb.id);
+                    }
+                };
+                $(".dropdown-menu li").click(function () {
+                    if (fb_window_switch) {
+                        closeFBWindow(false, true);
+                    }
+                    if (openWindowMarker) {
+                        cloudOpenWindow(false);
+                    }
+                    $("#selectedPanel").attr("title", $(this).attr("key_title"));
+                    $("#selectedPanel").attr("key_id", $(this).attr("key_id"));
+                    $("#selectedPanel").text($(this).attr("key_title"));
+                    initPage($(this).attr("key_id"));
+                });
+                /*  $(".dropdown-menu li").hover(function(){
+                     $(this).find(".operate-entrance").show();
+                 },function(){
+                     $(this).find(".operate-entrance").hide();
+                     $(this).find(".operate-panel").remove(); //鼠标移出时去掉编辑面板功能
+                 }); */
+                $("#managerPanel").bind("click", function () {
+                    $("#managerHomePage").modal('show');
+                });
+                if (!isUserAdmin) {
+                    $("#newPanel").remove();
+                    $("#managerHomePage").find(".add_page_btn").remove();
+                    $("#homePageTable").find(".handler_td").remove();
+
+                }
+            } else {
+                Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+            }
+        });
+
+        function initShowPage(pageList) {
+            getSetting();
+            var settingPageList = pageConfig;
+            for (var i = 0; i < pageList.length; i++) {
+                var page = pageList[i];
+                var index = 0;
+                var defaultMark = 0;
+                var isHide = 0;
+                if (settingPageList && settingPageList[page.id]) {
+                    index = (settingPageList[page.id].index && settingPageList[page.id].index > 0) ? (
+                        settingPageList[page.id].index) : 0;
+                    defaultMark = (settingPageList[page.id].default) ? settingPageList[page.id].default : 0;
+                    isHide = (settingPageList[page.id].isHide) ? settingPageList[page.id].isHide : 0;
+                }
+                page['index'] = index;
+                page['default'] = defaultMark;
+                page['isHide'] = isHide;
+            }
+            pageList.sort(function (o1, o2) {
+                return o1.index - o2.index;
+            });
+            return pageList;
+        }
+
+        function getSetting() {
+            $.ajax({
+                url: ctx + "/cloud/userUiConfig/getConfig",
+                dataType: "json",
+                async: false,
+                type: "get",
+                data: {
+                    tableId: "10001",
+                    type: "HOMEPAGE"
+                },
+                success: function (json) {
+                    if (json.result == "SUCCESS") {
+                        if (json.map && json.map.setting) {
+                            var jsonObj = JSON.parse(json.map.setting);
+                            if (jsonObj && jsonObj.pageConfig && jsonObj.pageConfig) {
+                                pageConfig = jsonObj.pageConfig;
+                            }
+                        }
+                    } else {
+                        Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+                    }
+                },
+                error: function () {
+                    tipsMsg("删除失败", "FAIL");
+                }
+            });
+        }
+
+
+        function initPage(id) {
+            $.get(ctx + "/cloud/defined/page/getPageById/" + id, function (json) {
+                if (json.result == "SUCCESS") {
+                    var oldItems = [];
+                    if (json.map && json.map.page) {
+                        var page = json.map.page;
+                        var htmlText = page.htmlText;
+                        $("#parentContext").html(htmlText);
+                        extractConfig(id);
+                    }
+                } else {
+                    Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+                }
+            });
+        }
+    });
+
+    function extractConfig(pageId) {
+        $(".config").each(function (i, obj) {
+            var obj = $(obj);
+            var html = $.trim(obj.html());
+            var divObj = obj.parent();
+            if (html) {
+                var config = JSON.parse(html);
+                config['pageId'] = pageId;
+                config.openWindow = openWindow;
+                initobj = new initConfig(divObj, config, (pageId + "-" + i));
+                initobj.init();
+            }
+        });
+    }
+
+    function deleteHomePage(me) {
+        var me = $(me);
+        var id = me.attr("key_id");
+        confirmMsg(("是否确认删除？" + name), function () {
+            $.post(ctx + "/cloud/defined/page/remove", {
+                id: id
+            }, function (json) {
+                if (json.result == "SUCCESS") {
+                    me.parents("tr").remove();
+                    tipsMsg("删除成功", "SUCCESS");
+                } else {
+                    Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+                }
+            })
+        })
+    }
+
+    function submit() {
+        var data = {};
+        $("#homePageTable .ui-sortable-handle").each(function (i, obj) {
+            obj = $(obj);
+            var id = obj.find("input[name=id]").val();
+            var index = i;
+            var isDefault = $(obj).find("input[name=default]").prop("checked") ? 1 : 0;
+            var isHidden = $(obj).find(".div1").hasClass("open1") ? 1 : 0;
+            data[id] = {
+                id: id,
+                index: index,
+                default: isDefault,
+                isHide: isHidden
+            };
+        });
+        if (isUserAdmin) {
+            $.post(ctx + "/cloud/defined/page/saveSetting", {
+                setting: JSON.stringify({
+                    "pageConfig": data
+                }),
+                tableId: 10001,
+                type: "HOMEPAGE"
+            }, function (json) {
+                if (json.result == "SUCCESS") {
+                    tipsMsg("保存成功", "SUCCESS");
+                    window.location.reload();
+                } else {
+                    Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+                }
+            });
+        } else {
+            $.post(ctx + "/cloud/userUiConfig/saveConfig", {
+                setting: JSON.stringify({
+                    "pageConfig": data
+                }),
+                tableId: 10001,
+                type: "HOMEPAGE"
+            }, function (json) {
+                if (json.result == "SUCCESS") {
+                    tipsMsg("保存成功", "SUCCESS");
+                    window.location.reload();
+                } else {
+                    Notify(json.resultMsg, 'top-right', '5000', 'success', 'fa-list', true);
+                }
+            });
+        }
+    }
+</script>
+
+<script>
+    //悬浮在选择面板附近时，显示添加面板等入口
+    $(".showLink").hover(
+        function () {
+            $(".show-panel-operate").show();
+        },
+        function () {
+            $(".show-panel-operate").hide();
+        }
+    );
+
+    $(".operate-entrance").click(function () {
+        $("#oprate-panle").show();
+    });
+
+    //点击图标 按天查看等
+    $(".chart-nav-list li").click(function () {
+        $(this).addClass("selected").siblings().removeClass("selected");
+    });
+    //点击筛选
+    $(".filter").click(function () {
+        $("#queryModal").modal();
+    });
+
+    //点击设置
+    $(".setting").click(function () {
+        $("#config").modal();
+    });
+
+    function getUrlParams() {
+        var href_url = window.location.href;
+        var data = {};
+        if (href_url && href_url.split("?").length == 2) {
+            pmStr = $.trim(href_url.split("?")[1]);
+            var cur_id;
+            for (var i = 0; i < pmStr.split("&").length; i++) {
+                var str_val = pmStr.split("&")[i];
+                if (str_val && str_val.split("=") != -1) {
+                    data[str_val.split("=")[0]] = str_val.split("=")[1];
+                }
+            }
+        }
+        return data;
+    }
+</script>
+
+</html>

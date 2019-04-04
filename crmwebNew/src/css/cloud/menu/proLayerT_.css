@@ -1,0 +1,1148 @@
+body {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.common-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: cyan;
+    height: 40px;
+    background-color: #48a0dc;
+    border-bottom: none;
+}
+
+html {
+    color: #000;
+    background: #f1f5f8;
+    font-family: Arial, 'Microsoft YaHei';
+    font-size: 14px;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+strong {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body {
+    background-color: #f1f5f8;
+}
+
+li {
+    list-style: none;
+}
+
+em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+
+label {
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.right-wrap {
+    /*display: none;*/
+    position: fixed;
+    right: -788px;
+    height: 100%;
+    /*right: 0px;*/
+    top: 52px;
+    background: #fff;
+    width: 788px;
+    padding-right: 30px;
+    padding-left: 24px;
+    box-shadow: -3px 0px 9.5px 0.5px rgba(62, 62, 62, 0.25);
+    top: 40px;
+    right: -910px;
+    width: 632px;
+}
+
+.right-wrap .head-line {
+    padding-top: 12px;
+    border-bottom: 1px solid #d3d3d3;
+    padding-right: 4px;
+    padding-top: 0px;
+}
+
+.right-wrap .hospitalName {
+    font-size: 14px;
+    line-height: 50px;
+    letter-spacing: 0.3px;
+    color: #444444;
+}
+
+/*.right-wrap .back-btn {
+    float: right;
+    width: 18px;
+    height: 34px;
+    background: url("../../img/back.png") no-repeat center center;
+    cursor: pointer;
+}*/
+
+.right-wrap-show {
+    right: 0;
+}
+
+.wrapRight {
+    overflow-y: auto;
+    background-color: #fff;
+    width: 642px;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.wrapRight .tit {
+    font-size: 16px;
+    font-weight: bold;
+    height: 70px;
+    line-height: 70px;
+    letter-spacing: 0.3px;
+    color: #444444;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.wrapRight .titNav {
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    color: #38454f;
+    border-bottom: 1px solid #d3d3d3;
+    width: 632px;
+}
+
+.wrapRight .titNav span {
+    display: inline-block;
+    height: 40px;
+    padding: 0px 8px;
+    margin-right: 20px;
+}
+
+.wrapRight .titNav .underLine {
+    border-bottom: 2px solid #2f91d3;
+}
+
+.client {
+    line-height: 43px;
+}
+
+.client .topMessage .name {
+    margin-right: 170px;
+    font-size: 14px;
+}
+
+.client .topMessage .total {
+    font-size: 14px;
+}
+
+.client .topMessage .total .totalDetail {
+    color: #f2786b;
+}
+
+.client .sigItem {
+    margin-bottom: 15px;
+}
+
+.client .sigItem .bottomMessage {
+    width: 630px;
+    line-height: 50px;
+    background-color: #f6f6f6;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    margin: 0 auto;
+    height: 50px;
+    overflow: hidden;
+}
+
+.client .bottomMessage .detailed .insClient {
+    border-bottom: 1px solid #d4dee5;
+    padding-left: 20px;
+}
+
+.client .bottomMessage .insClient .hospitalName {
+    margin-right: 175px;
+    color: #48a0dc;
+}
+
+.client .bottomMessage .insClient .cash {
+    margin-right: 85px;
+}
+
+.client .bottomMessage .insClient .cash .cashtotal {
+    color: #f2786b;
+}
+
+.client .bottomMessage .insClient .date {
+    margin-right: 30px;
+    color: #999999;
+}
+
+.client .bottomMessage .insClient .arrow {
+    width: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    background: url(../../../assetsv1/img/img_new/right_arrow.png) no-repeat center;
+}
+
+.client .bottomMessage .insClient .arrowDown {
+    width: 15px;
+    padding-top: 10px;
+    display: inline-block;
+    margin-top: 5px;
+    background: url(../../../assetsv1/img/img_new/arrow_down.png) no-repeat center;
+}
+
+.client .bottomMessage .detailed .medicalInfo {
+    padding-left: 20px;
+}
+
+.client .detailed .medicalInfo .colorful {
+    color: #4d6b8c;
+}
+
+.client .detailed .medicalInfo .up {
+    height: 28px;
+    line-height: 28px;
+}
+
+.client .medicalInfo .up .project {
+    margin-right: 150px;
+}
+
+.client .detailed .medicalInfo .down {
+    height: 28px;
+    line-height: 28px;
+}
+
+.client .detailed .medicalInfo .down .doctor {
+    margin-right: 235px;
+}
+
+.myInfo {
+    padding-top: 15px;
+}
+
+.myInfo .infoLogo {
+    height: 80px;
+}
+
+.myInfo .infoLogo .left {
+    float: left;
+}
+
+.myInfo .infoLogo .right {
+    float: left;
+    padding-left: 20px;
+}
+
+.myInfo .infoLogo .right .infoName {
+    font-size: 18px;
+    padding: 6px 0;
+}
+
+.myInfo .infoLogo .personal span {
+    display: inline-block;
+    width: 80px;
+    height: 24px;
+    background-color: #44cacb;
+    border: solid 1px #44cacb;
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 8px;
+}
+
+.myInfo .infoList {
+    overflow: hidden;
+}
+
+.myInfo .infoList .listLeft {
+    float: left;
+    width: 40%;
+}
+
+.myInfo .listLeft .leftTit {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    color: #4d6b8c;
+}
+
+.myInfo .listLeft .rightTit {
+    display: inline-block;
+    color: #444444;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.myInfo .infoList .listRight {
+    float: left;
+    width: 40%;
+}
+
+.myInfo .infoList .listRight .leftTit {
+    display: inline-block;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    color: #4d6b8c;
+}
+
+.myInfo .infoList .listRight .rightTit {
+    display: inline-block;
+    color: #444444;
+    width: 70%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.myInfo .infoOrder {
+    padding-left: 20px;
+}
+
+.myInfo .infoOrder p {
+    font-size: 14px;
+    height: 50px;
+    line-height: 60px;
+    letter-spacing: 0.3px;
+    color: #48a0dc;
+}
+
+.myInfo .infoOrder .condition textarea {
+    outline: none;
+    resize: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    font-size: 12px;
+    resize: none;
+    padding:10px;
+}
+
+.myInfo .infoOrder span {
+    display: inline-block;
+    margin-top: 5px;
+    width: 64px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #31be91;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.record .recordYear .years {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 60px;
+    letter-spacing: 0.3px;
+    color: #3a3939;
+    margin-right: 10px;
+}
+
+
+.record .dateConList .dateCon {
+    position: relative;
+    padding-bottom: 20px;
+    margin-left: 65px;
+}
+
+.record .dateCon .datetime {
+    font-size: 14px;
+    color: #999999;
+    position: absolute;
+    left: -55px;
+    top: 15px;
+}
+
+.record .dateCon .point {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #28cb7c;
+    border-radius: 50%;
+    top: 19px;
+    left: -5.5px;
+    z-index: 2;
+}
+
+.record .dateCon .bdLeft {
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #e8e8e8;
+    top: 23px;
+    z-index: 1;
+}
+
+.record .dateCon .tagImg {
+    position: absolute;
+    z-index: 999;
+    left: 23px;
+    top: 20px;
+}
+
+.record .dateCon .dateContent {
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    width: 528px;
+    font-size: 14px;
+    margin-left: 30px;
+    background-color: #f5f5f5;
+}
+
+.record .dateCon .dateContent .itemTop {
+    padding: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.record .dateCon .itemTop .navTitle {
+    padding-bottom: 10px;
+}
+
+.record .dateCon .itemTop .navTitle .statusDone {
+    display: inline-block;
+    width: 90px;
+    height: 26px;
+    padding-left: 15px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 12px;
+    background: #28cb7c url(../../../assetsv1/img/img_new/icon_done.png) no-repeat 62px center;
+}
+
+.record .dateCon .navTitle .statusUnDone {
+    display: inline-block;
+    width: 90px;
+    height: 26px;
+    padding-left: 15px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 12px;
+    background: #ec7161 url(../../../assetsv1/img/img_new/icon_unDone.png) no-repeat 62px center;
+}
+
+.record .dateCon .navTitle .btns {
+    float: right;
+}
+
+.record .dateCon .navTitle .btns .confirm {
+    display: inline-block;
+    margin-right: 8px;
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    background-color: #48a0dc;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #48a0dc;
+}
+
+.record .dateCon .navTitle .btns .cancel {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    color: #546a79;
+    text-align: center;
+    line-height: 30px;
+    background-color: #eef0f1;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #dde0e3;
+}
+
+.record .dateCon .dateContent .personal {
+    float: right;
+    padding-right: 0px;
+    font-size: 14px;
+    color: #4e7494;
+}
+
+
+
+.record .dateCon .dateContent .itemTime {
+    padding: 10px;
+    color: #4d6b8c;
+}
+
+
+
+.record .dateCon .itemTime .left .itemCreate {
+    color: #999;
+}
+
+.record .dateCon .itemTime .right {
+    margin-right: 40px;
+}
+
+.record .dateCon .itemTime .right .doneTime {
+    color: #999;
+}
+
+.record .dateCon .itemTime .add {
+    float: right;
+}
+
+.record .dateCon .dateContent .con {
+    padding-left: 10px;
+}
+
+.record .dateCon .dateContent .con span {
+    margin-left: 30px;
+    margin-right: 5px;
+    float: left;
+    color: #4d6b8c;
+}
+
+.record .dateCon .con textarea {
+    padding: 5px 8px;
+    width: 415px;
+    background-color: #fff;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    height: 42px;
+    resize: none;
+}
+
+.record .dateCon .doneTimeB {
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.record .dateCon .doneTimeB span {
+    margin-right: 5px;
+    color: #4d6b8c;
+}
+
+.record .dateCon .doneTimeB input {
+    outline: none;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    height: 30px;
+    text-indent: 16px;
+    color: #38454f;
+    width: 200px;
+}
+
+.pre_record .recordYear .years {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 60px;
+    letter-spacing: 0.3px;
+    color: #3a3939;
+    margin-right: 10px;
+}
+
+.pre_record .dateConList .dateCon {
+    position: relative;
+    padding-bottom: 20px;
+    margin-left: 65px;
+}
+
+.pre_record .dateConList .dateCon .datetime {
+    font-size: 14px;
+    color: #999999;
+    position: absolute;
+    left: -55px;
+    top: 15px;
+}
+
+.pre_record .dateCon .point {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: #28cb7c;
+    border-radius: 50%;
+    top: 19px;
+    left: -5.5px;
+    z-index: 2;
+}
+
+.pre_record .dateCon .bdLeft {
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid #e8e8e8;
+    top: 23px;
+    z-index: 1;
+}
+
+.pre_record .dateCon .tagImg {
+    position: absolute;
+    z-index: 999;
+    left: 23px;
+    top: 20px;
+}
+
+.pre_record .dateCon .dateContent {
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    width: 528px;
+    font-size: 14px;
+    margin-left: 30px;
+    background-color: #f5f5f5;
+}
+
+.pre_record .dateCon .dateContent .itemTop {
+    padding: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.pre_record .dateContent .navTitle {
+    padding-bottom: 10px;
+}
+
+.pre_record .dateContent .navTitle .statusDone {
+    display: inline-block;
+    width: 90px;
+    height: 26px;
+    padding-left: 15px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 12px;
+    background: #28cb7c url(../../../assetsv1/img/img_new/icon_done.png) no-repeat 62px center;
+}
+
+.pre_record .dateContent .navTitle .statusUnDone {
+    display: inline-block;
+    width: 90px;
+    height: 26px;
+    padding-left: 15px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 12px;
+    background: #ec7161 url(../../../assetsv1/img/img_new/icon_unDone.png) no-repeat 62px center;
+}
+.checkPass {
+    background: #ec7161 url(../../../assetsv1/img/img_new/icon_unDone.png) no-repeat 62px center;
+}
+.pre_record .dateContent .navTitle .btns {
+    float: right;
+}
+
+.pre_record .dateContent .navTitle .confirm {
+    display: inline-block;
+    margin-right: 8px;
+    width: 60px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    background-color: #48a0dc;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #48a0dc;
+}
+
+.pre_record .dateContent .navTitle .cancel {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    color: #546a79;
+    text-align: center;
+    line-height: 30px;
+    background-color: #eef0f1;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #dde0e3;
+}
+
+.pre_record .dateContent .navTitle .personal {
+    float: right;
+    padding-right: 0px;
+    font-size: 14px;
+    color: #4e7494;
+}
+
+.pre_record .dateContent .itemTop .itemContent {
+    line-height: 22px;
+    letter-spacing: 0.2px;
+    color: #444444;
+    text-align: justify;
+}
+
+.pre_record .dateContent .itemTime {
+    padding: 10px;
+    color: #4d6b8c;
+}
+
+.pre_record .dateContent .itemTime .left {
+    margin-right: 70px;
+}
+
+.pre_record .dateContent .itemTime .itemCreate {
+    color: #999;
+}
+
+.pre_record .dateContent .itemTime .right {
+    margin-right: 40px;
+}
+
+body .wrapRight .pre_record .dateConList .dateCon .dateContent .itemTime .right .doneTime {
+    color: #999;
+}
+
+.pre_record .dateContent .itemTime .add {
+    margin-left: 10px;
+    float: right;
+}
+
+.pre_record .dateContent .con {
+    padding-left: 10px;
+}
+
+.pre_record .dateContent .con span {
+    margin-left: 30px;
+    margin-right: 5px;
+    float: left;
+    color: #4d6b8c;
+}
+
+.pre_record .dateContent .con textarea {
+    padding: 5px 8px;
+    width: 415px;
+    background-color: #fff;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    height: 42px;
+    resize: none;
+}
+
+.pre_record .dateContent .doneTimeB {
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.pre_record .dateContent .doneTimeB span {
+    margin-right: 5px;
+    color: #4d6b8c;
+}
+
+.pre_record .dateContent .doneTimeB input {
+    outline: none;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    height: 30px;
+    text-indent: 16px;
+    color: #38454f;
+    width: 200px;
+}
+
+.taskList {
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.taskList .develop-task {
+    width: 300px;
+    border: 1px solid #d4dee5;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #f6f6f6;
+    float: left;
+    margin: 5px;
+}
+
+.taskList .develop-task .develop-title {
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+}
+
+.taskList .develop-task .develop_t_title {
+    float: left;
+    margin-left: 20px;
+    color: #4d7394;
+    font-size: 16px;
+}
+
+.taskList .develop-task .drop_down_img {
+    float: right;
+    margin-right: 20px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.taskList .develop-task .drop_down_list {
+    position: absolute;
+    z-index: 56;
+    right: 2px;
+    background: white;
+    top: 30px;
+    box-shadow: #ccc 0px 2px 10px 2px;
+    display: none;
+}
+
+.taskList .develop-task .drop_down_list li:hover {
+    background: #f6f6f6;
+    cursor: pointer;
+}
+
+.taskList .develop-task .drop_down_list .drop_down_item {
+    padding: 2px 10px;
+}
+
+.taskList .develop-task .drop_down_item span {
+    padding: 0px 5px;
+}
+
+.taskList .develop-task .develop-item .task-item {
+    width: 90%;
+    min-height: 40px;
+    border: 1px solid #dde2e5;
+    margin: 5px auto;
+    background: white;
+    position: relative;
+}
+
+.taskList .develop-task .task-item .task-nav-green {
+    background: #35bf8d;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .develop-task .task-item .task-nav-red {
+    background: #ec7161;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .develop-task .task-item .task-nav-gray {
+    background: #c8c8c8;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .develop-task .task-item .task-nav-yellow {
+    background: #ebb048;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .develop-task .task-item .task-text {
+    margin: 12px;
+    color: #444444;
+}
+
+.taskList .develop-task .task-text .task-time {
+    margin: 10px 0px;
+}
+
+.taskList .develop-task .task-text .task-red {
+    background: #ec7161;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .develop-task .task-text .task-gray {
+    background: #bababa;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .develop-task .task-text .task-yellow {
+    background: #ebb048;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .develop-task .add-develop {
+    margin: 20px;
+}
+
+.taskList .develop-task .add-develop .add-task-btn {
+    color: #5ba5f2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.taskList .develop-task .add-task-btn span {
+    margin-left: 5px;
+}
+
+.taskList .custom-task {
+    width: 300px;
+    border: 1px solid #d4dee5;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #f6f6f6;
+    float: left;
+    margin: 5px;
+}
+
+.taskList .custom-task .develop-title {
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+}
+
+.taskList .custom-task .develop_t_title {
+    float: left;
+    margin-left: 20px;
+    color: #4d7394;
+    font-size: 16px;
+}
+
+.taskList .custom-task .drop_down_img {
+    float: right;
+    margin-right: 20px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.taskList .custom-task .drop_down_list {
+    position: absolute;
+    z-index: 56;
+    right: 2px;
+    background: white;
+    top: 30px;
+    box-shadow: #ccc 0px 2px 10px 2px;
+    display: none;
+}
+
+.taskList .custom-task li:hover {
+    background: #f6f6f6;
+    cursor: pointer;
+}
+
+.taskList .custom-task .drop_down_item {
+    padding: 2px 10px;
+}
+
+.taskList .custom-task .drop_down_item span {
+    padding: 0px 5px;
+}
+
+.taskList .custom-task .develop-item .task-item {
+    width: 90%;
+    min-height: 40px;
+    border: 1px solid #dde2e5;
+    margin: 5px auto;
+    background: white;
+    position: relative;
+}
+
+.taskList .custom-task .task-item .task-nav-green {
+    background: #35bf8d;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .custom-task .task-item .task-nav-red {
+    background: #ec7161;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .custom-task .task-item .task-nav-gray {
+    background: #c8c8c8;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .custom-task .task-item .task-nav-yellow {
+    background: #ebb048;
+    width: 5px;
+    height: 100%;
+    float: left;
+    position: absolute;
+}
+
+.taskList .custom-task .task-item .task-text {
+    margin: 12px;
+    color: #444444;
+}
+
+.taskList .custom-task .task-text .task-time {
+    margin: 10px 0px;
+}
+
+.taskList .custom-task .task-text .task-red {
+    background: #ec7161;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .custom-task .task-text .task-gray {
+    background: #bababa;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .custom-task .task-text .task-yellow {
+    background: #ebb048;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin: 6px 0px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.taskList .custom-task .add-develop {
+    margin: 20px;
+}
+
+.taskList .custom-task .add-develop .add-task-btn {
+    color: #5ba5f2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.taskList .custom-task .add-task-btn span {
+    margin-left: 5px;
+}
+
+.taskList .add-task-btn-list {
+    width: 300px;
+    float: left;
+    margin: 5px;
+}
+
+.taskList .add-task-btn-list .add-task-title {
+    width: 100%;
+    border: 1px solid #d4dee5;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+}
+
+.taskList .add-task-btn-list .develop-title {
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    cursor: pointer;
+}
+
+.taskList .add-task-btn-list .develop_t_title {
+    float: left;
+    margin-left: 20px;
+    color: #4d7394;
+    font-size: 16px;
+}
+
+.taskList .add-task-btn-list .add-task-list {
+    width: 100%;
+    border: 1px solid #d4dee5;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: #f6f6f6;
+    margin: 5px 0px 0px 0px;
+    display: none;
+}
+
+.taskList .add-task-list .add-task-button {
+    margin: 10px;
+    text-align: center;
+}
+
+.taskList .add-task-list .add-task-input {
+    text-align: center;
+    margin: 10px;
+}
+
+.taskList .add-task-list .add-task-input .input {
+    outline: none;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px #d4dee5;
+    height: 32px;
+    text-indent: 16px;
+    color: #38454f;
+    width: 276px;
+}

@@ -1,0 +1,38 @@
+.mtip > span {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    vertical-align: 3px;
+    width: auto;
+}
+.mtip {
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    padding: 10px 25px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.mtip.error {
+    background-color: #BF3358;
+    background-image: -moz-linear-gradient(center top , #E34447, #BF3358);
+    border: 1px solid #CA3E3E;
+}
+.mtip.success {
+    background-color: #43AB00;
+    background-image: -moz-linear-gradient(center top , #43AB00, #388E00);
+    border: 1px solid #338100;
+}
+.mtip.warning {
+    background-color: #FFA500;
+    background-image: -moz-linear-gradient(center top , #0F76CD, #086CC1);
+    border: 1px solid #006096;
+}
+.tip_container {
+    display: none;
+    position: fixed;
+    text-align: left;
+    top: 0;
+    width: auto;
+    z-index: 9999;
+}
+

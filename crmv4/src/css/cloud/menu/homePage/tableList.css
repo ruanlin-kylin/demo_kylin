@@ -1,0 +1,18 @@
+
+.float_window_pop{
+    position: absolute;background: #7fbce6;z-index: 1000;left: 0px;top:0px;width: 40px;height: 230px;
+}
+.conditin_classification{
+    color: white;font-size: 12px;padding: 20px 10px;text-align: center;cursor: pointer; border-bottom: solid 1px rgba(212, 222, 229, 1);
+}
+.float_window_pop .all_reservation{
+    background: #f6ff8c;color: #000;-webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px; padding: 13px 8px; text-align: center; cursor: pointer;width: 25px;margin: 0px auto;margin-top: 13px;
+}
+.l_float_pop .float_pop_list{
+    background: rgba(127, 188, 230, 0.6);width: 105px;height: 230px;position: absolute; z-index:10001;text-align: center;transform:translate(-110px,0px);transition-duration:.5s;
+}
+.float_pop_list .pop_list_item{
+    background: #48a0dc;color: #ffffff;padding: 5px 0px; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;margin: 10px auto;
+    width:90px;
+    cursor: pointer;
+}

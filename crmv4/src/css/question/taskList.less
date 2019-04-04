@@ -1,0 +1,344 @@
+.title {
+    padding-bottom: 10px;
+    span {
+        color: rgb(160, 160, 160);
+    }
+}
+
+.wrap {
+    width: 300px;
+    height: 780px;
+    background-color: rgba(246, 246, 246, 1);
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(212, 222, 229, 1);
+    padding: 10px;
+    .task {
+        padding-left: 5px;
+        p {
+            font-size: 16px;
+            color: #4d7394;
+            padding-bottom: 10px;
+        }
+        .taskNum {
+            margin-bottom: 10px;
+            width: 260px;
+            padding: 8px 10px 8px 20px;
+            background-color: rgba(252, 252, 252, 1);
+            border: solid 1px rgba(221, 226, 229, 1);
+            border-left: 5px solid #35bf8d;
+            .time {
+                line-height: 30px;
+                padding: 5px 10px;
+                color: #fff;
+                background-color: rgba(236, 113, 97, 1);
+                border-radius: 11px 11px 11px 11px;
+            }
+        }
+        .addArea {
+            .addTask {
+                padding-left: 10px;
+                color: #57a3f2;
+            }
+        }
+        .modal-content {
+            margin-top:100px;
+            width:624px;
+            .modal-body {
+                padding:0;
+               .leftMenu {
+                    width:124px;
+                    background-color: red;
+                    float:left;
+               } 
+               .rightContent {
+                    width:500px;
+                    background-color: yellow;
+                    float:right;
+               }
+            }
+        }
+    }
+}
+
+.right-wrap {
+    top: 40px;
+    right: -910px;
+}
+
+.right-wrap-show {
+    right: 0;
+}
+
+.taskDetail {
+    width: 910px;
+    line-height: 20px;
+    padding-right: 0px; //  overflow-y: auto;
+    .left {
+        float: left;
+        width: 570px;
+        .detail {
+            .correlation {
+                border-bottom: 1px solid rgba(217, 227, 235, 1);
+                p {
+                    color: #4d6b8c;
+                    font-size: 16px;
+                    padding: 10px 0;
+                }
+                .question {
+                    padding-bottom: 10px;
+                }
+                .closingDate {
+                    padding-bottom: 10px;
+                    .time {
+                        display: inline-block;
+                        padding: 3px 8px;
+                        color: #fff;
+                        background-color: rgba(236, 113, 97, 1);
+                        border-radius: 11px 11px 11px 11px;
+                    }
+                }
+                .whom {
+                    padding-bottom: 10px;
+                    .whomPerson {
+                        display: inline-block;
+                        padding: 6px 15px;
+                        color: #fff;
+                        background-color: rgba(68, 202, 203, 1);
+                        border-radius: 15px 15px 15px 15px;
+                    }
+                }
+                .turn {
+                    padding-left: 12px;
+                    padding-bottom: 15px;
+                }
+            }
+        }
+        .main {
+            background-color: #fff;
+            min-height: 900px;
+            width: 570px; // overflow-y: auto;
+            float: left;
+            position: relative;
+            .icon_area {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                width: 216px;
+                height: 25px; // background-color: red;
+                span {
+                    display: inline-block;
+                    padding-right: 8px;
+                    .goodImg {
+                        padding-right: 5px;
+                    }
+                    .messageImg {
+                        padding-right: 5px;
+                    }
+                }
+            }
+            .mainWrap {
+                padding: 10px 10px 10px 0px;
+                .title {
+                    color: #48a0dc;
+                    font-size: 14px;
+                    padding-left: 20px;
+                }
+                .questionText {
+                    padding-left: 20px;
+                    .text {
+                        color: #345870; // font-size:16px;
+                        // font-weight:bold;
+                    }
+                    .infos,
+                    {
+                        padding: 15px 0px 10px;
+                        .level {
+                            color: #999999;
+                            padding-right: 100px;
+                        }
+                        .status {
+                            color: #999999;
+                        }
+                    }
+                    .classification {
+                        padding: 5px 0px 5px;
+                        span {
+                            display: inline-block;
+                            margin-right: 3px;
+                            width: 50px;
+                            height: 22px;
+                            text-align: center;
+                            line-height: 22px;
+                            border-radius: 12px;
+                            border: 1px solid #44cacb;
+                            background-color: #eeeeee;
+                        }
+                        .active {
+                            background-color: #44cacb;
+                            color: #fff;
+                        }
+                    }
+                }
+                .issueDesc {
+                    padding-left: 20px;
+                    line-height: 20px;
+                    .classificationHistory {
+                        padding: 10px 0px 10px;
+                        span {
+                            display: inline-block;
+                            margin-right: 3px;
+                            width: 50px;
+                            height: 22px;
+                            text-align: center;
+                            line-height: 22px;
+                            border-radius: 12px;
+                            border: 1px solid #44cacb;
+                            background-color: #eeeeee;
+                        }
+                    }
+                }
+                .instructions {
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 10px;
+                    padding-left: 20px;
+                    div {
+                        line-height: 20px;
+                    }
+                }
+                .btn-direction {
+                    padding-left: 20px;
+                }
+                .btn-type {
+                    padding-left: 45px;
+                }
+                .reply {
+                    padding-left: 20px;
+                    .replyTip {
+                        color: #444;
+                        font-size: 14px;
+                        font-weight: bold;
+                        padding: 8px 0px;
+                    }
+                    .replyInfo {
+                        padding-bottom: 8px;
+                        .replyUser {
+                            display: inline-block;
+                            padding-right: 20px;
+                            color: #2f91d3;
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                        .replyTime {
+                            color: #999;
+                        }
+                        img {
+                            float: right;
+                        }
+                    }
+                    .textareaFirst {
+                        outline: none;
+                        resize: none;
+                        width: 570px;
+                        border-radius: 4px 4px 4px 4px;
+                        border: solid 1px rgba(212, 222, 229, 1);
+                        height: 50px;
+                    }
+                    .dismissal {
+                        color: #444;
+                        font-size: 14px;
+                        font-weight: bold;
+                        padding: 10px 0px 5px;
+                    }
+                    .transfer {
+                        padding: 20px 0 0 0;
+                        line-height: 20px;
+                        .transferWhom {
+                            color: #444;
+                            font-size: 14px;
+                            font-weight: bold;
+                            padding: 8px 8px;
+                        }
+                        img {
+                            padding-right: 5px;
+                            vertical-align: middle;
+                        }
+                        .choose {
+                            color: #999;
+                        }
+                    }
+                    .buttons {
+                        padding-top: 120px;
+                        text-align: center;
+                        span {
+                            width: 100px;
+                            height: 35px;
+                            color: #fff;
+                            font-size: 14px;
+                        }
+                        .btn-next {
+                            background-color: #48a0dc;
+                        }
+                        .btn-sloved {
+                            background-color: #31be91;
+                        }
+                        .btn-not {
+                            background-color: #f16957;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.right {
+    float: right;
+    width: 280px;
+    min-height: 1000px;
+    background-color: #dfe7ed;
+    padding: 10px 20px 20px 20px;
+    .trail {
+        font-size: 14px;
+        color: #444444;
+        margin-bottom: 20px;
+    }
+    .taskList {
+        // padding-bottom:10px;
+        // overflow:hidden;
+        .up {
+            //    line-height:12px;
+            margin-top: -4px;
+            .status {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                top: 28%;
+                border-radius: 50%;
+                background-color: #92bcd9;
+                i {
+                    position: absolute;
+                    height: 20px;
+                    border-right: 1px solid #c4d3dd;
+                }
+            }
+            .taskDate {
+                font-size: 12px;
+                color: #4090c8;
+                margin-left: 10px;
+            }
+        }
+        #firstTask {
+            border: 0px;
+        }
+        .infos {
+            margin-left: 20px;
+            width: 216px;
+            height: 28px;
+            line-height: 28px;
+            padding-left: 10px;
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 4px 4px 4px 4px;
+            margin-bottom: 10px;
+        }
+    }
+}

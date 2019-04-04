@@ -1,0 +1,742 @@
+/*初始化*/
+
+html,
+body,
+div,
+dl,
+dt,
+dd,
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+i,
+var,
+em,
+strong {
+    font-style: normal;
+}
+
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+ol,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    outline: none
+}
+
+a:hover {
+    color: #3b8cff;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.checkbox-mine {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.checkbox-mine-ed {
+    background: #48a0dc url(../../images/common/query-check.png) no-repeat center center;
+}
+
+.per5 {
+    width: 5%;
+}
+
+.per10 {
+    width: 10%;
+}
+
+.per15 {
+    width: 15%;
+}
+
+.per20 {
+    width: 25%;
+}
+
+.per25 {
+    width: 25%;
+}
+
+.per30 {
+    width: 30%;
+}
+
+.per35 {
+    width: 35%;
+}
+
+.per40 {
+    width: 40%;
+}
+
+.per50 {
+    width: 50%;
+}
+
+.per60 {
+    width: 60%;
+}
+
+.per70 {
+    width: 70%;
+}
+
+.per80 {
+    width: 80%;
+}
+
+.per90 {
+    width: 90%;
+}
+
+.per100 {
+    width: 100%;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+table tr {
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.pl3 {
+    padding-left: 3px;
+}
+
+.pl6 {
+    padding-left: 6px;
+}
+
+.pl9 {
+    padding-left: 9px;
+}
+
+.pl12 {
+    padding-left: 12px;
+}
+
+.pl24 {
+    padding-left: 24px;
+}
+
+.pl36 {
+    padding-left: 36px;
+}
+
+.pl48 {
+    padding-left: 48px;
+}
+
+/*字体大小设置*/
+
+.font-size-18 {
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+}
+
+.font-size-16 {
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+.font-size-14 {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+/*字体颜色跟背景设置*/
+
+.font-style-333 {
+    color: #333;
+}
+
+.font-style-666 {
+    color: #666;
+}
+
+.font-style-ccc {
+    color: #ccc;
+}
+
+.bg-style-c8e0ed {
+    background: #c8e0ed;
+}
+
+.bg-style-f5f5f5 {
+    background: #f5f5f5;
+}
+
+.font-style-1877ff {
+    color: #1877ff;
+}
+
+.font-style-2274ac {
+    color: #2274ac;
+}
+
+/*表单样式*/
+
+.form-wrap-style lable {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    /*overflow: hidden;*/
+    /*border: 1px solid #000;*/
+}
+
+.form-title-icon {
+    color: rgb(255, 0, 0);
+    margin-right: 5px;
+}
+
+.form-title-text {
+    color: #a9a9a9;
+    margin-right: 6px;
+}
+
+.form-input-style-normal {
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #cad5dd;
+    height: 28px;
+    padding-left: 10px;
+    width: 200px;
+}
+
+.form-input-style {
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #8dbafb;
+    height: 28px;
+    padding-left: 10px;
+}
+
+.form-input-style-error {
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #ff0000;
+    height: 28px;
+    padding-left: 10px;
+}
+
+.form-input-style-disabled {
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #ff0000;
+    height: 28px;
+    padding-left: 10px;
+    border: 1px solid #e6e6e6;
+    background-color: #FBFBFB;
+    color: #C9C9C9;
+    cursor: not-allowed;
+    width: 200px;
+    outline: none;
+    opacity: 1;
+}
+
+/*字体图标引入*/
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../font/iconfont.woff2') format('woff2'), url('../font/iconfont.woff') format('woff'), url('../font/iconfont.ttf') format('truetype'), url('../font/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*增删改查按钮*/
+
+.icon-add-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #333;
+}
+
+.icon-add {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.icon-add-normal:hover {
+    color: #3b8cff;
+}
+
+.icon-edit-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #333;
+}
+
+.icon-edit {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.icon-edit-normal:hover {
+    color: #3b8cff;
+}
+
+.icon-delete-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #333;
+}
+
+.icon-delete {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.icon-delete-normal:hover {
+    color: #3b8cff;
+}
+
+/*16px的小图标*/
+
+.icon-version-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #3d84c6;
+}
+
+.icon-version {
+    font-size: 16px;
+}
+
+.icon-passwordEdit-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #3d84c6;
+}
+
+.icon-passwordEdit {
+    font-size: 16px;
+}
+
+.icon-loginout-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #ff4646;
+}
+
+.icon-loginout {
+    font-size: 16px;
+}
+
+.icon-close-normal {
+    font-size: 16px;
+    /*vertical-align: top;*/
+    color: #ff4646;
+}
+
+.icon-close {
+    font-size: 16px;
+}
+
+.icon-close-normal {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    text-align: center;
+    line-height: 12px;
+}
+
+.icon-close {
+    color: #fff;
+    font-size: 14px;
+}
+
+.icon-close-normal:hover {
+    background-color: #f96d5a;
+}
+
+/*按钮样式*/
+
+/*默认*/
+
+.default-btn {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 99px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px rgba(191, 207, 219, 1);
+    color: #444;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    outline: none;
+    padding: 0px 10px;
+}
+
+/*确认*/
+
+.default-ok {
+    width: 70px;
+    background-color: #3b8cff;
+    border: 1px solid #3b8cff;
+    color: #fff;
+}
+
+.default-ok:hover {
+    background-color: #5299fe;
+}
+
+/*取消*/
+
+.btn-cancle {
+    width: 70px;
+    background-color: #bdbfc2;
+    border: 1px solid #bdbfc2;
+    color: #fff;
+}
+
+.btn-cancle:hover {
+    background-color: #c6c9cc;
+}
+
+/*新增 下载 3种展示效果*/
+
+.btn-edit-status {
+    display: inline-block;
+    min-width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 18px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 5px;
+    color: #666;
+    border: solid 1px #666666;
+}
+
+.btn-edit-status:hover {
+    color: #3b8cff;
+    border: solid 1px #3b8cff;
+}
+
+/*开关按钮*/
+
+input[type=checkbox],
+input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 4px 0 0;
+    /*margin-top: 1px \9;*/
+    line-height: normal;
+}
+
+.mui-switch.mui-switch-animbg {
+    transition: background-color ease 0.4s;
+    outline: none !important;
+}
+
+.mui-switch.mui-switch-animbg:before {
+    transition: left 0.3s;
+}
+
+.mui-switch:before {
+    content: '';
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.mui-switch {
+    width: 52px;
+    height: 31px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    /*outline: none;*/
+}
+
+/*选中状态*/
+
+.mui-switch.mui-switch-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: rgba(72, 160, 220, 1);
+    transition: border-color 0.4s, background-color ease 0.4s;
+    outline: none;
+}
+
+.mui-switch:checked:before {
+    left: 21px;
+}
+
+/*搜索框*/
+
+.input-wrap {
+    width: 160px;
+    margin: 0px 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.input-search {
+    height: 30px;
+    width: 200px;
+    padding-right: 30px;
+    display: block;
+    border-radius: 20px;
+    outline: none;
+    text-indent: 16px;
+    color: #38454f;
+    border: 1px solid #ccc;
+}
+
+.search-input-icon {
+    position: absolute;
+    right: -50px;
+    top: 3px;
+    height: 30px;
+    width: 38px;
+    color: #ccc;
+    font-size: 18px;
+}
+
+/*单选框 多选框*/
+
+.single-check {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 1px #78adf9;
+    position: relative;
+}
+
+.single-check:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #78adf9;
+}
+
+.single-uncheck {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 1px #78adf9;
+}
+
+.checkbox-check {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #78adf9;
+    color: #fff;
+    border: solid 1px #78adf9;
+}
+
+.checkbox-uncheck {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #e2e2e2;
+    color: #fff;
+    border: solid 1px #e2e2e2;
+}
+
+.checkbox-check-normal {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    /*background-color: #e2e2e2;*/
+    color: #fff;
+    border: solid 1px #e2e2e2;
+}
+
+.checkbox-mine {
+    margin: 0 auto;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: solid 1px rgba(152, 166, 175, 1);
+}
+
+.checkbox-mine-ed {
+    border: solid 1px #48a0dc;
+    /*background: #48a0dc url(../../components/bootstrap/img/query-check.png) no-repeat center center;*/
+}
+
+.checkbox-mine-gray {
+    border: solid 1px #e2e2e2;
+    /*background: #e2e2e2 url(../../components/bootstrap/img/query-check.png) no-repeat center center;*/
+    cursor: not-allowed;
+}
+
+/*jqGrid列表hover展示*/
+
+.jq-select-row-bg {
+    background-color: #a9dcfa;
+}
+
+.ms-ctn .ms-sel-item {
+    border-radius: 10px;
+    color: #333;
+}
+
+.ms-res-ctn .ms-res-item {
+    color: #333;
+}
+
+.ms-res-ctn .ms-res-item-active {
+    background-color: #eaf3ff;
+    color: #1877ff;
+}
+
+.layui-laydate .layui-this {
+    background-color: #1877ff !important;
+    color: #fff !important;
+}
+
+.layui-laydate-content td,
+.layui-laydate-content th {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+    text-align: center;
+}
+
+.laydate-footer-btns span {
+    background-color: #f5f5f5;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.laydate-btns-confirm {
+    background-color: #1877ff !important;
+    color: #fff;
+}

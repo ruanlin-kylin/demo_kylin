@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视图显示设置</title>
+    <link rel="stylesheel" href="../../../../src/css/cloud/menu/setting.css">
+    <link rel="stylesheel" href="../../../../src/css/cloud/zTreeStyle/zTreeStyle.css">
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/viewSetting.css" />
+</head>
+<style>
+
+</style>
+
+<body>
+<div class="page-layout">
+    <div class="show-content">
+        <div class="show-content-header">
+            <div class="show-content-header-operate editLineBarBtn">新建分线栏</div>
+            <div class="show-content-header-title">表单视图设置</div>
+        </div>
+        <div class="show-content-body">
+            <input type="hidden" id="id"/>
+            <div class="item">
+                <!--<div class="item-title">
+                    <span class="item-title-info">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        <span class="lineBarName">客户信息</span>
+                    </span>
+                </div>-->
+                <ul class="item-content" id="right">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="field-content">
+        <div class="field-select-content">
+            <div class="field-content-header">
+                <div class="title">备选字段</div>
+                <div class="field-list-content">
+                    <ul class="field-list" id="left"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="save-operate" style="float: right;margin: 20px 0">
+            <button class="btn btn-primary" type="button" onclick="saveFormViewSetting()">保存</button>
+            <button class="btn btn-default" type="button" onclick="javascript:window.parent.cloudOpenWindow(false);" style="margin-right:20px;">取消</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!--修改分线栏 -->
+<div class="modal fade" id="editLineBarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 54px;overflow: hidden;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title no-icons" id="editLineBarModalTitle">修改分线栏</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 form-label">名称</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3"><input name="is_show" value="0" type="checkbox" /></label>
+                        <div class="col-xs-8">
+                            <label class="checkbox-inline" style="padding-left: 0px;"> 是否默认收起 </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="text-align:right;">
+                <button type="button" class="btn btn-primary">保存</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="margin-right:10px;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 修改字段名称、宽度-->
+<div class="modal fade" id="editFieldModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 54px;overflow: hidden;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title no-icons" id="viewFieldNameTitle">字段属性</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 form-label">名称</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" name="name" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 form-label">宽度</label>
+                        <div class="col-xs-8">
+                            <select type="text" class="form-control" name="elem_width">
+                                <option value="12">整行</option>
+                                <option value="6">半行</option>
+                                <option value="4">1/3行</option>
+                                <option value="3">1/4行</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--<button class="btn-link" id="fieldMoreAttr" style="display:none;" onclick="LM.showFieldAttr();$(this).css('display','none');$('#modal_div').modal('hide');">更多字段属性</button>-->
+            </div>
+            <div class="modal-footer" style="text-align:right;">
+                <button type="button" class="btn btn-primary">保存</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="margin-right:10px;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--修改字段属性模态框-->
+<div class="modal fade in" id="fieldAttrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog" style="width:550px;margin-top:100px;margin-left:180px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title no-icons" id="myModalLabel">修改字段属性</h4>
+            </div>
+            <div class="modal-body form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-xs-2">字段名称</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="fieldName" name="lastAssignOn" value="最近分配时间">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2">字段说明</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="f-description" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2">字段属性</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="form-control" id="fieldType" name="datetime" data="datetime" disabled="" value="[lastAssignOn]">
+                    </div>
+                </div>
+                <div class="form-group" id="coldiv">
+                    <label class="control-label col-xs-2">字段宽度</label>
+                    <div class="col-xs-9">
+                        <label class="radio-inline"><input type="radio" name="col_show" id="one_col" value="one_col"> 显示单列</label>&nbsp;&nbsp;
+                        <label class="radio-inline"><input type="radio" name="col_show" id="two_col" value="two_col" checked=""> 显示双列</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-2">是否必填</label>
+                    <div class="col-xs-9">
+                        <label class="checkbox-inline"><input type="checkbox" id="req_check" value="">&nbsp;必填
+                        </label></div>
+                </div>
+
+
+                <!-- 多选字段 -->
+                <!-- 时间 -->
+                <div id="datetime_div">
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2">字段长度</label>
+                        <div class="col-xs-9">
+                            <div class="select2-container" id="s2id_datetime-length" style="width:100%"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-4">年-月-日 时:分:秒</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation" class="fa fa-angle-down"></b></span></a><label for="s2id_autogen4" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen4_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-4">   </ul></div></div><select id="datetime-length" style="width:100%" tabindex="-1" title="" class="select2-offscreen">
+                            <option value="1">年</option>
+                            <option value="2">年-月</option>
+                            <option value="3">年-月-日</option>
+                            <option value="4">年-月-日 时</option>
+                            <option value="5">年-月-日 时:分</option>
+                            <option value="6" selected="">年-月-日 时:分:秒</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-2">默认值</label>
+                        <div class="col-xs-3">
+                            <div class="select2-container" id="s2id_date-defaultV" style="width:100%"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-5">空值</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation" class="fa fa-angle-down"></b></span></a><label for="s2id_autogen5" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-5" id="s2id_autogen5"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen5_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-5" id="s2id_autogen5_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-5">   </ul></div></div><select id="date-defaultV" style="width:100%" tabindex="-1" title="" class="select2-offscreen">
+                            <option value="date-nullV" selected="">空值</option>
+                            <option value="date-nowV">当前时间</option>
+                            <option value="date-appointV">指定值</option>
+                            <option value="date-computeV">计算公式</option>
+                        </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="text" readonly="" class="form-control" value="" id="datetime_default_value" style="display: none;">
+                            <div class="form-group">
+                                <div class="col-xs-8">
+                                    <div style="margin-top: 5px; padding: 5px; width: 100%; border: 1px dashed rgb(153, 153, 153); min-height: 30px; display: none;" id="date_compute_express_label"></div>
+                                    <div style="display:none;" id="date_compute_express"></div>
+                                </div>
+                                <div class="col-xs-1">
+                                    <button type="button" style="display:none;" class="btn btn-primary edit-date-compute-express" onclick="FM.showComputeExpress('lastAssignOn','number');">选择</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 文本区-->
+                <!--多级级联分类-->
+                <!--多级级联地区-->
+                <!-- 条码字段 -->
+                <!-- 引用字段 -->
+                <div class="form-group" id="date-compute-unit" style="display:none">
+                    <label class="control-label col-xs-2">计算单位</label>
+                    <div class="col-xs-9">
+                        <div class="select2-container" id="s2id_date-unit" title="" style="width:100%"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-6">天</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation" class="fa fa-angle-down"></b></span></a><label for="s2id_autogen6" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-6" id="s2id_autogen6"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen6_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-6" id="s2id_autogen6_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-6">   </ul></div></div><select id="date-unit" style="width:100%" title="" class="select2-offscreen" tabindex="-1">
+                        <option value="d">天</option>
+                        <option value="h">时</option>
+                        <option value="m">分</option>
+                        <option value="s">秒</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div id="coverDiv" style="display:none">
+                <div class="setApply" id="setCoverUserAndUnit">
+                    <i class="fa fa-w fa-plus"></i>&nbsp;指定用户
+                </div>
+            </div>
+            <div id="createDiv" style="display:none">
+                <div class="setApply" id="setCreateUserAndUnit">
+                    <i class="fa fa-w fa-plus"></i>&nbsp;指定用户
+                </div>
+            </div>
+            <div id="forbidDiv" style="display:none">
+                <div class="setApply" id="setForbidSaveUserAndUnit">
+                    <i class="fa fa-w fa-plus"></i>&nbsp;指定用户
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="pull-left btn-link" id="setRepeat" style="font-size: 14px;color:#999999" data-container="body" data-toggle="popover">启用查重</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">取消</button>
+                <button type="button" id="setFieldAttr" class="btn btn-primary" onclick="LM.setFieldAttr();">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.core.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.excheck.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.exedit.min.js"></script>
+<script src="../../../../src/scripts/js/common/common.js"></script>
+<script src="../../../../src/scripts/js/plug-in/drag/Sortable.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/viewSetting.js"></script>
+
+
+</html>

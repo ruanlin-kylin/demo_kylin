@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消息列表</title>
+
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/messageList.css" />
+    <style>
+        .message-container{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="message-container">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="message-menu">
+                <div class="message-header">消息中心</div>
+                <div class="message-menu-list">
+                    <ul class="message-list">
+                        <li class="list-item">系统消息</li>
+                        <li class="list-item">公告</li>
+                        <li class="list-item">信息</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <div class="message-info">
+                <div class="message-header border-color">
+                    <ul class="message-info-list">
+                        <li class="message-info-item info-time-active">全部</li>
+                        <li class="message-info-item">未读</li>
+                        <li class="message-info-item">已读</li>
+                    </ul>
+                    <span class="mark-as-read">全部标记为已读</span>
+                </div>
+                <div class="detail-info">
+                    <div class="detail-info-item">
+                        <div class="result-info">
+                            <span class="unread"></span>
+                            <span class="result unread-font-color">申购单已审批通过</span>
+                            <span class="info-time">2019-03-20 10:09</span>
+                        </div>
+                        <div class="result-detail">
+                            <span class="">您提交的申购单PC1099356921300321已通过审批.</span>
+                            <span class="query-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="result-info">
+                            <span class="read"></span>
+                            <span class="result">申购单已审批通过</span>
+                            <span class="info-time">2019-03-20 10:09</span>
+                        </div>
+                        <div class="result-detail">
+                            <span class="">您提交的申购单PC1099356921300321已通过审批.</span>
+                            <span class="query-detail">查看详情</span>
+                        </div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="result-info">
+                            <span class="read"></span>
+                            <span class="result read-font-color">申购单已审批通过</span>
+                            <span class="info-time">2019-03-20 10:09</span>
+                        </div>
+                    </div>
+                    <div class="detail-info-item">
+                        <div class="result-info">
+                            <span class="read"></span>
+                            <span class="result read-font-color">申购单已审批通过</span>
+                            <span class="info-time">2019-03-20 10:09</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/cloud/menu/messageList.js"></script>
+</html>

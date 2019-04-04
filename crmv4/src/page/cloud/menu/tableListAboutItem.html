@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表2</title>
+    <link href="../../../../src/css/common/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/common.css" />
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/tableList.css" />
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/tableobj.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../../src/css/plug-in/magicsuggest/magicsuggest-min.css">
+    <style>
+        .control-label {
+            padding-left: 0px;
+            margin: 0px;
+        }
+
+        .showField {
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body id="body" style="background: white">
+    <div style="z-index: 101">
+        <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px 2px 0px;">
+            <div>
+                <!-- 搜素 -->
+                #include("./searchFilter.html")
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id="myTab5">
+                    </ul>
+                    <div class="tab-content" id="tab-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 右侧隐藏弹窗 -->
+    <div class="right-wrap new-right-wrap before-right-wrap" id="config_btn_panel" style="z-index: 1070;">
+    </div>
+    <div class="right-wraps new-right-wrap before-right-wrap" id="fb_btn_panel" style="z-index: 1070;" name="bbbc">
+        <div class="clearfix head-line"><em class="back-btn" onclick="javascript:closeFBWindow();"></em></div>
+        <div class="col-lg-12 col-sm-12 col-xs-12" style="padding:0px 2px;" id="from_table">
+            <div class="tabbable" id="table_block">
+            </div>
+        </div>
+    </div>
+</body>
+#include("../../components/common.html")
+<script data-require-id="echarts/chart/line" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/line.js" async=""></script>
+<script data-require-id="echarts/chart/bar" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/bar.js" async=""></script>
+<script data-require-id="echarts/chart/pie" src="../../../../src/scripts/js/plug-in/echarts-2.2.7/chart/pie.js" async=""></script>
+<script type="text/javascript" src="../../../../src/scripts/js/plug-in/datetime/bootstrap-datepicker.js"></script>
+<script src="../../../../src/scripts/js/plug-in/echarts-2.2.7/echarts.js"></script>
+<script src="../../../../src/scripts/js/plug-in/magicSuggest/magicsuggest-min.js"></script>
+<script type="text/javascript" src="../../../../src/scripts/js/cloud/menu/index_common.js"></script>
+<script type="text/javascript" src="../../../../src/scripts/js/cloud/menu/tablelistJs.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/button_form.js"></script>
+<script type="text/javascript">
+    // 相当于引入list.js
+    // filedLoad();
+
+    // function filedLoad() {
+    //     $(".select_field").magicSuggest({
+    //         // data:fieldListArray,
+    //         placeholder: '选择字段',
+    //         allowFreeEntries: false,
+    //         maxSelection: 1,
+    //         autoSelect: true,
+    //         valueField: "title",
+    //         displayField: "title",
+    //         resultAsString: true,
+    //         selectionStacked: true,
+    //         style: "width:300px;padding-right:0px;margin:0px 10px;float:left;",
+    //         getParams: function () {
+    //             return {
+    //                 type: "REPORT"
+    //             }
+    //         },
+    //         maxSelectionRenderer: function () {
+    //             return "";
+    //         },
+    //         selectionRenderer: function (data) {
+    //             return data.title;
+    //         }
+    //     });
+    // }
+    var current_table_select_data; //列表当前选中的记录
+    var allAboutItem = {}; //所有显示的相关项
+    var hasInitAboutItem = []; //记录已经加载完成的相关项，避免重复加载
+    var urlParams = getUrlParams();
+    var pmData = {
+        table: {},
+        form: urlParams,
+        sys: {}
+    };
+    $(function () {
+        if (!urlParams.tableId || !urlParams.data_id) {
+            tipsMsg("参数错误", "FAIL");
+            return;
+        }
+        $.get(ctx + "/cloud/menu/aboutItem/" + urlParams.tableId, function (json) {
+            if (json.result == "SUCCESS") {
+                pmData.sys = json.map.sys_db;
+                var tableObj = json.map.tableObj;
+                var setting = (tableObj.setting ? JSON.parse(tableObj.setting) : "");
+                var aboutItem = json.map.aboutItem;
+                var primaryKey;
+                if (setting && setting.primaryKey) {
+                    primaryKey = setting.primaryKey;
+                } else {
+                    tipsMsg("列表未设置主键", "FAIL");
+                    return;
+                }
+                getMainData(primaryKey, urlParams.data_id);
+                initAboutItem(aboutItem);
+
+                //刷新弹窗时定位到激活的页签，否则默认打开第一个
+                var currentFBLabelMARK;
+                if (window.parent && window.parent.getCurrentFBLabelMARK) {
+                    currentFBLabelMARK = window.parent.getCurrentFBLabelMARK();
+                }
+                var liObj = $("#myTab5").find('li[key="' + currentFBLabelMARK + '"]');
+                if (liObj.length > 0) {
+                    $(liObj[0]).click();
+                } else {
+                    $("#myTab5").find('li:first').click();
+                }
+            } else {
+                tipsMsg(json.resultMsg, "FAIL");
+            }
+        });
+    });
+
+
+    ///绑定单击事件
+    $("#myTab5").on("click", "li:not(.dropdown)", function () {
+        var itemId = $(this).attr("key");
+        if (window.parent && window.parent.setCurrentFBLabelMARK) {
+            window.parent.setCurrentFBLabelMARK(itemId);
+        }
+        $("#myTab5").find("li").removeClass("active");
+        $(this).addClass("active").parents(".dropdown").addClass("active");
+        $("#" + itemId + "_context").addClass("active").siblings().removeClass("active");
+        reloadFB(itemId);
+    });
+
+    ///获取当前选中的列表记录
+    function getMainData(primaryKey, dataId) {
+        var params = urlParams;
+        params["tableId"] = urlParams.tableId;
+        params["page"] = 1;
+        params["rows"] = 10;
+        params["conObj"] = "[{'field_key':'" + primaryKey + "','con':'EQ','value':'" + dataId + "'}]";
+        //获取主表选中记录信息
+        //var getMainDataError=false;
+        $.ajax({
+            url: ctx + "/cloud/table/list/reader/list",
+            async: false,
+            type: "POST",
+            data: params,
+            success: function (result) {
+                if (result) {
+                    if (result.total == 0) { //未获取到记录
+                        //getMainDataError=true;
+                    } else if (result.total > 1) { //根据id主键获取到多条记录
+                        //getMainDataError=true;
+                    } else {
+                        current_table_select_data = result.rows[0];
+                        for (var i in current_table_select_data) {
+                            current_table_select_data[i] = getBakValue(current_table_select_data[i]);
+                        }
+                        pmData.table = current_table_select_data;
+                    }
+                }
+            }
+        });
+    }
+
+    ///获取转换后的值
+    function getBakValue(value) {
+        if (value && typeof value == "string") {
+            if (value.indexOf("###") != -1) {
+                value = value.replace("###", "");
+                var tempJson = JSON.parse(value);
+                return tempJson.value;
+            }
+        }
+        return value;
+    }
+
+    ///初始化相关项页签
+    function initAboutItem(aboutItem) {
+        var ulWidth = $("#myTab5").width();
+        $("#myTab5").append('<li class="dropdown">' +
+            '<a data-toggle="dropdown" class="dropdown-toggle" href="#">更多<b class="caret"></b></a>' +
+            '<ul class="dropdown-menu dropdown-info"></ul>' +
+            '</li>');
+        initTableListView();
+        if (aboutItem && aboutItem.length > 0) {
+            for (var i = 0; i < aboutItem.length; i++) {
+                var item = aboutItem[i];
+                if (parseCondition(item.showCondition, pmData)) {
+                    allAboutItem[item.id] = item;
+                    var liObj = $('<li class="tab-green" key="' + item.id + '"><a data-toggle="tab">' + item.name +
+                        '</a></li>');
+                    $("#myTab5").find(".dropdown").before(liObj);
+                    if (getULLiWidth() >= ulWidth) {
+                        $("#myTab5").find(".dropdown-info").append(liObj);
+                    }
+                    $("#tab-content").append('<div id="' + item.id +
+                        '_context" class="tab-pane" style="width:100%;"></div>');
+                }
+            }
+        }
+        //控制更多按钮隐藏
+        if ($(".dropdown-info").find("li").length == 0) {
+            $(".dropdown-info").parents(".dropdown").hide();
+        }
+    }
+
+    ///初始化视图显示页签
+    function initTableListView() {
+        var liObj = $('<li class="tab-green" key="1"><a data-toggle="tab">资料</a></li>');
+        $("#myTab5").find(".dropdown").before(liObj);
+        $("#tab-content").append('<div id="1_context" class="tab-pane" style="width:100%;margin-top:20px;"></div>');
+        hasInitAboutItem.push("1");
+        $.get(ctx + "/cloud/userUiConfig/getConfig", {
+            tableId: urlParams.tableId,
+            type: "TABLE_LIST_VIEW_SETTING"
+        }, function (json) {
+            if (json.result == "Success" || json.result == "SUCCESS") {
+                if (json.map && json.map.setting) { //用户设置过视图显示
+                    var setting = JSON.parse(json.map.setting);
+                    createViewHtml(setting.showFields);
+                } else { //用户没设置过视图显示，则使用后台定义的
+                    $.post(ctx + "/cloud/table/list/reader/getConfigDetail/" + urlParams.tableId, function (
+                        json) {
+                        if (json.result == "Success" || json.result == "SUCCESS") {
+                            if (json.map && json.map.showLayout) {
+                                createViewHtml(JSON.parse(json.map.showLayout));
+                            }
+                        } else {
+                            tipsMsg(json.resultMsg, "FAIL");
+                        }
+                    });
+                }
+            } else {
+                tipsMsg(json.resultMsg, "FAIL");
+            }
+        });
+    }
+
+    ///生成视图显示html
+    function createViewHtml(showFieldList) {
+        if (showFieldList && showFieldList.length > 0) {
+            $.each(showFieldList, function (i, obj) {
+                if (obj.html_type == "LINEBAR") {
+                    var faClass = (obj.is_show == "1" ? "fa-caret-down" : "fa-caret-right");
+                    var elemHtml = '<div class="form-group component col-xs-12" style="min-height:30px;">' +
+                        '<div class="item-title">' +
+                        '<span class="item-title-info">' +
+                        '<i class="fa ' + faClass + '"></i>' +
+                        '<span style="padding-left:3px;" onselectstart="return false">' + obj.name + '</span>' +
+                        '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="item-content-info" ' + (obj.is_show == "1" ? "" : "style='display:none;'") +
+                        '></div>';
+                    $("#1_context").append(elemHtml);
+                } else {
+                    var valueText = "";
+                    if (current_table_select_data && current_table_select_data[obj.column_name]) {
+                        valueText = current_table_select_data[obj.column_name];
+                    }
+                    var elemHtml = '<div class="form-group component col-xs-' + obj.elem_width + '">' +
+                        '<label class="col-lg-2 control-label">' + obj.name + '</label>' +
+                        '<div class="col-lg-10 showField">' + valueText + '</div>' +
+                        '</div>';
+                    if ($("#1_context").find(".item-content-info").length == 0) {
+                        $("#1_context").append(elemHtml);
+                    } else {
+                        $("#1_context").find(".item-content-info").last().append(elemHtml);
+                    }
+                };
+            });
+        } else {
+            $("#1_context").append(
+                '<div style="text-align:center;margin-top:20%;font-size:20px;color:#ccc;">没有设置视图显示字段</div>');
+        }
+    }
+
+    ///加载相关项页签内容
+    function reloadFB(itemId) {
+        if ($.inArray(itemId, hasInitAboutItem) != -1) {
+            return;
+        }
+        hasInitAboutItem.push(itemId);
+        var item = allAboutItem[itemId];
+        var pdata = btf.button.setParamsValue(item.paramsList, pmData);
+        var pmStr = btf.getParamsStr(pdata);
+        if (item.type) {
+            if (item.type == "REPORT") {
+                var config = {
+                    id: item.selectObjId,
+                    name: "",
+                    params: pdata,
+                    markId: itemId,
+                    h: 6,
+                    hs: 30 //页签模式表格高度减去30px
+                };
+                config['openWindow'] = openWindow;
+                config['cloudOpenWindow'] = cloudOpenWindow;
+                var list = new tableList($($("#" + itemId + "_context")[0]), config);
+                list.init();
+            } else if (item.type == "FORM") {
+                if (item.selectObjId) {
+                    putStorageValue("to_params_value", JSON.stringify(pdata));
+                    var url = ctx + '/new/menu/form.jsp?formId=' + item.selectObjId;
+                    $("#" + itemId + "_context").html('<iframe width="100%" scrolling="no" frameborder="0"  src="' +
+                        url + '" height="100%"></iframe>');
+                }
+            } else if (item.type == "PAGE_LAYOUT") {
+                if (item.selectObjId) {
+                    var url = ctx + '/cloud/menu/pageLayout/' + item.selectObjId + "?" + pmStr;
+                    $("#" + itemId + "_context").html('<iframe width="100%" scrolling="no" frameborder="0"  src="' +
+                        url + '" height="100%"></iframe>');
+                }
+            } else if (item.type == "LINK_ADDRESS") {
+                var url = item.link_address;
+                if (url.indexOf("?") != -1) {
+                    url += "&params=" + pmStr;
+                } else {
+                    url += "?params=" + pmStr;
+                }
+                $("#" + itemId + "_context").html('<iframe width="100%" frameborder="0"  src="' + url +
+                    '" height="100%"></iframe>');
+            }
+        }
+    }
+
+    function getULLiWidth() {
+        var width = 0;
+        $("#myTab5").find("li").each(function (i, obj) {
+            obj = $(obj);
+            width += obj.width();
+        });
+        return width;
+    }
+</script>
+
+</html>

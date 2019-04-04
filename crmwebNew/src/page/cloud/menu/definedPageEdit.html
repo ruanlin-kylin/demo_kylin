@@ -1,0 +1,175 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link href="../../../../src/scripts/js/plug-in/dragHomePage/page/example/css/example.css" rel="stylesheet">
+    <script type="text/javascript" src="../../../../src/scripts/js/plug-in/dragHomePage/page/ddgridControl.js"></script>
+    <link rel="stylesheet" href="../../../../src/scripts/js/plug-in/laydate/theme/default/laydate.css" id="layuicss-laydate">
+</head>
+
+<body>
+<div class="definedPage_content">
+    <div class="definedPage_header" style="margin: 10px 0 0 10px;">
+        <span>首页名称:</span><input id="pageName"><input id="id" type="hidden">
+        <button onclick="submit()">保存</button>
+        <!--由拖拽布局界面 返回到首页显示界面-->
+        <a href="./homePage.html">返回</a>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="app"></div>
+        </div>
+        <!-- 组件配置弹窗 -->
+        <div class="modal fade" id="addFormModal" tabindex="-1" role="dialog" aria-labelledby="addFormModalLabel" data-backdrop="static">
+            <div id="modalDialog" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modalColor">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h5 class="modal-title" id="addFormModalLabel">
+                            <span><img class="middle" src="../../../images/searchFilter/set_icon.png" alt="组件配置"></span>
+                            <span class="middle">组件配置</span>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal form-bordered" role="form" id="formObj">
+                            <div class="form-group" key="comType">
+                                <label for="name" class="col-sm-2 control-label no-padding-right">名称</label>
+                                <div class="col-sm-10">
+                                    <input id="name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" key="comType">
+                                <label for="comType" class="col-sm-2 control-label no-padding-right">组件类型<font color="red">*</font></label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="comType">
+                                        <option value="">组件类型</option>
+                                        <option value="PIE">饼图</option>
+                                        <option value="BAR">柱状图</option>
+                                        <option value="LINE">折线图</option>
+                                        <option value="NUMBER">数字组件</option>
+                                        <option value="LIST">列表</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" key="dataSource">
+                                <label for="dataSource" class="col-sm-2 control-label no-padding-right">数据源<font color="red">*</font></label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="dataSource">
+                                        <option value="">选择查询列表</option>
+                                        <option value="1001636045961302016">日程列表</option><option value="1011088172618092544">任务模板报表</option><option value="1011088605419933696">查看模板执行日志</option><option value="1011088740174532608">根据id获取任务模板详细信息</option><option value="1016260996286648320">一级信息来源推广列表</option><option value="1016262443204087808">二级信息来源推广列表</option><option value="1018766637215518720">团体客户成员列表</option><option value="1019389174421131264">根据id查客户轨迹</option><option value="1020493057738412032">病人回访记录历史显示（回访处理时使用）</option><option value="1020514772321308672">业务机会（我的网电咨询）</option><option value="1020872660436914176">产品分类表</option><option value="1020875513465409536">产品表</option><option value="1020940098658635776">根据id获取网电业务机会详细信息</option><option value="1021330518001586176">前台接待</option><option value="1021592060530003968">根据id获得客户信息与机会信息</option><option value="1021673547426172928">根据id获取前台机会详细信息</option><option value="1021703228821082112">根据id查客户信息</option><option value="1022393157049913344">三级信息来源推广列表</option><option value="1024480748217831424">通知管理</option><option value="1025185553416458240">一级联动</option><option value="1025187174846304256">二级联动</option><option value="1026653447119704064">根据对象类型id查询标签分类</option><option value="1026729605643374592">现场咨询</option><option value="1026731382816116736">根据标签分类ID查询标签</option><option value="1026738065051226112">现场咨询_过往咨询</option><option value="1026742365466923008">网电-我的客户列表</option><option value="1026744198977556480">客户历史消费记录</option><option value="1026745691436748800">母婴客户信息</option><option value="1026775339935731712">客户通知列表</option><option value="1026787433292763136">标签对象列表</option><option value="1027378400647450624">根据电话查询电话是否存在</option><option value="1028129568088657920">咨询列表</option><option value="1028159013327474688">获取标签分类列表</option><option value="1028941522566909952">门诊预约客户</option><option value="1029917093841080320">量表填写记录列表</option><option value="1029922337014681600">现场-我的客户列表</option><option value="1029969167647772672">现场咨询-历史咨询</option><option value="1030695797039042560">查询客人潜在需求</option><option value="1030708578815578112">美容--问卷管理</option><option value="1030709369840340992">美容-已回访问卷</option><option value="1030711893729218560">美容-个人问卷</option><option value="1030715576223272960">历史分诊记录</option><option value="1030716957021704192">充值套餐列表</option><option value="1031358499650539520">康复师管理</option><option value="1031472333597970432">康复师-项目关系管理</option><option value="1031479775786438656">查询已配置的对象类型标签</option><option value="1031819630089342976">套餐列表</option><option value="1031838958897598464">套餐项目列表</option><option value="1032200721493135360">历史开单记录</option><option value="1032208288936103936">会员预充值记录</option><option value="1032454772789088256">根据id查客户与前台分诊</option><option value="1032872623337377792">通知发送列表</option><option value="1033893659172409344">客户资料申请报表</option><option value="1033962735295008768">通知门诊预约记录</option><option value="1034325776612200448">康复项目-量表列表</option><option value="1034641971051761664">康复项目开单记录</option><option value="1035413943754952704">美容项目列表</option><option value="1035453486789038080">康复项目开单执行子记录</option><option value="1037221835302768640">根据电话名称查询客户</option><option value="1037631095664807936">根据ID查询客户详细信息</option><option value="1037983250724687872">客户站内信提醒列表</option><option value="1041954687625990144">我的客户上门_网店</option><option value="1044414061866913792">根据员工id查部门</option><option value="1044850670756171776">咨询（妇产）</option><option value="1045244929833439232">根据id查回访</option><option value="1049831291261816832">黑白名单</option><option value="1049833736683655168">黑白名单二级</option><option value="1050266638114361344">客户需求</option><option value="1050352982027145216">根据id查术前术后表进行修改</option><option value="1050555092148686848">术前术后照片对比列表</option><option value="1050677729843744768">根据电话查手机引荐人信息</option><option value="1050733807847608320">根据意向类别来查意向id--临时</option><option value="1051761782042923008">客户需求表</option><option value="1052021449344159744">根据id查询客户需求</option><option value="1053118528414027776">根据临客id查临客</option><option value="1053494127242514432">客户本次分诊消费记录</option><option value="1054646167930933248">根据vac01查当前咨询表</option><option value="1054647650319601664">根据当前咨询id查潜在项目</option><option value="1054987585585156096">回访标题_美容</option><option value="1055340771290386432">根据消费项目bca01查意向项目</option><option value="1055633440654757888">根据咨询备注id查默认字段</option><option value="1056102646428995584">充值记录</option><option value="1056847723971481600">回访客户主表</option><option value="1057160052583960576">执行记录_美容回访</option><option value="1059619394138673152">信息管理界面</option><option value="1060348265993605120">手术安排记录</option><option value="1060811659242639360">查询手术医生排班</option><option value="1060813899290382336">手术预约记录</option><option value="1062290622137765888">手术室列表</option><option value="1062533271260237824">指标-现场咨询师</option><option value="1062622199665397760">渠道列表(分销)</option><option value="1062894334514302976">指标-项目分类</option><option value="1064435363822440448">根据id获取渠道及联系人(分销)</option><option value="1065076415298277376">渠道分销列表(分销)</option><option value="1065127670104199168">渠道分销报备校验客户是否存在(分销)</option><option value="1065148497004597248">渠道报备列表(分销)</option><option value="1065474450121560064">客户资料合并列表</option><option value="1066958467824095232">母婴手册-阶段量表</option><option value="1068027500455530496">数据中心-体检报告</option><option value="1068029210930450432">数据中心-检验记录</option><option value="1068030798730366976">数据中心-检查记录</option><option value="1068031923286183936">数据中心-病历记录</option><option value="1068039825510109184">数据中心-消费记录</option><option value="1069775672752214016">母婴客户当前时期</option><option value="1070563609760763904">根据渠道名称查询数据(分销)</option><option value="1077815727114686464">妇产咨询2</option><option value="1077837353847885824">临时客户列表</option><option value="1078570872173760512">量表数据查询</option><option value="1083700329037434880">修改客户资料记录表</option><option value="1087261020172324864">妇产母婴查询是否为高危用户</option><option value="1088612911330365440">会员账户列表</option><option value="1088618544066727936">会员卡记录列表</option><option value="1088618748773928960">聊天会话列表</option><option value="1088620632263888896">会员积分记录表</option><option value="1089090298719506432">会员充值记录</option><option value="1089785465919246336">会员客户列表(new)</option><option value="1089804053795311616">会员消费列表</option><option value="1090073736410828800">聊天会话列表获取就诊人列表</option><option value="1111">角色权限</option><option value="22222">预约表</option><option value="33333">服务</option><option value="44444">排班</option><option value="88888">医院科室</option><option value="995870672565571584">维护排班记录挂号类别2</option><option value="997391228012072960">客户管理</option><option value="997392825114955776">根据客户id获取客户详细信息</option><option value="997435721063075840">客户的团检记录</option><option value="997720724833570816">客户的个检记录</option><option value="997733236878610432">体检列表</option><option value="997737864148029440">根据id获取详细体检信息</option><option value="998506981134176256">回访记录</option><option value="999851750934450176">渠道管理</option><option value="999907491540111360">活动列表（new）</option><option value="999908940856692736">活动标签</option><option value="999910505755709440">活动类型</option><option value="999933719458353152">门诊预约记录</option><option value="99999">员工管理</option></select>
+                                    <a class="btn-set-condition">点击设置过滤条件</a>
+                                    <input type="hidden" id="filterCondition">
+                                </div>
+                            </div>
+                            <div class="form-group" key="groupType">
+                                <label for="groupType" class="col-sm-2 control-label no-padding-right">分类层级</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="groupType">
+                                        <option value="1">一级分类</option>
+                                        <option value="2">二级分类</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" key="groupField">
+                                <label for="groupField" class="col-sm-2 control-label no-padding-right">分类依据（X轴）<font color="red">*</font></label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="groupField">
+                                        <option value="">选择查询列表</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" key="groupField_setting" style="display: none;">
+                                <label for="groupField" class="col-sm-2 control-label no-padding-right">分类设置</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" id="group_order">
+                                        <option value="ASC">升序</option>
+                                        <option value="DESC">降序</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5">
+                                    <select class="form-control" id="groupMode">
+                                        <option value="DAY">按日</option>
+                                        <option value="MONTH">按月</option>
+                                        <option value="YEAR">按年</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" key="childGroupField">
+                                <label for="childGroupField" class="col-sm-2 control-label no-padding-right">子分类依据（X轴）</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="childGroupField">
+                                        <option value="">选择查询列表</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" key="countFiled">
+                                <label for="countFiled" class="col-sm-2 control-label no-padding-right">统计数据（Y轴）</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="countFiled">
+                                        <option value="">选择查询列表</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--<div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <a href="javascript:void(0);" class="btn btn-default btn-submit-setting">确定</a>
+                                </div>
+                            </div>-->
+                        </form>
+                    </div>
+                    <div class="modal-footer textCenter">
+                        <button type="button" class="btn btn-primary btn-submit-setting">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 组件配置弹窗结束 -->
+        <!-- 过滤条件设置弹窗 -->
+        <div class="modal fade" id="addConditionModal" tabindex="-1" role="dialog" aria-labelledby="addConditionModalLabel" data-backdrop="static">
+            <div id="modalDialog" class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header modalColor">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h5 class="modal-title" id="addConditionModalLabel">
+                            <span><img class="middle" src="../../../images/searchFilter/set_icon.png" alt="设置过滤条件"></span>
+                            <span class="middle">设置过滤条件</span>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="action operation">
+									<span class="right pointer" onclick="addFieldSearch(1)">
+										<span>
+                                            <img class="middle" src="../../../images/searchFilter/addCondition.png" alt="添加操作">
+											<span class="middle">添加操作</span>
+										</span>
+									</span>
+                        </div>
+                        <table name="addConditionTable" class="connectedSortable" style="width: 100%;margin-top:10px;" border="0" cellspacing="0" cellpadding="0">
+                        </table>
+                        <!--<div>
+                            <h6 class="pl6" style="margin:5px 0px;">筛选器逻辑编辑，不设置默认为AND，例子： (1 AND 2) OR 3</h6>
+                            <textarea class="form-control" name="sqlExpression" onkeyup="value=value.replace(/[^\w\(\)\s]/ig,'')"></textarea>
+                        </div>-->
+                    </div>
+                    <div class="modal-footer textCenter">
+                        <button type="button" class="btn btn-primary btn-save-condition">确认</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 过滤条件设置弹窗结束 -->
+    </div>
+</div>
+
+#include("../../components/common.html")
+
+<!--<script type="text/javascript" src="../../../../src/scripts/js/jquery/jquery-2.0.3.min.js"></script>-->
+<script src="../../../../src/scripts/js/cloud/menu/filter.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/definedPageEdit.js"></script>
+<script type="text/javascript" src="../../../../src/scripts/js/plug-in/dragHomePage/page/example/js/manifest.js"></script>
+<script type="text/javascript" src="../../../../src/scripts/js/plug-in/dragHomePage/page/example/js/example.js"></script>
+</body>
+</html>

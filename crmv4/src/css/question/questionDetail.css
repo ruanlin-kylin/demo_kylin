@@ -1,0 +1,241 @@
+.body-padding-top {
+  min-width: 1800px;
+  overflow-x: auto;
+}
+.title {
+  padding-bottom: 10px;
+}
+.title span {
+  color: #a0a0a0;
+}
+.main {
+  background-color: #fff;
+  width: 1100px;
+  min-height: 1000px;
+  float: left;
+  position: relative;
+}
+.main .icon_area {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 216px;
+  height: 25px;
+}
+.main .icon_area span {
+  display: inline-block;
+  padding-right: 8px;
+}
+.main .icon_area span .goodImg {
+  padding-right: 5px;
+}
+.main .icon_area span .messageImg {
+  padding-right: 5px;
+}
+.main .mainWrap {
+  padding: 10px 20px 10px 20px;
+}
+.main .mainWrap .questionText {
+  padding-left: 20px;
+}
+.main .mainWrap .questionText .text {
+  color: #345870;
+  font-size: 16px;
+  font-weight: bold;
+}
+.main .mainWrap .questionText .infos {
+  padding: 15px 0px 10px;
+}
+.main .mainWrap .questionText .infos .level {
+  color: #999999;
+  padding-right: 100px;
+}
+.main .mainWrap .questionText .infos .status {
+  color: #999999;
+}
+.main .mainWrap .questionText .classification {
+  padding: 5px 0px 5px;
+}
+.main .mainWrap .questionText .classification span {
+  display: inline-block;
+  margin-right: 3px;
+  width: 50px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 12px;
+  border: 1px solid #44cacb;
+  background-color: #eeeeee;
+}
+.main .mainWrap .questionText .classification .active {
+  background-color: #44cacb;
+  color: #fff;
+}
+.main .mainWrap .issueDesc {
+  padding-left: 20px;
+  line-height: 20px;
+}
+.main .mainWrap .issueDesc .classificationHistory {
+  padding: 10px 0px 10px;
+}
+.main .mainWrap .issueDesc .classificationHistory span {
+  display: inline-block;
+  margin-right: 3px;
+  width: 50px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 12px;
+  border: 1px solid #44cacb;
+  background-color: #eeeeee;
+}
+.main .mainWrap .instructions {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+.main .mainWrap .instructions div {
+  line-height: 20px;
+}
+.main .mainWrap .btn-direction {
+  padding-left: 20px;
+}
+.main .mainWrap .btn-type {
+  padding-left: 45px;
+}
+.main .mainWrap .reply {
+  padding-left: 20px;
+}
+.main .mainWrap .reply .replyTip {
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 0px;
+}
+.main .mainWrap .reply .replyInfo {
+  padding-bottom: 8px;
+}
+.main .mainWrap .reply .replyInfo .replyUser {
+  display: inline-block;
+  padding-right: 20px;
+  color: #2f91d3;
+  font-size: 14px;
+  font-weight: bold;
+}
+.main .mainWrap .reply .replyInfo .replyTime {
+  color: #999;
+}
+.main .mainWrap .reply .replyInfo img {
+  float: right;
+}
+.main .mainWrap .reply .textareaFirst,
+.main .mainWrap .reply .textareaSecond {
+  padding: 10px;
+  outline: none;
+  resize: none;
+  width: 1040px;
+  border-radius: 4px 4px 4px 4px;
+  border: solid 1px #d4dee5;
+  height: 40px;
+}
+.main .mainWrap .reply .dismissal {
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 0px 5px;
+}
+.main .mainWrap .reply .transfer {
+  padding: 20px 0 0 0;
+  line-height: 20px;
+}
+.main .mainWrap .reply .transfer .transferWhom {
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 8px;
+}
+.main .mainWrap .reply .transfer img {
+  padding-right: 5px;
+  vertical-align: middle;
+}
+.main .mainWrap .reply .transfer .choose {
+  color: #999;
+}
+.main .mainWrap .reply .buttons {
+  padding-top: 120px;
+  text-align: center;
+}
+.main .mainWrap .reply .buttons span {
+  width: 100px;
+  height: 35px;
+  color: #fff;
+  font-size: 14px;
+}
+.main .mainWrap .reply .buttons .btn-next {
+  background-color: #48a0dc;
+}
+.main .mainWrap .reply .buttons .btn-sloved {
+  background-color: #31be91;
+}
+.main .mainWrap .reply .buttons .btn-not {
+  background-color: #f16957;
+}
+.similar {
+  padding: 20px;
+  background-color: #fff;
+  width: 560px;
+  min-height: 1000px;
+  float: left;
+  margin-left: 10px;
+}
+.similar div {
+  padding-top: 10px;
+}
+.similar .tip {
+  color: #48a0dc;
+  font-size: 14px;
+}
+.similar .classification {
+  padding: 10px 0px 10px;
+}
+.similar .classification span {
+  display: inline-block;
+  margin-right: 3px;
+  width: 50px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 12px;
+  border: 1px solid #44cacb;
+  background-color: #eeeeee;
+}
+.trail {
+  width: 110px;
+  min-height: 1000px;
+  background-color: #dfe7ed;
+  position: absolute;
+  right: 100px;
+  top: 40px;
+  text-align: center;
+  padding-top: 20px;
+}
+.trail div {
+  font-size: 14px;
+  color: #48a0dc;
+  line-height: 40px;
+}
+.trail p {
+  margin: 0 auto;
+  width: 41px;
+  height: 41px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 41px;
+  background-color: #48a0dc;
+}
+.trail p:nth-last-child(2),
+.trail p:nth-last-child(1) {
+  background-color: #a9b8c2;
+}

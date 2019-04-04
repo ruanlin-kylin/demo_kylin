@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    
+</head>
+<body>
+    <div id="headPage" class="head">
+        <div class="tit">
+            <span class="login_logo"></span>
+            <strong>云平台</strong>
+        </div>
+    </div>
+    <div class="login-con-wrap">
+        <div class="login-con">
+                <form action="" method="post" class="login-form">
+                        <div class="user">
+                            <input type="hidden" id="randomcode" name="randomcode" value="2A8X">
+                            <input type="text" placeholder="用户名" name="loginName" id="loginName">
+                        </div>
+                        <div class="password">
+                            <input type="password" placeholder="密码" name="password" id="password">
+                        </div>
+                        <div class="yzm" style="display: none;">
+                            <input type="text" id="code" class="stext" placeholder="验证码" value="" onfocus="this.value=''">
+                            <span>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="padding-left: 22px;"><img id="Verify_codeImag" width="85" height="35" onclick="refreshCheckCode()" style="cursor: pointer;" title="点击切换验证码" alt="点击切换验证码" src="/crmweb/cloud/sysUser/getVerification?randomcode=2A8X&amp;0.003662092896186797"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </span>
+                        </div>
+                        <div class="login-btn">
+                            <input id="Log_Submit" type="button" class="loginBtn" value="登录">              
+                        </div>
+                    </form>
+        </div>
+    </div>
+    <div class="login-copy" id="banquan">
+			2016©深圳市坐标软件开发有限公司 
+    </div>
+    <div class="login-copy" id="ba_no">
+			粤ICP备12071858号
+    </div>
+    <!-- <div>
+        <span>用户名：</span><span><input type="text" value="" placeholder="请输入用户名" class="userName"></span>
+        <br/>
+        <span>密码：</span><span><input type="text" value="" placeholder="请输入密码" class="userPwd"></span>
+        <br>
+        <input class="loginBtn btn" type="button" value="登录">
+        <button type="button" class="btn">基本按钮</button>
+        <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>
+    </div> -->
+</body>
+<!-- ${ require('html-loader!./components/common.html') }  -->
+#include("./components/common.html")
+<link rel="stylesheet" href="../../src/css/cloud/login/login.css"/>
+<link rel="stylesheet" href="../../src/css/cloud/login/desktop.css"/>
+<script type="text/javascript" src="../../src/scripts/js/jquery/bootbox.js"></script>
+<script type="text/javascript" src="../../src/scripts/js/jquery/FunctionJS.js"></script>
+<script type="text/javascript" src="../../src/scripts/js/cloud/login/login.js"></script>
+</html>

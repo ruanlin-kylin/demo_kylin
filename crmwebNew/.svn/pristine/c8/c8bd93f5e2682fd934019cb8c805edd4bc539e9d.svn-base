@@ -1,0 +1,1943 @@
+<style>
+        html,
+        body {
+            font-size: 14px;
+        }
+    
+        #myCarouselModal {
+            padding: 0 !important;
+        }
+    
+        #myCarouselContent {
+            padding: 0 !important;
+            overflow: hidden;
+        }
+    
+        #myCarouselContent img {
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .child-menu-panel {
+            padding: 0px;
+        }
+    
+        .fc-border-separate thead tr,
+        .table thead tr {
+            background: #dee9f2;
+        }
+    
+        .select2-container .select2-choice {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 110px;
+            color: white;
+        }
+    </style>
+    
+    <style type="text/css">
+        .input-group-btn .dropdown-menu-right {
+            top: 34px;
+        }
+    
+        #openForm .ms-ctn {
+            padding: 0 !important;
+        ;
+        }
+    
+        #openForm .ms-ctn .ms-sel-ctn {
+            padding: 5px 26px !important;
+        ;
+        }
+    
+        #openForm .ms-ctn .ms-sel-item {
+            position: relative;
+            padding-right: 15px;
+        }
+    
+        #openForm .ms-ctn .ms-close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    
+        #openForm .ms-ctn .dropdown-menu {
+            max-height: 200px !important;
+        }
+    
+        .select2-container .select2-choice {
+            background: transparent;
+            border: none;
+        }
+    
+        .select2-chosen {
+            background: transparent;
+            border: none;
+        }
+    
+        .make_appointment {
+            width: 20px;
+            height: 20px;
+            line-height: 25px;
+            float: left;
+            position: relative;
+            cursor: pointer;
+            margin: 3px 10px 0px 0px;
+        }
+    
+        .tips_img {
+            width: 26px;
+            height: 18px;
+        }
+    
+        .red_tip_img {
+            position: absolute;
+            bottom: 2px;
+            right: -6px;
+            width: 16px;
+            display: none;
+        }
+    
+        .common-tips {
+            width: 380px;
+            max-height: 182px;
+            position: absolute;
+            border: solid 1px rgba(212, 222, 229, 1);
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background-color: white;
+            -webkit-box-shadow: 3px 3px 3px 2px #ccc;
+            -moz-box-shadow: 3px 3px 3px 2px #ccc;
+            -moz-box-shadow: 3px 3px 3px 2px #ccc;
+            box-shadow: 3px 3px 3px 2px #ccc;
+            display: none;
+            top: 40px;
+            right: 300px;
+            z-index: 10;
+            overflow-y: scroll;
+        }
+    
+        .ignore_content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    
+        .ignore_all {
+            width: 100%;
+            padding: 0px 10px;
+            height: 30px;
+            line-height: 30px;
+            color: #eda571;
+            position: relative;
+        }
+    
+        .ignore_all .ignore_span {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+    
+        /*.ignore_all .ingore_close{
+                cursor: pointer;
+                position: absolute;
+                right: 10px;
+                color: #000;
+            }*/
+        .ignore_content .ignor_i {
+            border-bottom: 1px solid #ccc;
+            height: 30px;
+            line-height: 30px;
+            margin: 0px 5px;
+        }
+    
+        .ignore_content .ignor_i .ignor_dot {
+            margin: 0px 6px 0px 8px;
+        }
+    
+        .ignore_content .ignor_i .ignor_know {
+            position: absolute;
+            right: 10px;
+            color: #5194c2;
+            cursor: pointer;
+        }
+    
+        .user-seting img {
+            vertical-align: middle;
+        }
+    
+        .select2-container .select2-choice>.select2-chosen {
+            padding-left: 0;
+            margin-right: 0;
+        }
+    
+        .select2-container .select2-choice .select2-arrow {
+            background: transparent;
+        }
+    
+        .user-seting span {
+            border: none;
+        }
+    
+        .select2-container .select2-choice {
+            height: auto;
+            line-height: inherit;
+            border-top: none;
+        }
+    
+        .select2-drop-active {
+            border-top: none;
+        }
+    
+        .user-seting .version {
+            padding-top: 3px !important;
+        }
+    
+        .new-header {
+            min-width: 0px;
+        }
+    
+        .more {
+            color: #fff;
+        }
+    
+        #masonry .menu-child {
+            margin-bottom: 15px;
+        }
+    
+        .menu-child-s .tag span {
+            float: left;
+        }
+    
+        .menu-child-s .tag em.sel {
+            float: right;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background-color: #5884a2;
+        }
+    
+        .more .txt {
+            color: #fff;
+        }
+    
+        .saveBtn {
+            position: absolute;
+            bottom: 15px;
+            left: 45%;
+            color: #fff;
+            font-szie: 14px;
+            /*font-weight:bold;*/
+            background: #a1cfee;
+        }
+    
+        .child-menu-panel {
+            color: #a1cfee;
+        }
+    
+        #call_phone {
+            position: absolute;
+            right: 3px;
+            text-align: right;
+            border: 1px solid #48a0dc;
+            z-index: 10;
+            margin: 10px 50px;
+            padding: 10px 10px;
+        }
+    
+        .menu_label {
+            height: 32px;
+            line-height: 30px;
+            border: solid 1px rgba(212, 222, 229, 1);
+        }
+    
+        .menu_label .menu_lab_txt {
+            float: left;
+            font-size: 14px;
+            padding-left: 10px;
+            padding-right: 5px;
+        }
+    
+        .menu_label .menu_lab_content {
+            float: left;
+        }
+    
+        .menu_label .menu_lab_content .lab_btn {
+            padding: 3px 20px 3px 10px;
+            text-align: center;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 0px 3px;
+            position: relative;
+        }
+    
+        .lab_btn_default {
+            color: #48a0dc;
+            background-color: #ffffff;
+            border: 1px solid #48a0dc;
+        }
+    
+        .lab_btn_active {
+            color: #ffffff;
+            background-color: #48a0dc;
+            border: 1px solid #48a0dc;
+        }
+    
+        .menu_label .menu_lab_content .lab_btn em {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            padding: 0px 5px;
+        }
+    
+        .menu_label .menu_lab_content .lab_btn img {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+    
+        .popDiv:hover {
+            cursor: pointer;
+        }
+    </style>
+    <style type="text/css">
+        .common-container {
+            right: 0px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+        }
+    
+        .index-content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: #f1f5f8;
+        }
+    </style>
+    
+    <style type="text/css">
+        .purchase_tab {
+            height: 45px;
+            line-height: 45px;
+            font-size: 14px;
+        }
+    
+        .list_order_tab {
+            float: left;
+            color: #000;
+            padding: 0px 10px;
+        }
+    
+        .add_purchase {
+            float: right;
+            font-size: 14px;
+            margin: 7px 10px;
+        }
+    
+        .purchase_con {
+            /*width: 100%;
+                height: 100%;*/
+            padding: 0px 10px;
+            background-color: #ffffff;
+            position: absolute;
+            top: 45px;
+            left: 0px;
+            right: 0px;
+            bottom: 90px;
+            margin-bottom: 35px;
+        }
+    
+        .purchase_tab .tab {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+    
+        .purchase_tab .tab li {
+            float: left;
+            padding: 5px 10px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    
+        .purchase_tab .tab li.cur {
+            color: #48a0dc;
+            border-bottom: 2px solid #48a0dc;
+        }
+    
+        .purchase_con .purchase_item {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            display: none;
+            background-color: #ffffff;
+            border: 1px solid #eaf6ff;
+        }
+    
+        .purchase_con .on {
+            display: block;
+        }
+    
+        .purchase_con .purchase_date .dateTime {
+            margin: 5px;
+            border-radius: 5px !important;
+            -webkit-border-radius: 5px !important;
+            float: left;
+        }
+    
+        .purchase_con .purchase_date .search_val {
+            border-radius: 20px !important;
+            -webkit-border-radius: 20px !important;
+            margin: 5px;
+        }
+    
+        .purchase_con .input-wrap .search-input {
+            top: 10px;
+        }
+    
+        #purchase_item_table {
+            width: 100%;
+        }
+    
+        #build_item_table {
+            width: 100%;
+        }
+    
+        #reject_item_table {
+            width: 100%;
+        }
+    
+        #wait_item_table {
+            width: 100%;
+        }
+    
+        #approval_item_table {
+            width: 100%;
+        }
+    
+        #already_item_table {
+            width: 100%;
+        }
+    
+        #purchase_item_table thead {
+            height: 35px;
+            line-height: 35px;
+        }
+    
+        .purchase_item_thead thead {
+            height: 35px;
+            line-height: 35px;
+        }
+    
+        .purchase_item_thead {
+            background-color: #c9dceb;
+            height: 35px;
+            line-height: 35px;
+        }
+    
+        .purchase_item_thead th {
+            font-weight: 100;
+            border: 1px solid #eaf6ff;
+        }
+    
+        .purchase_item_thead th {
+            text-align: center;
+        }
+    
+        .purchase_item_tab {
+            width: 100%;
+        }
+    
+        .purchase_item_tab thead {
+            height: 35px;
+            line-height: 35px;
+            border-left: 1px solid #eaf6ff;
+            border-right: 1px solid #eaf6ff;
+            background: #ffffff;
+        }
+    
+        .purchase_item_tab thead th {
+            font-weight: 100;
+            border: 0px;
+        }
+    
+        .purch_order_item {
+            height: 68px;
+            padding: 5px 10px;
+        }
+    
+        .purch_order_item .order_img {
+            float: left;
+        }
+    
+        .purch_order_item .order_info {
+            float: left;
+            margin: 4px;
+        }
+    
+        .good_info_tab th {
+            text-align: center;
+        }
+    
+        .purchase_item_tab tbody td {
+            border: 1px solid #eaf6ff;
+        }
+    
+        .purchase_item on .ty_height {
+            hegiht: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+    
+        .purchase_item on .s_ty_height {
+            hieght: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+    
+        .first_line {
+            width: 400px;
+        }
+    
+        .purchase_unit {
+            width: 8%;
+            text-align: center;
+        }
+    
+        .purchase_count {
+            width: 6%;
+            text-align: center;
+        }
+    
+        .purchase_rate {
+            width: 6%;
+            text-align: center;
+        }
+    
+        .purchase_price {
+            width: 6%;
+            text-align: center;
+        }
+    
+        .purchase_p_status {
+            width: 7%;
+            text-align: center;
+        }
+    
+        .purchase_supplier {
+            width: 9%;
+            text-align: center;
+        }
+    
+        .purchase_procurement {
+            width: 12%;
+            text-align: center;
+        }
+    
+        .purchase_status {
+            width: 7%;
+            text-align: center;
+        }
+    
+        .purchase_order_number {
+            padding: 0px 10px;
+        }
+    
+        .purchase_arrival_date {
+            padding: 0px 10px;
+            color: #7ba0c1;
+            width: 8%;
+        }
+    
+        .s_cbx_item {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            top: 50%;
+            left: 15%;
+            margin-left: 0;
+            margin-top: -5px;
+            text-align: center;
+        }
+    
+        .banCheckBox {
+            background: #ddd;
+            border: 1px solid #ccc;
+            cursor: default;
+        }
+    
+        .purchase_order_number .checkbox-mine {
+            vertical-align: middle;
+        }
+    
+        .purchase_order_number .cbx_order_date {
+            margin: 0px 10px;
+        }
+    
+        .purchase_order_number .cbx_order_date em {
+            margin: 0px 5px;
+        }
+    
+        .show_tbody_table_info .purchase_thead {
+            background: rgba(154, 196, 216, 0.28);
+        }
+    
+        .purchase_item_tab .operate_td {
+            margin: 0 auto;
+            text-align: center;
+        }
+    
+        .purchase_item_tab .operate_td div {
+            max-width: 92px;
+            text-align: left;
+            margin: 0 auto;
+            cursor: pointer;
+            height: 26px;
+            line-height: 26px;
+        }
+    
+        .purchase_item_tab .operate_td span {
+            /* float:left; */
+            margin: 0px 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    
+        .operate_td .order_edit_icon {
+            margin: 0px 5px;
+        }
+    
+        .operate_td .order_edit_result {
+            color: #48a0dc;
+        }
+    
+        .operate_td .order_approval_icon {
+            margin: 0px 5px;
+            color: #48a0dc;
+        }
+    
+        .operate_td .order_approal_result {
+            color: #48a0dc;
+        }
+    
+        .operate_td .order_close_icon {
+            margin: 0px 5px;
+            color: #fe542d;
+        }
+    
+        .operate_td .order_close_result {
+            color: #48a0dc;
+        }
+    
+        #pagination {
+            position: absolute;
+            width: 99%;
+            text-align: center;
+            display: none;
+        }
+    
+        #pagination .pagination {
+            padding: 0px;
+            margin: 10px;
+            float: right;
+        }
+    
+        .l_pagination {
+            float: left;
+            padding: 0px;
+        }
+    
+        #pagination .l_pagination {
+            float: left;
+            padding: 5px;
+            margin: 10px;
+        }
+    
+        .purchase_img {
+            width: 70px;
+            height: 70px;
+            /* border: 1px solid #ddd; */
+            margin: 8px 5px;
+            text-align: center;
+            float: left;
+        }
+    
+        .purchase_name {
+            width: 100%;
+            padding: 12px 20px;
+            float: left;
+            max-width: 270px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    
+        .purchase_name .p_name {
+            font-weight: bold;
+        }
+    
+        .purchase_name .p_spec {
+            color: #666;
+        }
+    
+        .purchase_name .p_vender {
+            color: #666;
+        }
+    
+        .status_name {
+            padding: 4px 15px;
+            background: #f59a12;
+            border-radius: 5px;
+            color: white;
+        }
+    
+        a.delete-btn {
+            background: url(../../img/delete-selete.png) no-repeat center center;
+        }
+    
+        .pagination>li {
+            cursor: pointer;
+        }
+    
+        .input-wrap .input {
+            height: 30px;
+        }
+    
+        .purchase_con .input-wrap .search-input {
+            top: 5px;
+        }
+    
+        .paination_bottom {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+        }
+    
+        .panation_item {
+            float: right;
+            margin-top: 3px;
+            line-height: 30px;
+        }
+    
+        .paination_bottom .up_page_span {
+            border: 1px solid #ddd;
+            padding: 0px 12px;
+            text-align: center;
+            border-radius: 5px;
+            float: left;
+        }
+    
+        .paination_bottom .down_page_span {
+            border: 1px solid #ddd;
+            padding: 0px 12px;
+            text-align: center;
+            border-radius: 5px;
+            float: left;
+        }
+    
+        .paination_bottom .page_btn {
+            color: #337ab7;
+            background-color: #fff;
+            cursor: pointer;
+        }
+    
+        .paination_bottom .page_show {
+            font-size: 14px;
+            float: left;
+            margin: 0px 10px;
+        }
+    
+        .common-content .problem-content {
+            margin-bottom: 40px;
+        }
+    
+        .form-group {
+            margin-bottom: 50px;
+        }
+    
+        .purchase_checked {
+            /* width: 22px;
+                height: 22px;
+                margin-left: 10px; */
+            width: 30px;
+            height: 70px;
+            float: left;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+        }
+    
+        .sgdOrder {
+            display: none;
+            margin: 0px;
+        }
+    
+        .disable_btn {
+            background: #ddd;
+            color: #999;
+            cursor: default;
+        }
+        #purchase_item_table1{
+            width: 99.48%;
+        }
+    </style>
+    <div class="common-container">
+        <div class="index-content" style="overflow-x: hidden;">
+            <div class="purchase_tab">
+                <div class="list_order_tab">
+                    <ul class="tab">
+                        <li class="cur" name="all_order">
+                            <div class="list_order_item">全部<span class="all_order_count">(9)</span></div>
+                        </li>
+                        <li name="build">
+                            <div class="list_order_item">新建<span class="build_order_count">(7)</span></div>
+                        </li>
+                        <li name="reject">
+                            <div class="list_order_item">驳回<span class="reject_order_count">(0)</span></div>
+                        </li>
+                        <li name="wait">
+                            <div class="list_order_item">待审批<span class="waiting_approval_count">(1)</span></div>
+                        </li>
+                        <li name="approval">
+                            <div class="list_order_item">审批中<span class="approval_approval_count">(1)</span></div>
+                        </li>
+                        <li name="already">
+                            <div class="list_order_item">已审批<span class="already_apporoval_count">(1)</span></div>
+                        </li>
+                        <!--<li name="aclose"><div class="list_order_item">已关闭<span class="been_apporoval_count">(0)</span></div></li>-->
+                    </ul>
+                </div>
+                <button class="add_purchase default-btn btn-add configurat-addhref-btn">新增申购单</button>
+            </div>
+            <div class="purchase_con">
+                <div class="purchase_date">
+                    <!--<input type="text" class="input-group input dateTime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d'})"/>-->
+                    <div class="input-wrap">
+                        <input class="input search_val" type="text" id="searchName" value="" onchange="fieldKeysChange(this)">
+                        <span class="search-input" onclick="searchInputClick(this)"></span>
+                    </div>
+                </div>
+                <table id="purchase_item_table1">
+                    <thead class="all_item_head purchase_item_thead">
+                    <th class="first_line">物品</th>
+                    <th class="purchase_procurement">物品分类</th>
+                    <th class="purchase_unit">单位</th>
+                    <th class="purchase_count">数量</th>
+                    <th class="purchase_price">单价</th>
+                    <th class="purchase_rate">税率</th>
+                    <th class="purchase_status">金额</th>
+                    <th class="purchase_supplier">供应商</th>
+                    <th class="purchase_p_status">价格状态</th>
+                    <th>操作</th>
+                    </thead>
+                </table>
+                <div class="purchase_item on">
+                    <table id="purchase_item_table">
+                        <!-- <thead class="all_item_head purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="purhase_tbody_tab show_tbody_table_info">
+    
+                        </tbody>
+                    </table>
+                </div>
+                <div class="purchase_item">
+                    <table id="build_item_table">
+                        <!-- <thead class="build_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="build_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>
+                <div class="purchase_item">
+                    <table id="reject_item_table">
+                        <!-- <thead class="reject_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="reject_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>
+                <div class="purchase_item">
+                    <table id="wait_item_table">
+                        <!-- <thead class="wait_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="wait_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>
+                <div class="purchase_item">
+                    <table id="approval_item_table">
+                        <!-- <thead class="approval_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="approval_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>
+                <div class="purchase_item">
+                    <table id="already_item_table">
+                        <!-- <thead class="already_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">物品分类</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_count">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th class="purchase_p_status">价格状态</th>
+                            <th>操作</th>
+                        </thead> -->
+                        <tbody class="already_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>
+                <!--<div class="purchase_item">
+                    <table id="aclose_item_table">
+                        <thead class="aclose_item_thead purchase_item_thead">
+                            <th class="first_line">物品</th>
+                            <th class="purchase_procurement">类别</th>
+                            <th class="purchase_unit">单位</th>
+                            <th class="purchase_unit">数量</th>
+                            <th class="purchase_price">单价</th>
+                            <th class="purchase_rate">税率</th>
+                            <th class="purchase_status">金额</th>
+                            <th class="purchase_supplier">供应商</th>
+                            <th>操作</th>
+                         </thead>
+                         <tbody class="already_tbody_tab show_tbody_table_info"></tbody>
+                    </table>
+                </div>-->
+                <!--底部分页-->
+                <div id="pagination">
+                    <div class="l_pagination">总共<span class="totalPage">33</span>页，每页<span class="currentPage">10</span>条，共<span
+                            class="totalSize">200</span>条记录</div>
+                    <ul id="pageLimit"></ul>
+                </div>
+                <div class="paination_bottom">
+                    <div class="l_pagination">总共<span class="totalPage">33</span>页，每页<span class="currentPage">10</span>条，共<span
+                            class="totalSize">200</span>条记录</div>
+                    <div class="panation_item">
+                        <span class="up_page_span page_btn">上一页</span>
+                        <span class="page_show">1/2</span>
+                        <span class="down_page_span page_btn">下一页</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="${ctx}/assetsv1/js/pagination/bootstrap-paginator.js"></script>
+    <script src="${ctx}/assets/js/call/call.js"></script>
+    <script src="${ctx}/lib/js/bootstrap.min.js"></script>
+    <script src="${ctx}/lib/js/jquery.form.js"></script>
+    <script src="${ctx}/lib/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="${ctx}/lib/js/jquery.cookie.js"></script>
+    <script src="${ctx}/lib/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="${ctx}/lib/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="${ctx}/lib/js/datatable/dataTables.bootstrap.ext.js"></script>
+    <script src="${ctx}/lib/js/skins.min.js"></script>
+    <script src="${ctx}/lib/js/beyond.min.js"></script>
+    <script src="${ctx}/lib/js/select2/select2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${ctx}/lib/js/aflax.js"></script>
+    <script src="${ctx}/lib/js/toastr/toastr.js"></script>
+    <script type="text/javascript" src="${ctx}/lib/js/jquery.cookie.js" charset="utf-8"></script>
+    <script src="${ctx}/lib/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="${ctx}/lib/js/bootstrap-suggest.min.js"></script>
+    <script src="${ctx}/dist/assets/js/common/loading.js"></script>
+    <script src="${ctx}/lib/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="${ctx}/lib/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="${ctx}/lib/js/bootstrap-suggest.min.js"></script>
+    <script src="${ctx}/lib/js/magicsuggest-min.js"></script>
+    <script src="${ctx}/assets/js/validation/bootstrapValidator.js"></script>
+    <script type="text/javascript" src="${ctx}/assetsv1/js/common/common.js?dd=xx"></script>
+    <script type="text/javascript" src="${ctx}/assetsv1/js/pagination2/pagination.js"></script>
+    
+    <script src="${ctx}/assetsv1/js/base/jquery-ui.min.js"></script>
+    <script src="${ctx}/assetsv1/js/drag/Sortable.min.js"></script>
+    <script type="text/javascript" src="${ctx}/assetsv1/js/common/drag_div2.js"></script>
+    
+    <script type="text/javascript">
+        var allArrayList = [];
+        var currentPage = 1;
+        var totalPage = 0; //总页数
+        var pageRows = 20;
+        var keywordStr = "";
+        var allOrderCount = 0; //所有订单的数量
+        var buildCount = 0; //新建的数量
+        var rejectCount = 0; //驳回的数量
+        var waitingApprovalCount = 0; //待审批的数量
+        var approvalCount = 0; //审批中
+        var beenApproalCount = 0; //已审批的数量
+        var isSearchOrder = false; //是否搜索
+    
+        var undoCount = 0; //撤销数量
+        var alreadyCloseCount = 0; //已关闭数量
+        var statusVal = null; //状态
+        var currentStatus = 1;
+        //var fieldKeysStr = ["id","status_name","no","edit_status","type_name","dept_name"];    //过滤的字段
+        var kwSearchStr = "";
+        var fieldKeysStr = ["id", "status_name", "no", "edit_status"]; //过滤的字段
+        var searchTableId = "purchase_item_table";
+    
+        //所有订单
+        initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+        allInitData();
+    
+        //加载其他所有的数量
+        function allInitData() {
+            //新建的数量
+            initDataCount(currentPage, pageRows, keywordStr, 0);
+            //驳回的数量
+            initDataCount(currentPage, pageRows, keywordStr, 3);
+            //待审核的数量
+            initDataCount(currentPage, pageRows, keywordStr, 1);
+            //审批中的数量
+            initDataCount(currentPage, pageRows, keywordStr, 100);
+            //已审批的数量
+            initDataCount(currentPage, pageRows, keywordStr, 2);
+        }
+    
+        //点击上一页上一页
+        $(".panation_item").on("click", ".up_page_span", function () {
+            if (currentPage <= 1) {
+                //判断页数 置灰按钮
+                pageSettingBtn(currentPage, totalPage);
+                return;
+            }
+            currentPage--;
+            $(".panation_item .page_show").html(currentPage + "/" + totalPage);
+            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+        });
+    
+        //点击下一页
+        $(".panation_item").on("click", ".down_page_span", function () {
+            if (currentPage >= totalPage) {
+                //判断页数 置灰按钮
+                pageSettingBtn(currentPage, totalPage);
+                return;
+            }
+            currentPage++;
+            $(".panation_item .page_show").html(currentPage + "/" + totalPage);
+            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+        });
+    
+        function fieldKeysChange(_this) {
+            var val = $(_this).val();
+            kwSearchStr = val;
+            //fieldKeysStr = [];
+            //fieldKeysStr.push(val);
+        }
+    
+        //查询申购单列表
+        function initData(currentPage, pageRows, searchTableId, keywordStr, statusVal, currentStatus) {
+            $("#" + searchTableId).find(".show_tbody_table_info").html("");
+            var data;
+            var orderFiedldSetting = [{
+                "field": "created_time",
+                "order": "desc"
+            }];
+            if (statusVal == null) {
+                data = {
+                    tableId: '1050551441527148544',
+                    rows: pageRows,
+                    page: currentPage,
+                    keyword: keywordStr,
+                    kw: kwSearchStr,
+                    order_field_setting: JSON.stringify(orderFiedldSetting).toString()
+                    // fieldKeys:JSON.stringify(fieldKeysStr) 
+                }
+            } else {
+                data = {
+                    tableId: '1050551441527148544',
+                    rows: pageRows,
+                    page: currentPage,
+                    keyword: keywordStr,
+                    status: statusVal,
+                    kw: kwSearchStr,
+                    order_field_setting: JSON.stringify(orderFiedldSetting).toString()
+                    // fieldKeys:JSON.stringify(fieldKeysStr)
+                }
+            }
+    
+            var mesg = ctx + "/cloud/table/list/reader/list";
+            $.ajax({
+                url: mesg,
+                type: "post",
+                data: data,
+                success: function (json) {
+                    console.log("获取列表的数据：" + JSON.stringify(json));
+                    var purchaseIdStr = "";
+                    allArrayList = [];
+                    if (json) {
+                        if (json.msg == "查询出错") {
+                            tipsMsg(json.msg, "FAIL");
+                            allOrderCount = 0;
+                            buildCount = 0;
+                            approvalCount = 0;
+                            beenApproalCount = 0;
+                            rejectCount = 0;
+                            return;
+                        }
+                        var total = json.total; //总页数
+                        totalPage = total;
+                        var page = json.page; //当前的页数
+                        currentPage = page;
+                        var records = json.records; //总记录数
+                        //判断页数 置灰按钮
+                        $(".panation_item .page_show").html(currentPage + "/" + totalPage);
+                        $(".totalPage").text(total);
+                        $(".currentPage").text(pageRows);
+                        $(".totalSize").text(records);
+                        pageSettingBtn(currentPage, totalPage);
+                        var rowList = json.rows;
+                        if (!isSearchOrder) { //如果没有点击搜索
+                            if (statusVal == null) {
+                                allOrderCount = json.records; //所有订单数量
+                            }
+                            if (statusVal == 0) {
+                                buildCount = json.records;
+                            }
+                            if (statusVal == 100) { //审核中
+                                approvalCount = json.records;
+                            }
+                            if (statusVal == 1) {
+                                waitingApprovalCount = json.records; //待审核
+                            }
+                            if (statusVal == 2) { //已审核
+                                beenApproalCount = json.records;
+                            }
+                            if (statusVal == 3) {
+                                rejectCount = json.records; //驳回的数量
+                            }
+                            rowList.sort(function (a, b) {
+                                if (a.created_time < b.created_time) {
+                                    return 1;
+                                } else if (a.created_time > b.created_time) {
+                                    return -1;
+                                }
+                                return 0;
+                            })
+                            console.log("所有：" + allOrderCount + " 新建数量：" + buildCount + " 待审批：" +
+                            waitingApprovalCount + " 已审批的数量：" + beenApproalCount);
+                            $(".all_order_count").text("(" + allOrderCount + ")"); //显示所有订单
+                            $(".build_order_count").text("(" + buildCount + ")"); //新建的数量
+                            $(".reject_order_count").text("(" + rejectCount + ")"); //驳回的数量
+                            $(".approval_approval_count").text("(" + approvalCount + ")"); //审批中
+                            $(".waiting_approval_count").text("(" + waitingApprovalCount + ")"); //待审核的数量
+                            $(".already_apporoval_count").text("(" + beenApproalCount + ")"); //已审批
+                        }
+                        var rowList = json.rows;
+                        if (rowList.length > 0) {
+                            for (var i = 0; i < rowList.length; i++) {
+                                var createTime = rowList[i].created_time; //创建时间
+                                var purchaseId = rowList[i].id; //申购单id
+                                var noStr = rowList[i].no;
+                                var planGetDate = rowList[i].plan_get_date; //期望到货日期
+                                var statusName = rowList[i].status_name; //状态
+                                var editName = rowList[i].edit_status;
+    
+                                var deptName = rowList[i].dept_name; //部门名称
+                                var flowRecordId = rowList[i].flow_record_id; //流程记录id
+                                var formId = rowList[i].form_id; //表单的id
+                                var flowId = rowList[i].flow_id; //流程id
+    
+                                if (purchaseId != "" && purchaseId != null) {
+                                    purchaseIdStr += purchaseId + ",";
+                                }
+                                var obj = new Object();
+                                obj.id = purchaseId;
+                                obj.status_name = statusName;
+                                obj.no = noStr;
+                                obj.created_time = createTime;
+                                obj.plan_get_date = planGetDate;
+                                obj.jsonArray = [];
+                                obj.edit_status = editName;
+                                obj.flow_record_id = flowRecordId;
+                                obj.form_id = formId;
+                                obj.flow_id = flowId;
+                                allArrayList.push(obj);
+                            }
+                            var newPurchaseIdStr = purchaseIdStr.substring(0, purchaseIdStr.length - 1);
+                            initData2(searchTableId, "purchase_tbody_list", newPurchaseIdStr);
+                        }
+                    }
+                }
+            })
+        }
+    
+        //这里主要是展示数量
+        function initDataCount(currentPage, pageRows, keywordStr, statusVal) {
+            //$("#"+searchTableId).find(".show_tbody_table_info").html("");
+            var data;
+            if (statusVal == null) {
+                data = {
+                    tableId: '1050551441527148544',
+                    rows: pageRows,
+                    page: currentPage,
+                    keyword: keywordStr,
+                    kw: kwSearchStr
+                    // fieldKeys:JSON.stringify(fieldKeysStr)
+                }
+            } else {
+                data = {
+                    tableId: '1050551441527148544',
+                    rows: pageRows,
+                    page: currentPage,
+                    keyword: keywordStr,
+                    status: statusVal,
+                    kw: kwSearchStr
+                    // fieldKeys:JSON.stringify(fieldKeysStr)
+                }
+            }
+    
+            var mesg = ctx + "/cloud/table/list/reader/list";
+            $.ajax({
+                url: mesg,
+                type: "post",
+                data: data,
+                success: function (json) {
+                    if (json) {
+                        // var total = json.total;  //总页数
+                        // totalPage = total;
+                        // var page = json.page;   //当前的页数
+                        // var records = json.records;  //总记录数
+                        // $(".panation_item .page_show").html(currentPage+"/"+totalPage);
+                        // $(".totalPage").text(total);
+                        // $(".currentPage").text(pageRows);
+                        // $(".totalSize").text(records);
+                        if (statusVal == null) {
+                            allOrderCount = json.records; //所有订单数量
+                        }
+                        if (statusVal == 0) {
+                            buildCount = json.records;
+                        }
+                        if (statusVal == 100) { //审核中
+                            approvalCount = json.records;
+                        }
+                        if (statusVal == 1) {
+                            waitingApprovalCount = json.records; //待审核
+                        }
+                        if (statusVal == 2) { //已审核
+                            beenApproalCount = json.records;
+                        }
+                        if (statusVal == 3) {
+                            rejectCount = json.records; //驳回的数量
+                        }
+                        console.log("所有：" + allOrderCount + " 新建数量：" + buildCount + " 待审批：" +
+                        waitingApprovalCount + " 已审批的数量：" + beenApproalCount);
+                        $(".all_order_count").text("(" + allOrderCount + ")"); //显示所有订单
+                        $(".build_order_count").text("(" + buildCount + ")"); //新建的数量
+                        $(".reject_order_count").text("(" + rejectCount + ")"); //驳回的数量
+                        $(".approval_approval_count").text("(" + approvalCount + ")"); //审批中
+                        $(".waiting_approval_count").text("(" + waitingApprovalCount + ")"); //待审核的数量
+                        $(".already_apporoval_count").text("(" + beenApproalCount + ")"); //已审批
+                    }
+                }
+            })
+        }
+    
+        //点击搜索
+        function searchInputClick(_this) {
+            var searchVal = $(_this).parent().find(".search_val").val();
+            if (searchVal == "") {
+                isSearchOrder = false;
+            } else {
+                isSearchOrder = true;
+            }
+            keywordStr = searchVal;
+            kwSearchStr = searchVal;
+            currentPage = 1;
+            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+        }
+    
+        //回车事件绑定
+        $('.input-wrap').on('keyup', '.search_val', function (event) {
+            if (event.keyCode == "13") {
+                //回车执行查询
+                keywordStr = $(this).val();
+                kwSearchStr = $(this).val();
+                if (kwSearchStr == "") {
+                    isSearchOrder = false;
+                } else {
+                    isSearchOrder = true;
+                }
+                /*if(kwSearchStr==""){
+                 tipsMsg("请输入搜索内容","FAIL");
+                 return;
+                 }*/
+                currentPage = 1;
+                initData(currentPage, pageRows, searchTableId, keywordStr);
+            }
+        });
+    
+    
+        function initData2(searchTableId, tbodyClass, newPurchaseIdStr) {
+            var mesg = ctx + "/cloud/table/list/reader/list";
+            var data = {
+                tableId: '1058533174180581376',
+                rows: 1000,
+                page: 1,
+                ids: newPurchaseIdStr
+            }
+            var purchaseIdArray = newPurchaseIdStr.split(",");
+            console.log("申购单id:" + purchaseIdArray.length);
+            $.ajax({
+                url: mesg,
+                type: "post",
+                data: data,
+                success: function (json) {
+                    console.log("第二次列表的数据：" + JSON.stringify(json));
+                    //console.log("allArrayList:"+JSON.stringify(allArrayList));
+                    if (json) {
+                        var jsonList = json.rows;
+                        if (typeof (jsonList) == "undefined") {
+                            return;
+                        }
+                        if (jsonList.length > 0) {
+                            for (var k = 0; k < allArrayList.length; k++) { //遍历所有的申购单
+                                var obj = new Object();
+                                var array = [];
+                                for (var n = 0; n < jsonList.length; n++) { //遍历所有的物品
+                                    var orderId = jsonList[n].order_id;
+                                    if (allArrayList[k].id == orderId) { //如果物品的Id和申购单id相等 就加到申购单里面去
+                                        allArrayList[k].jsonArray.push(jsonList[n]);
+                                    }
+                                }
+                            }
+    
+                            /* for (var i=0,iLen=allArrayList.length; i<iLen; i++)
+                             {
+                             for (var j=0,jLen=jsonList.length; j<jLen; j++)
+                             {
+                             var orderId = jsonList[j].order_id;
+                             if (allArrayList[i].id===orderId)
+                             {
+                             allArrayList[i].jsonArray.push(jsonList[j]);
+                             }
+                             }
+                             }*/
+    
+                            for (var i = 0; i < allArrayList.length; i++) {
+                                var statusStr = allArrayList[i].status_name;
+                                var showEditStatus = allArrayList[i].edit_status;
+                                var flowRecordId = allArrayList[i].flow_record_id; //流程记录id
+                                var formId = allArrayList[i].form_id; //表单id
+                                var flowId = allArrayList[i].flow_id; //流程id
+    
+                                var editStatusName = "";
+                                var orderStatus = "";
+                                if (showEditStatus == "可以编辑") { //编辑  提交审批  关闭申购单
+                                    editStatusName = "编辑";
+                                    orderStatus =
+                                            "<span class='status_span'><span class='order_approal_result' name='" +
+                                            allArrayList[i].no + "' orderId='" + allArrayList[i].id +
+                                            "' flowRecordId='" + flowRecordId + "' formId='" + formId +
+                                            "' flowId='" + flowId + "' status='" + statusStr +
+                                            "' onclick='submitAudit(this)'>提交审批</span><span class='order_edit_result' name='" +
+                                            allArrayList[i].id + "' onclick='editAudit(this)'>" + editStatusName +
+                                            "</span><span class='order_close_result' orderId='" + allArrayList[i].id +
+                                            "' onclick='closeOrder(this)'>关闭申购单</span></span>";
+                                    noSelectCbxStyle = "banCheckBox";
+                                }
+    
+                                if (statusStr == "待审核" || statusStr == "待审批") { //撤销审核
+                                    orderStatus =
+                                            "<span class='status_span'><span class='order_approal_result' orderId='" +
+                                            allArrayList[i].id + "' onclick='undoAudit(this)'>撤销审批</span></span>";
+                                    noSelectCbxStyle = "banCheckBox";
+                                }
+    
+                                var formIdStr = "";
+                                if ((flowId == 5 || flowId == 6) && formId && flowRecordId) {
+                                    formIdStr =
+                                            "<span class='formId_span' onclick='checkSchedule(this)' orderId='" +
+                                            allArrayList[i].id + "' formId='" + formId + "' flowRecordId='" +
+                                            flowRecordId + "' style='color:#48a0dc;cursor:pointer;'>查看附表</span>";
+                                }
+    
+                                /* var noSelectCbxStyle = "";
+                                 if(statusStr=="新建"){
+                                 orderStatus = "<span class='status_span'><span class='order_approal_result' name='"+allArrayList[i].no+"' orderId='"+allArrayList[i].id+"' onclick='submitAudit(this)'>提交审核</span><span class='order_edit_result' name='"+allArrayList[i].id+"' onclick='editAudit(this)'>"+editStatusName+"</span><span class='order_close_result' orderId='"+allArrayList[i].id+"' onclick='closeOrder(this)'>关闭申购单</span></span>";
+                                 noSelectCbxStyle = "banCheckBox";
+                                 }
+                                 else if(statusStr=="待审核"&&showEditStatus=="可以编辑"){
+                                 orderStatus = "<span class='status_span'><span class='order_approal_result' orderId='"+allArrayList[i].id+"' onclick='undoAudit(this)'>撤销审核</span></span>";
+                                 noSelectCbxStyle = "banCheckBox";
+                                 }
+                                 else if(statusStr=="已审核"){
+                                 orderStatus = "<span class='status_span'><span class='order_approal_result' onclick='generateOrder(this)'>生成采购单</span></span>";
+                                 noSelectCbxStyle = "";
+                                 }
+                                 else if(statusStr=="驳回"||statusStr=="已驳回"){
+                                 orderStatus = "<span class='status_span'><span class='order_approal_result' name='"+allArrayList[i].no+"' orderId='"+allArrayList[i].id+"' onclick='submitAudit(this)'>提交审核</span><span class='order_edit_result' name='"+allArrayList[i].id+"' onclick='editAudit(this)'>"+editStatusName+"</span><span class='order_close_result' orderId='"+allArrayList[i].id+"' onclick='closeOrder(this)'>关闭申购单</span></span>";
+                                 noSelectCbxStyle = "banCheckBox";
+                                 }
+                                 else if(statusStr=="撤销"){
+                                 //orderStatus = "<span class='status_span'><span class='order_approal_result' orderId='"+allArrayList[i].id+"' onclick='generateOrder(this)'>生成采购单</span></span>";
+                                 orderStatus = "<span class='status_span'><span class='order_approal_result' orderId='"+allArrayList[i].id+"' onclick='undoAudit(this)'>撤销审核</span></span>";
+                                 noSelectCbxStyle = "banCheckBox";
+                                 }else{
+                                 noSelectCbxStyle = "banCheckBox";
+                                 }*/
+    
+                                var sgdOrder =
+                                        "<span class='status_span sgdOrder'><span class='order_approal_result' onclick='generateOrder(this)'>生成采购单</span></span>";
+    
+                                var purchaseDateTime = "";
+                                if (allArrayList[i].plan_get_date != "") {
+                                    purchaseDateTime =
+                                            "<span class='purchase_a_d_title'>期望到货日期：</span><span class='purchase_a_d_result'>" +
+                                            allArrayList[i].plan_get_date + "</span>";
+                                } else {
+                                    purchaseDateTime = purchaseDateTime;
+                                }
+    
+                                var rowOrder =
+                                        "<tr class='show_tr_table_info'><td colspan='10'><table class='purchase_item_tab' name='" +
+                                        allArrayList[i].id + "'>" +
+                                        "<thead class='purchase_thead'>" +
+                                        "<th clsas='first_line' style='width:400px;'><div class='purchase_order_number'>" +
+                                        "<span class='cbx_order_date'><span class='status_name' style='padding:2px 5px;'>" +
+                                        allArrayList[i].status_name + "</span></span>" +
+                                        "<span class='order_number_result'>申购单号：<span name='" + allArrayList[i].id +
+                                        "' onclick='purchaseWindow(this)' style='cursor:pointer;color:#48a0dc;'>" +
+                                        allArrayList[i].no + "</span></span>" +
+                                        "</div></th>" +
+                                        "<th class='purchase_procurement purchase_unit' colspan='2'>" +
+                                        purchaseDateTime + "</th>" +
+                                            //"<th class='purchase_arrival_date'></th>"+
+                                        "<th class='purchase_count'></th>" +
+                                        "<th class='purchase_price'></th>" +
+                                        "<th class='purchase_rate'></th>" +
+                                        "<th class='purchase_status'></th>" +
+                                        "<th class='purchase_supplier'>" + formIdStr + "</th>" +
+                                        "<th class='purchase_price'></th>" +
+                                        "<th class='operater_my_status'>" +
+                                            //  "<div class='operate_td'><span class='order_approal_result'>提交审批</span><span class='order_edit_result'>"+editStatusName+"</span><span class='order_close_result'>关闭申购</span></div>"+
+                                        "<div class='operate_td' style='font-size:14px;'>" + orderStatus + sgdOrder +
+                                        "</div>" +
+                                        "</th>" +
+                                        "</thead>" +
+                                        "<tbody class='purchase_tbody_list' index='" + i + "' name='" +
+                                        allArrayList[i].id + "'>" +
+    
+                                        "</tbody>" +
+                                        "</table></td></tr>";
+                                $("#" + searchTableId).find(".show_tbody_table_info").append(rowOrder);
+    
+                                var itemArrayList = allArrayList[i].jsonArray;
+                                var supplierRowCount = 0;
+                                if (itemArrayList.length > 0) {
+                                    for (var j = 0; j < itemArrayList.length; j++) { //
+                                        var unitPrice = itemArrayList[j].unit_price;
+                                        var taxRateFormat = itemArrayList[j].tax_rate_format;
+                                        var sellerName = itemArrayList[j].seller_name;
+                                        var sumPrice = itemArrayList[j].sum_price; //
+                                        var classifyStr = itemArrayList[j].classify; //类别  
+                                        var venderStr = itemArrayList[j].vender; //厂家
+                                        var spencStr = itemArrayList[j].spec; //规格
+    
+                                        if (typeof (classifyStr) == "undefined") {
+                                            classifyStr = "";
+                                        }
+                                        if (typeof (venderStr) == "undefined") {
+                                            venderStr = "";
+                                        }
+                                        if (typeof (spencStr) == "undefined") {
+                                            spencStr = "";
+                                        }
+                                        if (typeof (unitPrice) == "undefined") {
+                                            unitPrice = "";
+                                        }
+                                        if (typeof (taxRateFormat) == "undefined") {
+                                            taxRateFormat = "";
+                                        }
+                                        if (!sellerName) {
+                                            sellerName = "";
+                                            noSelectCbxStyle = "banCheckBox";
+                                            supplierRowCount++;
+                                        }
+                                        if (sellerName) {
+                                            noSelectCbxStyle = "";
+                                        }
+                                        if (typeof (sumPrice) == "undefined") {
+                                            sumPrice = "";
+                                        }
+                                        var rowDivText = "<tr>" +
+                                                "<td class='first_line' style='width:400px;display:flex;justify-content:left;align-items:center;'>" +
+                                                "<div class='purchase_checked'><span class='s_cbx_item checkbox-mine " +
+                                                noSelectCbxStyle + "' onclick='purchaseChecked(this)' a='0' key='" +
+                                                itemArrayList[j].id + "'></span></div>" +
+                                                "<div class='purchase_img'><img src='" + ctx +
+                                                "/assetsv1/img/orderList/default_icon.png' style='width:70px;height:70px;'></div>" +
+                                                "<div class='purchase_name'>" +
+                                                "<div class='p_name'>" + itemArrayList[j].name + "</div>" +
+    //                                            "<div class='p_number'><span>物品编码：</span><span>" + itemArrayList[j]
+    //                                                    .product_number + "</span></div>" +
+                                                "<div class='p_spec'><span>规格/型号：</span><span>" + spencStr +
+                                                "</span></div>" +
+                                                "<div class='p_vender'><span>厂家：</span><span title='" + venderStr +
+                                                "'>" + venderStr + "</span></div" +
+                                                "</div" +
+                                                "</td>" +
+                                                "<td class='purchase_procurement'>" + classifyStr + "</td>" +
+                                                "<td class='purchase_unit'>" + itemArrayList[j].unit + "</td>" +
+                                                "<td class='purchase_count'>" + itemArrayList[j].count + "</td>" +
+                                                "<td class='purchase_price'>" + unitPrice + "</td>" + //单价
+                                                "<td class='purchase_rate'>" + taxRateFormat + "</td>" + //税率格式化
+                                                "<td class='purchase_status'>" + sumPrice + "</td>" +
+                                                "<td class='purchase_supplier'><div class='purchase_supplier_div'>" +
+                                                sellerName + "</div></td>" +
+                                                "<td class='purchase_p_status'>" + itemArrayList[j].buy_mode_name +
+                                                "</td>" +
+                                                "<td class='purchase_operate'>" +
+                                                "</td>" +
+                                                "</tr>";
+                                        $("#" + searchTableId).find("." + tbodyClass + "[name='" + allArrayList[
+                                                i].id + "']").append(rowDivText);
+                                    }
+                                }
+                            }
+    
+    
+                            //通过判断供应商 是否显示生成采购单  
+                            var searchTabTr = $("#" + searchTableId).find(".show_tbody_table_info").find(
+                                    ".show_tr_table_info"); //show_tr_table_info
+                            for (var i = 0; i < searchTabTr.length; i++) {
+                                var isSupplier = false;
+                                var tbodyClassTab = $(searchTabTr[i]).find(".purchase_tbody_list").find("tr");
+                                for (var j = 0; j < tbodyClassTab.length; j++) {
+                                    if ($(tbodyClassTab[j]).find(".purchase_supplier_div").text() != "") {
+                                        isSupplier = true;
+                                    }
+                                }
+                                if (isSupplier == true) { //如果有供应商就显示
+                                    $(searchTabTr[i]).find(".operater_my_status").find(".sgdOrder").show();
+                                    //$(searchTabTr[i]).find(".sgdOrder").show();
+                                }
+                            }
+                        }
+                        console.log("最后的数据：" + JSON.stringify(allArrayList));
+                        $("." + tbodyClass + " tr").click(function () {
+                            $("." + tbodyClass + " tr").css({
+                                "background-color": "#ffffff"
+                            });
+                            $(this).css({
+                                "background-color": "rgba(130,130,130,0.1)"
+                            });
+                        });
+                    }
+                }
+            })
+        }
+    
+        //设置分页按钮
+        function pageSettingBtn(current, totalPage) {
+            if (current <= 1) {
+                $(".up_page_span").addClass("disable_btn").removeClass("page_btn");
+            } else {
+                $(".up_page_span").addClass("page_btn").removeClass("disable_btn");
+            }
+            if (totalPage <= 1 || current == totalPage) {
+                $(".down_page_span").addClass("disable_btn").removeClass("page_btn");
+            } else {
+                $(".down_page_span").addClass("page_btn").removeClass("disable_btn");
+            }
+        }
+    
+        function initTabItemCount() {
+            allOrderCount = 0; //所有订单的数量
+            buildCount = 0; //新建的数量
+            waitingApprovalCount = 0; //待审批的数量
+            beenApproalCount = 0; //已审批的数量
+        }
+    
+        //提交审核
+        function submitAudit(_this) { //statusVal = 3  驳回   4  撤销
+            var noStr = $(_this).attr("name");
+            var statusStr = $(_this).attr("status");
+            var orderId = $(_this).attr("orderId");
+            var flowRecordId = $(_this).attr("flowRecordId");
+            var formId = $(_this).attr("formId");
+            var flowId = $(_this).attr("flowId");
+            var url = "";
+    
+            // if(formId&&formId!="undefined"){  //
+            //     if(statusStr=="驳回"||statusStr=="撤销"){
+            //         url = ctx + "/cloud/menu/pageLayout/"+formId+"?&add=1&db_type=apply_buy&db_id="+orderId+"&no="+noStr+"&flow_record_id="+flowRecordId+"&is_hide=true"; 
+            //     }else{
+            //         url = ctx + "/cloud/menu/pageLayout/"+formId+"?&add=1&db_type=apply_buy&db_id="+orderId+"&flowId="+flowId+"&no="+noStr+"&is_hide=true";
+            //     }
+            // }else{
+            //     url = ctx + "/cloud/menu/pageLayout/1056722469714399232?&add=1&db_type=apply_buy&db_id="+orderId+"&flowId=2&no="+noStr+"&is_hide=true";
+            // }
+    
+            if (flowId == 5 || flowId == 6) {
+                if (statusStr == "驳回" || statusStr == "撤销") {
+                    url = ctx + "/cloud/menu/pageLayout/" + formId + "?&add=1&db_type=apply_buy&db_id=" + orderId + "&no=" +
+                    noStr + "&flow_record_id=" + flowRecordId + "&is_hide=true";
+                    // url = ctx + "/cloud/menu/pageLayout/"+formId+"?&add=1&db_type=apply_buy&db_id="+orderId+"&no="+noStr+"&flow_record_id="+flowRecordId+"&is_hide=true"; 
+                    // flow_record_id={flow_record_id}&no={no}&db_type=apply_buy&db_id={db_id}
+                } else {
+                    url = ctx + "/cloud/menu/pageLayout/" + formId + "?&add=1&db_type=apply_buy&db_id=" + orderId +
+                    "&flowId=" + flowId + "&no=" + noStr;
+                    // flowId=26&no=test1&db_type=apply_buy&db_id=123
+                }
+            } else {
+                url = ctx + "/cloud/menu/pageLayout/1056722469714399232?&add=1&db_type=apply_buy&db_id=" + orderId +
+                "&flowId=2&no=" + noStr; //以前的
+            }
+    
+    
+    
+            openWindow(url, function () {
+                initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                allInitData();
+            });
+        }
+    
+        //查看附表  
+        function checkSchedule(_this) {
+            var fromId = $(_this).attr("formId");
+            var flowRecordId = $(_this).attr("flowRecordId");
+            var orderId = $(_this).attr("orderId");
+            if (fromId) {
+                var url = ctx + "/cloud/menu/pageLayout/" + fromId + "?&show_record_id=" + flowRecordId + "&db_id=" +
+                        orderId + "&db_type=apply_buy&is_hide=true";
+                openWindow(url, function () {
+                    initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                    allInitData();
+                })
+            }
+        }
+    
+        //撤销审核
+        function undoAudit(_this) {
+            var orderId = $(_this).attr("orderId");
+            var mesg = ctx + "/cloud/form/handler/saveSqlSave/1053469109133512704";
+            var data = {
+                id: orderId
+            }
+            popMsgTip("是否撤销审批", function () {
+                $.ajax({
+                    url: mesg,
+                    type: "post",
+                    data: data,
+                    success: function (json) {
+                        if (json.result == "SUCCESS") {
+                            tipsMsg("撤销审批成功", "SUCCESS");
+                            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                            allInitData();
+                            return;
+                        }
+                        if (json.result == "Failure") {
+                            tipsMsg(json.resultMsg, "FAIL");
+                            return;
+                        }
+                    }
+                })
+            }, function () {})
+        }
+    
+        //编辑
+        function editAudit(_this) {
+            // var url = ctx + "/cloud/menu/pageLayout/1053492137947041792?&id=1056813099824189440";
+            //var url = ctx + "/cloud/menu/pageLayout/1053492137947041792"; /crmweb/cloud/menu/pageLayout/1060772627104141312?&id=1061056264802406400
+            //var url = ctx + "";   1060706751331962880
+            var id = $(_this).attr("name");
+            var url = ctx + "/cloud/menu/pageLayout/1060706751331962880?id=" + id;
+            openWindow(url, function () {
+                initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                allInitData();
+            });
+        }
+    
+        //生成采购单
+        function generateOrder(_this) {
+            //var purchaseId = $(_this).attr("orderId");
+            var tableDiv = $(_this).parent().parent().parent().parent().parent().parent();
+            if (tableDiv.find(".purchase_tbody_list").html() == "") {
+                tipsMsg("没有物品信息", "FAIL");
+                return;
+            }
+            var firstLine = tableDiv.find(".first_line");
+            var purchaseId = tableDiv.attr("name"); //申购单id
+            var selectCbx = 0;
+            var goodIdStr = "";
+            for (var i = 0; i < firstLine.length; i++) {
+                var sCbxItem = $(firstLine[i]).find(".s_cbx_item").attr("a");
+                if (parseInt(sCbxItem) == 1) {
+                    var keyId = $(firstLine[i]).find(".s_cbx_item").attr("key");
+                    goodIdStr += keyId + ","; //物品的id
+                } else {
+                    selectCbx++;
+                }
+            }
+            var newGoodStr = goodIdStr.substring(0, goodIdStr.length - 1); //物品的id
+            var mesg = ctx + "/cloud/form/handler/saveSqlSave/1060087141691822080";
+            var data = {
+                product_ids: newGoodStr,
+                order_id: purchaseId
+            }
+            console.log("参数：" + JSON.stringify(data));
+            if (selectCbx == firstLine.length) {
+                tipsMsg("请选中你的物品信息", "FAIL");
+                return;
+            }
+            popMsgTip("是否生成采购单", function () {
+                $.ajax({
+                    url: mesg,
+                    type: "post",
+                    data: data,
+                    success: function (json) {
+                        console.log("生成申购单的数据：" + JSON.stringify(json));
+                        if (json.result == "SUCCESS") {
+                            tipsMsg("已生成采购单!", "SUCCESS");
+                            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                            allInitData();
+                            return;
+                        }
+                        if (json.result == "Failure") {
+                            //tipsMsg(json.resultMsg,"FAIL");
+                            tipsMsg("生成采购单失败", "FAIL");
+                            return;
+                        }
+                    }
+                })
+            }, function () {})
+    
+        }
+    
+        //关闭申购单
+        function closeOrder(_this) {
+            var orderId = $(_this).attr("orderId");
+            var mesg = ctx + "/cloud/form/handler/saveSqlSave/1054194633971601408";
+            var data = {
+                id: orderId
+            }
+            popMsgTip("是否关闭申购单", function () {
+                $.ajax({
+                    url: mesg,
+                    type: "post",
+                    data: data,
+                    success: function (json) {
+                        console.log("关闭申购单获得的数据：" + JSON.stringify(json));
+                        if (json.result == "Failure") {
+                            tipsMsg(json.resultMsg, "FAIL");
+                            return;
+                        }
+                        if (json.result == "SUCCESS") {
+                            tipsMsg("关闭申购单成功", "SUCCESS");
+                            initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                            allInitData();
+                            return;
+                        }
+                    }
+                })
+    
+            }, function () {});
+            /*var url = ctx + "/cloud/menu/pageLayout/1054194633971601408";
+             openWindow(url);*/
+        }
+    
+        //点击申购单详情
+        function purchaseWindow(_this) {
+            var id = $(_this).attr("name"); ///cloud/menu/pageLayout/1063306016587780096?
+            if (statusVal == 0) { //新建
+                var url = ctx + "/cloud/menu/pageLayout/1063306016587780096?&id=" + id;
+                openWindow(url);
+            } else {
+                var url = ctx + "/cloud/menu/pageLayout/1053492137947041792?&id=" + id;
+                openWindow(url);
+            }
+    
+        }
+    
+        //勾选复选框
+        function purchaseChecked(_this) {
+            if ($(_this).hasClass("banCheckBox")) {
+                return;
+            }
+            var a = $(_this).attr("a");
+            if (parseInt(a) == 0) {
+                $(_this).addClass("checkbox-mine-ed").attr("a", "1");
+            } else {
+                $(_this).removeClass("checkbox-mine-ed").attr("a", "0");
+            }
+        }
+    
+    
+        //新增申购单按钮
+        $(".add_purchase").on("click", function () {
+            var url = ctx + "/cloud/menu/pageLayout/1050560618169372672";
+            //var url = ctx+"/cloud/menu/pageLayout/1050560618169372672";
+            openWindow(url, function () {
+                initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+            });
+        });
+    
+        $(document).ready(function () {
+            $(".tab li").click(function () {
+                $(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+                $(".purchase_item").hide().eq($(this).index()).show();
+                //另一种方法: $("div").eq($(".tab li").index(this)).addClass("on").siblings().removeClass('on');
+                var name = $(this).attr("name");
+                if (name == "all_order") {
+                    statusVal = null;
+                    currentPage = 1;
+                    searchTableId = "purchase_item_table";
+                }
+                if (name == "build") {
+                    statusVal = 0;
+                    currentPage = 1;
+                    searchTableId = "build_item_table";
+                }
+                if (name == "wait") {
+                    statusVal = 1;
+                    currentPage = 1;
+                    searchTableId = "wait_item_table";
+                }
+                if (name == "approval") { //审批中
+                    statusVal = 100;
+                    currentPage = 1;
+                    searchTableId = "approval_item_table";
+                }
+                if (name == "already") {
+                    statusVal = 2;
+                    currentPage = 1;
+                    searchTableId = "already_item_table";
+                }
+                if (name == "reject") { //驳回
+                    statusVal = 3;
+                    currentPage = 1;
+                    searchTableId = "reject_item_table";
+                }
+                initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+            });
+        });
+    
+    
+        //分页显示
+        setPage(currentPage, pageRows, null);
+    
+        function setPage(pageCurrent, pageSum, callback) {
+            //var currentPageCount = pageRows;
+            $(".l_pagination .totalPage").html(pageSum);
+            $(".l_pagination .currentPage").html(pageCurrent);
+            var totalCount = pageSum * pageCurrent;
+            $(".l_pagination .totalSize").html(totalCount);
+    
+            $("#pageLimit").bootstrapPaginator({
+                //设置版本号
+                bootstrapMajorVersion: 3,
+                // 显示第几页
+                currentPage: pageCurrent,
+                // 总页数
+                totalPages: pageSum,
+                size: "normal",
+                alignment: "right",
+                numberOfPages: 0,
+                useBootstrapTooltip: true,
+                itemTexts: function (type, page, current) {
+                    switch (type) {
+                        case "first":
+                            return "首页";
+                        case "prev":
+                            return "上一页";
+                        case "next":
+                            return "下一页";
+                        case "last":
+                            return "末页";
+                        case "page":
+                            return page;
+                    }
+                },
+                //当单击操作按钮的时候, 执行该函数, 调用ajax渲染页面
+                onPageClicked: function (event, originalEvent, type, page) {
+                    // 把当前点击的页码赋值给currentPage, 调用ajax,渲染页面
+                    currentPage = page;
+                    $(".show_tbody_table_info").html("");
+                    initData(currentPage, pageRows, searchTableId, keywordStr, statusVal);
+                    callback && callback()
+                }
+            })
+        }
+    
+        //时间戳格式化
+        function updateDateFormat(dateStr) {
+            var time = new Date(dateStr);
+            var y = time.getFullYear(); //年
+            var m = time.getMonth() + 1; //月
+            var d = time.getDate(); //日
+            var h = time.getHours(); //时
+            var mm = time.getMinutes(); //分
+            var s = time.getSeconds(); //秒
+            if (m < 10) {
+                m = "0" + m;
+            }
+            if (d < 0) {
+                d = "0" + d;
+            }
+            var currentDate = y + "-" + m + "-" + d;
+            //var currentDate = y + "-" + m + "-" + d + " " + h + ":" + mm + ":" + s;
+            return currentDate;
+        }
+    </script>

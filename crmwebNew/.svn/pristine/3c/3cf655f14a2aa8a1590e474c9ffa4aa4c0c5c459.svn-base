@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视图显示设置</title>
+    <link rel="stylesheel" href="../../../../src/css/cloud/menu/setting.css">
+    <link rel="stylesheel" href="../../../../src/css/cloud/zTreeStyle/zTreeStyle.css">
+    <link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/itemSetting.css" />
+</head>
+<style>
+
+</style>
+
+<body>
+<div class="content" id="content-wrapper-dialog">
+    <div class="select-warp">
+        <div class="col-xs-12 list-head">
+            <label>已显示</label>
+            <span class="introMsg text-muted">点击设置显示或隐藏，左右拖动设置排列顺序</span>
+        </div>
+        <div class="col-xs-12 column">
+            <ul id="selectedList" class="connectedSortable list ui-sortable">
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="account" menuurl="">资料</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="Contact" menuurl="/genericEntity/recordRelateView">联系人</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="event" menuurl="">跟进</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="Chance" menuurl="/genericEntity/recordRelateView">机会</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="SalesOrder" menuurl="/genericEntity/recordRelateView">订单</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="ReturnMoneyPlan" menuurl="/genericEntity/recordRelateView">回款计划</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="ReturnMoneyRecord" menuurl="/genericEntity/recordRelateView">回款记录</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="Invoice" menuurl="/genericEntity/recordRelateView">开票</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="approval" menuurl="">审批</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="task" menuurl="">任务</li>
+                <li class="settingBtn bg-selected ui-sortable-handle" href="javascript:void(0);" field-name="attachment" menuurl="">文件</li>
+            </ul>
+        </div>
+    </div>
+    <div class="optinal-warp">
+        <div class="col-xs-12 list-head">
+            <label>未显示</label>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-12 column">
+            <ul id="optinalList" class="connectedSortable list ui-sortable">
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="CallRecord" menuurl="">通话记录</li>
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="Account" menuurl="/genericEntity/recordRelateView">客户</li>
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="AccountPool" menuurl="/genericEntity/recordRelateView">公海</li>
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="Privy" menuurl="/genericEntity/recordRelateView">关系人</li>
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="Compete" menuurl="/genericEntity/recordRelateView">竞争</li>
+                <li class="settingBtn bg-optinal ui-sortable-handle" href="javascript:void(0);" field-name="Quote" menuurl="/genericEntity/recordRelateView">报价</li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="bottomBar">
+    <div class="col-xs-12">
+        <!-- 指定用户footer -->
+        <!-- 复选框的选中，意义不大 。可以再各个页面用js判定-->
+        <div class="assign-warp col-xs-5 pull-left">
+            <div class="checkbox pull-left assign-label-warp" style="padding-left:20px;">
+                <label class="checkbox-inline" style="padding-left:0;">
+                    <input id="applyToAll" name="applyToAll" type="checkbox" style="" checked="">更新到全部用户
+                </label>
+                <span class="text-muted" style="margin:0 5px;color:#999">|</span>
+                <label id="assignUser" class="color-base">指定用户</label>
+            </div>
+
+            <div class="applyDiv-warp col-xs-10 assign-input">
+                <div class="applyDiv">
+									<span class="setApply" id="setApply">
+										<i class="fa fa-w fa-plus"></i>&nbsp;指定用户
+									</span>
+                </div>
+            </div>
+            <div class="backApply-warp col-xs-2 assign-input">
+                <i id="backApply" class="fa fa-fw fa-reply" title="返回"></i>
+            </div>
+        </div>
+
+        <div class="pull-right">
+            <div class="checkbox" style="text-align:left;display:inline-block;margin:0;margin-right: 15px;">
+                <label><input id="asyncToMobile" type="checkbox" checked="checked">同步到移动端</label>
+            </div>
+            <button type="button" id="closeModal" class="btn btn-default" style="margin-right:10px;">取消</button>
+            <button type="button" id="saveGridView" class="btn btn-define">确定</button>
+        </div>
+    </div>
+</div>
+<!-- 修改相关项设置 选中字段名称模态框 -->
+<div class="modal fade" id="editName" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:600px;">
+        <div class="modal-content" style="height:210px;">
+            <div class="modal-header" style="background-color: #363D4D;color: #fff;height: 54px;overflow: hidden;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title no-icons" id="itemTitle">编辑相关项名称</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3 form-label">新名称</label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" id="itemName" name="item_name" />
+                        </div>
+                    </div>
+                </div>
+                <!--<button class="btn-link" id="fieldMoreAttr" style="display:none;" onclick="LM.showFieldAttr();$(this).css('display','none');$('#modal_div').modal('hide');">更多字段属性</button>-->
+            </div>
+            <div class="bottomBar" style="float: right;margin-right: 60px;">
+                <button id="saveItemName" type="button" class="btn btn-primary">保存</button>
+                <button class="btn btn-default" data-dismiss="modal" aria-hidden="true" id="cancel" style="margin-right:10px;">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.core.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.excheck.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.exedit.min.js"></script>
+<script src="../../../../src/scripts/js/common/common.js"></script>
+<script src="../../../../src/scripts/js/plug-in/drag/Sortable.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/itemSetting.js"></script>
+
+
+</html>

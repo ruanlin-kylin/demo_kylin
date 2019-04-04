@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>label</title>
+    <!--<link type="text/css" rel="stylesheel" href="../../../../src/css/cloud/menu/label.css">-->
+    <style>
+        .modalHeaderColor {
+            background-color: #337ab7;
+        }
+
+        .textCenter {
+            text-align: center;
+        }
+
+        .textColor {
+            color: #48a1dd
+        }
+
+        .verticalTop {
+            vertical-align: top
+        }
+
+        .labelContainer {
+            padding-top: 10px;
+        }
+
+        .labelContainer input {
+            text-align: center;
+            height: 27px;
+            width: 70px;
+            padding: 0 8px 0 8px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            line-height: 27px;
+            border: solid 1px #bfcfdb;
+            border-radius: 15px 15px 15px 15px;
+            margin-bottom: 5px;
+        }
+
+        .showLable .label {
+            text-align: center;
+            height: 27px;
+            min-width: 70px;
+            padding: 0 8px 0 8px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            line-height: 27px;
+            border: solid 1px #5baa6c;
+            border-radius: 15px 15px 15px 15px;
+            margin-bottom: 5px;
+        }
+
+        /* .labelContainer input_select{
+        border: solid 1px #3221db;
+    }*/
+
+        div.chooseLabelArea .newLabel {
+            text-align: center;
+            height: 27px;
+            padding: 0 8px 0 8px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            line-height: 27px;
+            border: solid 1px #bfcfdb;
+            border-radius: 15px 15px 15px 15px;
+            margin-bottom: 5px;
+        }
+
+        p.textParagraph span {
+            text-align: center;
+            height: 27px;
+            padding: 0 8px 0 8px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            line-height: 27px;
+            border: none;
+            border-radius: 15px 15px 15px 15px;
+            margin-bottom: 5px;
+        }
+
+        input:focus {
+            outline: none;
+            width: auto
+        }
+
+        .chooseLabelArea {
+            display: inline-block;
+            width: 80%;
+            padding: 10px;
+            border: 2px solid #eee;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .middle {
+            vertical-align: middle
+        }
+
+        .label_input_selected {
+            background: #56cadb;
+        }
+
+        /*快速选择标签*/
+
+        .labelContent {
+            width: 500px;
+            height: 300px;
+            border: 2px solid #DDDDDD;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal fade" id="chooseLabelModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel">
+        <div id="Modal" class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header modalHeaderColor">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="addClassModalLabel">
+                        <span>
+                            <span class="middle">选择标签</span>
+                        </span>
+                    </h5>
+                </div>
+                <div class="modal-body" style="overflow: scroll;height: 360px;">
+                </div>
+                <div class="modal-footer textCenter">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--<script type="text/javascript" src="../../../../src/scripts/js/cloud/menu/label.js"></script>-->
+<script>
+    
+</script>
+</html>

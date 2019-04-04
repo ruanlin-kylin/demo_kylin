@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheel" href="../../../../src/scripts/js/jquery/layer/skin/default/layer.css">
+  <link rel="stylesheet" type="text/css" href="../../../../src/scripts/js/jquery/layer/skin/default/css/dx.spa.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../src/scripts/js/jquery/layer/skin/default/css/dx.common.css" />
+  <link rel="dx-theme" data-theme="generic.light" href="../../../../src/scripts/js/jquery/layer/skin/default/css/dx.light.css"/>
+  <link rel="stylesheet" type="text/css" href="../../../../src/components/bootstrap3.3.7/css/bootstrap.min.css">
+  <style>
+    table th,
+    td {
+      padding:0px!important;
+    }
+  </style>
+</head>
+
+<body class="dx-viewport">
+  <div id="count" class="search-con-wrapper" style="height: 50px;width: 70%;position: fixed;background: #f5f5f5;z-index: 100;top: 4px;left: 323px;display:none;">
+    <div class="clearfix" style="height: 25px;">
+      <span class="search-title">状态</span>
+      <ul class="search-price clearfix" style="height:25px;margin:0px;">
+        <li>
+          <a href="/rent/a13-p10">
+                        <span class="search-checkbox iconfont"></span>2000元以下(44)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p13">
+                        <span class="search-checkbox iconfont"></span>2000-3000元(187)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p14">
+                        <span class="search-checkbox iconfont"></span>3000-5000元(1482)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p15">
+                        <span class="search-checkbox iconfont"></span>5000-8000元(1714)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p16">
+                        <span class="search-checkbox iconfont"></span>8000-10000元(751)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p17">
+                        <span class="search-checkbox iconfont"></span>10000元以上(693)
+                    </a>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix" style="height: 25px;">
+      <span class="search-title">状态</span>
+      <ul class="search-price clearfix" style="height:25px;margin:0px;">
+        <li>
+          <a href="/rent/a13-p10">
+                        <span class="search-checkbox iconfont"></span>2000元以下(44)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p13">
+                        <span class="search-checkbox iconfont"></span>2000-3000元(187)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p14">
+                        <span class="search-checkbox iconfont"></span>3000-5000元(1482)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p15">
+                        <span class="search-checkbox iconfont"></span>5000-8000元(1714)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p16">
+                        <span class="search-checkbox iconfont"></span>8000-10000元(751)
+                    </a>
+        </li>
+        <li>
+          <a href="/rent/a13-p17">
+                        <span class="search-checkbox iconfont"></span>10000元以上(693)
+                    </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div id="schedulerContent"></div>
+  <!-- 右侧隐藏面板 -->
+  <div class="right-wrap new-right-wrap before-right-wrap" id="config_btn_panel" style="z-index: 101">
+  </div>
+  <div id="template" style="display: none;"><input></div>
+</body>
+
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/cloud/menu/dx.all.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/date.format.js"></script> 
+<script src="../../../../src/scripts/js/cloud/menu/calendar.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/calendar_oper.js"></script>
+
+</html>

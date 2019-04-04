@@ -1,0 +1,181 @@
+.layout-define {
+  position: relative;
+}
+.ld-left-c {
+  padding-top: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 618px;
+  padding-left: 20px;
+  padding-right: 24px;
+  background: #fff;
+}
+.ld-right-c {
+  padding-left: 632px;
+}
+.ld-left-c .form-label-s {
+  padding-left: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+.ld-left-c .form-label-s label {
+  width: 71px;
+  line-height: 34px;
+}
+.ld-left-c .form-label-s .input {
+  width: 180px;
+}
+.ld-left-c  .select-form-t .input {
+  width: 490px;
+}
+.l-h2 {
+  line-height: 50px;
+}
+.form-set-wrap {
+  border: 1px solid #d4dee5;
+  padding: 14px;
+}
+.form-set-tit {
+  height: 40px;
+  line-height: 40px;
+  background: #dee9f2;
+}
+.form-set-tit span {
+  width: 20%;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: inset -1px 0 0 #cdd9e3;
+  text-align: center;
+}
+.btn-a-href{
+  line-height: 23px;
+}
+.form-set-c span:nth-last-child(1),
+.form-set-tit span:nth-last-child(1) {
+  box-shadow: none;
+}
+.form-set-c {
+  height: 40px;
+  line-height: 40px;
+}
+.form-set-c span {
+  padding-top: 10px;
+  width: 20%;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: inset -1px 0 0 #e9eef1;
+  text-align: center;
+}
+.form-set-c:nth-child(even) {
+  background: #f6f6f6;
+}
+.form-set-c  .fs-t {
+  padding-left: 12px;
+  color: #3a7cb1;
+  padding-top: 0;
+}
+
+.btn-a-href span {
+  margin-right: 20px;
+}
+.btn-a-href em {
+  display: inline-block;
+  vertical-align: top;
+  width: 20px;
+	height: 20px;
+  cursor: pointer;
+  margin-right: 12px;
+  border-radius: 50%;
+	border: solid 1px rgba(152, 166, 175, 1);
+}
+.btn-a-href em.select {
+  background: #48a0dc;
+  border: solid 1px #48a0dc;
+}
+.fb-twrap {
+  border-bottom: 1px solid #bacbd6;
+}
+#fb_content {
+  display: none;
+}
+.fb-twrap span.tit {
+  cursor: pointer;
+  position: relative;
+  line-height: 30px;
+  background: #b2c8d7;
+  float: left;
+  padding-left: 10px;
+  padding-right: 40px;
+  color: #fff;
+  border-radius: 10px 30px 0px 0px;
+}
+.fb-twrap span.def {
+  background: #789cb6;
+}
+.fb-twrap .titInput{
+  width: 36px;
+  padding-left: 1px;
+  border: 0px;
+  background: transparent;
+}
+.fb-twrap span.tit em {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: url("../../img/close-no-circle.png") no-repeat center center;
+}
+
+.select-wrap .custom-select {
+  background: #fff;
+  width: 110px;
+  margin-right: 10px;
+}
+.select-wrap {
+
+}
+.canshu-wrap .custom-select {
+  width: 200px;
+}
+.canshu-wrap .field-tein .input {
+  width: 200px;
+}
+.tj-set-child {
+  margin-bottom: 10px;
+}
+.select-wrap .custom-select .input {
+  width: 72px;
+}
+.canshu-wrap .custom-select .input {
+  width: 160px;
+}
+.fb-content .sm-tit {
+  line-height: 46px;
+}
+.fb-content .del-tj {
+  display: block;
+  width: 20px;
+  height: 35px;
+  cursor: pointer;
+  background: url("../../img/delete-selete.png") no-repeat center center;
+}
+.del-tj-w {
+  display: inline-block;
+  vertical-align: top;
+}
+.edictor4 {
+  display: none;
+}
+
+.fb-content-wrap .fb-content {
+  display: none;
+}
+.fb-content-wrap .fb-conten-s {
+  display: block;
+}
+

@@ -1,0 +1,2462 @@
+<div class="container-fluid">
+
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <style type="text/css">
+                .container-fluid .clearfix {
+                    box-shadow: 0px 0px 0px 0px #ccc inset;
+                }
+
+                .problem-trajectory {
+                    z-index: 10
+                }
+
+                .label_cla {
+                    width: 120px;
+                    text-align: right;
+                }
+
+                .input-group .form-control {
+                    position: relative;
+                    z-index: auto;
+                    float: left;
+                    width: 100%;
+                    margin-bottom: 0;
+                }
+
+                .query-info {
+                    width: 100%;
+                    border: 1px solid #dedede;
+                    border-left: none;
+                    border-bottom: none;
+                }
+
+                .query-info th,
+                .query-info td {
+                    padding: 8px;
+                    color: #666;
+                    text-align: center;
+                    border-left: 1px solid #dedede;
+                    border-bottom: 1px solid #dedede;
+                }
+
+                .query-info .tr {
+                    background-color: #dff0d8;
+                }
+
+                .query-info .tr td {
+                    color: #119000;
+                }
+
+                .toast-top-right {
+                    top: 50px;
+                }
+
+                .col-xs-10,
+                .col-xs-11,
+                .col-xs-12,
+                .col-xs-2,
+                .col-xs-3,
+                .col-xs-4,
+                .col-xs-5,
+                .col-xs-6,
+                .col-xs-7,
+                .col-xs-8,
+                .col-xs-9 {
+                    float: left;
+                }
+
+                .col-xs-10 {
+                    text-align: left;
+                }
+
+                .col-xs-2 {
+                    text-align: right;
+                }
+
+                .col-xs-4 {
+                    text-align: left;
+                }
+
+                .phone_tr .col-xs-2,
+                .phone_tr .col-xs-5 {
+                    padding: 0;
+                }
+
+                .width-20 {
+                    width: 20%;
+                    text-align: right;
+                }
+
+                .width-30 {
+                    width: 30%;
+                    text-align: left;
+                }
+
+                .width-80 {
+                    width: 80%;
+                    text-align: left;
+                }
+
+                .width-80 div {
+                    float: left;
+                }
+
+                .with-header .container-fluid {
+                    margin-bottom: 10px;
+                }
+
+                .with-header .container-fluid .row {
+                    line-height: 34px;
+                }
+
+                .with-header .container-fluid .radio {
+                    margin-top: 6px;
+                    margin-bottom: 0;
+                }
+
+                .modal-dialog {
+                    margin-top: 65px;
+                }
+
+                .input-group-btn .dropdown-menu {
+                    max-height: 200px !important;
+                }
+
+                #xxxxxxx .dropdown-menu {
+                    position: relative;
+                }
+
+                .container-fluid .clearfix {
+                    margin: 0px;
+                    box-shadow: 0px;
+                    box-shadow: 0px 0px 20px 3px #ccc0 inset;
+                }
+
+                body {
+                    background: #ffffff;
+                }
+
+                .list-group {
+                    padding-left: 0;
+                    margin-bottom: 20px;
+                }
+
+                .input-group-addon {
+                    padding: 6px 12px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 1;
+                    color: #555;
+                    text-align: center;
+                    background-color: #fff;
+                    border: 0px solid #ccc;
+                    border-radius: 4px;
+                }
+
+                .modalBody {
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                }
+            </style>
+            <!--<link rel="stylesheet" href="../../../../src/css/prolayer.css">
+<link rel="stylesheet" href="../../../../src/css/prolayer.css">
+<link rel="stylesheet" href="../../../../src/css/problem/style.css" />
+-->
+            <link rel="stylesheet" href="../../../../src/css/problem/problem.css" />
+
+            <!-- 右侧隐藏面板 -->
+            <div class="right-wrap new-right-wrap before-right-wrap" id="config_btn_panel" style="z-index: 101">
+            </div>
+
+            <script type="text/javascript" src="../../../../src/js/problem/problem_detail.js"></script>
+            <div class="common-container modalBody" style="background:#ffffff;overflow-x: auto;">
+
+                <div class="common-content clearfix">
+                    <div key="content_text">
+                        <div class="problem-content">
+                            <div class="problem-con">
+                                <form id="content_text" class="form-horizontal bv-form modal-body ">
+                                    <div class="row" style="padding-top:15px;">
+                                        <div class="col-xs-12">
+                                            <div class="input-group">
+                                                <select class="form-control" id="mobile_dq" style="width: 100px;">
+                                                    <option value="中国大陆" name="中国大陆" code="86"
+                                                        regexp="^(((13[0-9])|(14[0-9])|(17[0-9])|(16[0-9])|(15[0-9])|(18[0-9])|(19[0-9]))\d{8})$">
+                                                        中国大陆 +86</option>
+                                                    <option value="中国香港" name="中国香港" code="852"
+                                                        regexp="^([5|6|8|9])\d{7}$">中国香港 +852</option>
+                                                    <option value="中国台湾" name="中国台湾" code="886"
+                                                        regexp="^([0][9])\d{8}$">中国台湾 +886</option>
+                                                    <option value="中国澳门" name="中国澳门" code="853" regexp="^[6]\d{8}$">中国澳门
+                                                        +853</option>
+                                                </select>
+                                                <span class="input-group-addon"><label class="label_cla">手机/姓名/电话<font
+                                                            color="red" style="margin-left: 3px;">*</font>
+                                                        ：</label></span>
+                                                <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                    <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                        <!-- onfocus="javascript:queryCustomerBase(this);"-->
+                                                        <input class="form-control" isnull="true" isnull_text="手机号码不能为空" onchange="javascript:countB(this);" onblur="javascript:queryCustomerBase(this);"
+                                                            id="mobile" type="text" regexp="^(((13[0-9])|(14[0-9])|(17[0-9])|(16[0-9])|(15[0-9])|(18[0-9])|(19[0-9]))\d{8})$"
+                                                            regexp_text="手机号码格式不正确" placeholder="手机号码">
+                                                        <font color="red" class="msg" style="display:none"></font>
+                                                    </div>
+                                                    <div class="col-xs-3" style="padding-right: 5px;padding-left: 0px;">
+                                                        <input type="text" id="name" isnull="true" isnull_text="姓名不能为空" onblur="javascript:queryCustomerBase(this);" placeholder="姓名/编号"
+                                                            class="form-control">
+                                                        <input id="flag" type="hidden" value="1">
+                                                        <font color="red" class="msg" style="display:none"></font>
+                                                    </div>
+                                                    <div class="col-xs-3" style="padding-right: 5px;padding-left: 0px;">
+                                                        <input type="text" id="phone" placeholder="备用号码" regexp_text="手机号码格式不正确" class="form-control">
+                                                        <font color="red" class="msg" style="display:none"></font>
+                                                    </div>
+                                                    <div class="col-xs-1" style="padding: 6px 0 0;">
+                                                        <input type="reset" id="delSelect" style="display:none;padding: 0px 10px;height: 24px;line-height: 20px;" value="重置">
+                                                    </div>
+                                                    <!--<div class="col-xs-2" style="padding-right: 5px;padding-left: 0px;" id ="isCheck">
+              <input type="button" style="padding: 6px;margin-top: -3px;padding: 0px 20px;border:  0px;text-align:  center;line-height:  35px;background:  rgba(72, 160, 220, 1);color: white;border-radius:  2px;"  title="查询客户是否存在" id="queryCustomerBaseInfo" value="查询">
+              <font color="red"  class="msg"  id="publicMsg" style="display:none"></font>
+          </div>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="baseInfoDiv" style="border: 1px solid #ccc;padding: 5px;margin-top: 5px;">
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">身份证：</label></span>
+                                                    <input class="form-control" onfocus="javascript:countIdCard(this);" onblur="javascript:countIdCard(this);" id="id_card" type="text"
+                                                        validateObj="idcard" placeholder="身份证">
+                                                    <font color="red" class="msg" style="display:none"></font>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">编码：</label></span>
+                                                    <input class="form-control" id="customer_id" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">生日/性别/年龄：</label></span>
+                                                    <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <!--<input class="form-control" onchange="javascript:countAge(this);" id="birthday" type="text" placeholder="出生日期">-->
+                                                            <input class="form-control" type="text" onkeyup="javascript:dateInputKeyUp(this);" onblur="javascript:dateInputBlur(this,countAge);"
+                                                                id="birthday" type="text" placeholder="出生日期">
+                                                        </div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <div class="container-fluid">
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="radio">
+                                                                            <label>
+                                                                                <input type="radio" value="2"
+                                                                                    checked="checked" name="sex"
+                                                                                    id="nv">
+                                                                                <span class="text">女</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        <div class="radio">
+                                                                            <label>
+                                                                                <input type="radio" value="1" name="sex"
+                                                                                    id="nan">
+                                                                                <span class="text">男</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <input class="form-control" id="age" onchange="javascript:countBirthday(this);" regexp="^[0-9]+$" regexp_text="请输入正确的年龄"
+                                                                type="text" placeholder="年龄">
+                                                            <font color="red" class="msg" style="display: none"></font>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="info_source_one" style="border: 1px solid silver;margin-top:15px;background:#eee;">
+                                            <div class="row" style="padding-top:15px;">
+                                                <div class="col-xs-12">
+                                                    <div class="input-group infosourceDiv">
+                                                        <span class="input-group-addon" style="background:#eee;"><label
+                                                                class="label_cla">来源<font color="red"
+                                                                    style="margin-left: 3px;">*</font>：</label></span>
+                                                        <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_source1two" type="text" placeholder="来源1">
+                                                                <input class="form-control" id="info_source1" style="display: none" type="text">
+                                                                <input type="hidden" id="info_source1id" />
+                                                            </div>
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="kfqdtwo" type="text" placeholder="开发渠道">
+                                                                <input class="form-control" id="kfqd" style="display: none" type="text">
+                                                                <input type="hidden" id="kfqdid">
+                                                            </div>
+
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="qdmctwo" type="text" placeholder="渠道名称">
+                                                                <input class="form-control" id="qdmc" style="display: none" type="text">
+                                                            </div>
+                                                            <font color="red" class="msg" style="display: none"></font>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-top:15px;">
+                                                <div class="col-xs-12">
+                                                    <div class="input-group ">
+                                                        <span class="input-group-addon" style="background:#eee;"><label
+                                                                class="label_cla">备用来源：</label></span>
+                                                        <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_source2two" type="text" placeholder="来源2">
+                                                                <input class="form-control" id="info_source2" style="display: none" type="text">
+                                                            </div>
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_source3two" type="text" placeholder="来源3">
+                                                                <input class="form-control" id="info_source3" style="display: none" type="text">
+                                                            </div>
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_source4two" type="text" placeholder="来源4">
+                                                                <input class="form-control" id="info_source4" style="display: none" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <input id="extension2" type="text" style="display: none;">
+                                            <div class="row extension3" style="padding-top:15px;padding-bottom: 15px;">
+                                                <div class="col-xs-12">
+                                                    <div class="input-group info_tg1Div">
+                                                        <span class="input-group-addon" style="background:#eee;"><label
+                                                                class="label_cla">推广方式<font color="red info_g"
+                                                                    style="margin-left: 3px;">*</font>：</label></span>
+                                                        <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_tg1two" type="text" placeholder="推广大类">
+                                                                <input class="form-control" id="info_tg1" style="display: none" type="text">
+                                                                <input type="hidden" id="info_tg1id">
+                                                            </div>
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_tg2two" type="text" placeholder="推广类别">
+                                                                <input class="form-control" id="info_tg2" style="display: none" type="text">
+                                                                <input type="hidden" id="info_tg2id">
+                                                            </div>
+                                                            <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                                <input class="form-control" id="info_tg3two" type="text" placeholder="推广项目">
+                                                                <input class="form-control" id="info_tg3" style="display: none" type="text">
+                                                                <input type="hidden" id="info_tg3id">
+                                                            </div>
+                                                        </div>
+                                                        <font color="red" class="msg" style="display: none"></font>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">市/区/街道：</label></span>
+                                                    <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <input class="form-control" id="area_shitwo" type="text" placeholder="市">
+                                                            <input class="form-control" id="area_shi" style="display: none" type="text">
+                                                            <input type="hidden" id="area_shi_id">
+                                                        </div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <input class="form-control" id="areatwo" type="text" placeholder="区域">
+                                                            <input class="form-control" id="area" style="display: none" type="text">
+                                                            <input type="hidden" id="area_id"></div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;">
+                                                            <input class="form-control" id="area_jdtwo" type="text" placeholder="街道">
+                                                            <input class="form-control" id="area_jd" style="display: none" type="text">
+                                                            <input type="hidden" id="area_jd">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">通讯地址：</label></span>
+                                                    <input class="form-control" id="address" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">QQ/微信/车辆：</label></span>
+                                                    <div class="col-xs-12" style="padding-right: 0px;padding-left: 0px;">
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;"><input class="form-control" id="qq" type="text" placeholder="QQ"></div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;"><input class="form-control" id="wx_number" type="text" placeholder="微信"></div>
+                                                        <div class="col-xs-4" style="padding-right: 5px;padding-left: 0px;"><input class="form-control" id="car_number" type="text" placeholder="车辆信息"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row jsr_class" style="padding-top:15px;">
+                                            <div class="col-xs-6" id="info_name2">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">介绍人：</label></span>
+                                                    <input class="form-control" id="jsr_name" type="text" readonly="readonly">
+                                                    <input class="form-control" type="hidden" id="jsr_id">
+                                                    <font color="red" class="msg" style="display: none"></font>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">介绍人手机：</label></span>
+                                                    <input class="form-control" id="jsr_phone" onblur="javascript:jsr_phoneBase(this);" regexp_text="手机号码格式不正确" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row channel_class" style="padding-top:15px;display:none;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label class="label_cla">渠道联系人<font
+                                                                color="red" style="margin-left: 3px;">*</font>
+                                                            ：</label></span>
+                                                    <input class="form-control" id="channel_contact" type="text" placeholder="渠道联系人" />
+                                                    <input type="hidden" style="padding" id="channel_contact_id" />
+                                                    <input type="hidden" id="channel_contact_name" />
+                                                    <font color="red" class="msg" style="display:none"></font>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label class="label_cla">渠道联系人电话
+                                                            <font color="red" style="margin-left: 3px;">*</font>
+                                                            ：</label></span>
+                                                    <input class="form-control" id="channel_contact_telephone" type="text" placeholder="渠道联系人电话" readonly="readonly" />
+                                                    <font color="red" class="msg" style="display:none"></font>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row channel_class" style="padding-top:15px;display:none;">
+                                            <div class="col-xs-6 channel_class" style="display:none">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label class="label_cla">渠道<font
+                                                                color="red" style="margin-left: 3px;">*</font>
+                                                            ：</label></span>
+                                                    <input class="form-control" id="channel" type="text" placeholder="渠道" />
+                                                    <input style="display: none;" id="channel_name" />
+                                                    <input style="display: none;" id="channel_id" />
+                                                    <font color="red" class="msg" style="display:none"></font>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-6" id="info_name2">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">开发人员：</label></span>
+                                                    <input class="form-control" id="record_owner" type="text">
+                                                    <input class="form-control" style="display: none" id="owner" type="text">
+                                                    <input class="form-control" type="hidden" id="owner_id">
+                                                    <font color="red" class="msg" style="display: none"></font>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">档案编号：</label></span>
+                                                    <input class="form-control" id="file_number" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">预约等级：</label></span>
+                                                    <select id="classification" style="width: 100%;height: 30px;">
+                                                        <option value="一级预约" selected="selected">一级预约</option>
+                                                        <option value="二级预约">二级预约</option>
+                                                        <option value="三级预约">三级预约</option>
+                                                        <option value="四级预约">四级预约</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <label>关注问题：</label>
+                                                <input class="form-control" id="customerLabelObj">
+                                            </div>
+                                        </div>
+
+                                        <!--	<div class="col-xs-6 customer_attr">
+      <div class="input-group">
+             <span class="input-group-addon"><label class="label_cla">客户属性：</label></span>
+          <input class="form-control" id="customer_attr" type="text">
+          <input class="form-control" style="display: none" id="customer_attr" type="text">
+          <input class="form-control" type="hidden" id="customer_attr_type">
+          <font color="red"  class="msg"  style="display: none"></font>       
+     </div>	
+  </div>-->
+                                        <!--	 <span class="input-group-addon"><label class="label_cla">客户属性：</label></span>
+         <select   class="form-control" id="customer_attr" >
+              <option value="纠纷客户">纠纷客户</option>
+              <option value="有效客户">有效客户</option>
+              <option value="空号">空号</option>
+              <option value="号码易主">号码易主</option>
+              <option value="竞争对手">竞争对手</option>
+          </select>  -->
+                                        <!--	<div class="col-xs-6">  
+      <div class="input-group">
+          <span class="input-group-addon"><label class="label_cla">客服：</label></span>
+          <input class="form-control" id="service_pname" type="text">
+          <input class="form-control" type="hidden" id="service_pid">                     
+    </div>	
+  </div>-->
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">大单：</label></span>
+                                                    <input type="radio" name="hm_dd" value='是' checked='checked' />是&nbsp
+                                                    <input type="radio" name="hm_dd" value='否' />否
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">主服务助理：</label></span>
+                                                    <input class="form-control" type="text" id="hm_zfwzl" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">客服助理：</label></span>
+                                                    <input class="form-control" id="hm_kfzl" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">身高cm：</label></span>
+                                                    <input class="form-control" type="text" id="hm_sg" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">体重kg：</label></span>
+                                                    <input class="form-control" id="hm_tz" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">血型：</label></span>
+                                                    <input class="form-control" type="text" id="hm_xx" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">婚姻状况：</label></span>
+                                                    <input class="form-control" id="hm_hxzk" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">经济能力：</label></span>
+                                                    <input class="form-control" type="text" id="hm_jjnl" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">职业：</label></span>
+                                                    <input class="form-control" id="hm_zy" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">美容院类型：</label></span>
+                                                    <input class="form-control" type="text" id="hm_yylx" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">美容院名称：</label></span>
+                                                    <input class="form-control" id="hm_yymc" type="text" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">客户代表：</label></span>
+                                                    <input class="form-control" id="hm_khdb" type="text" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">是否有小孩：</label></span>
+                                                    <input type="radio" name="hm_xh" value='有' checked='checked' />有&nbsp
+                                                    <input type="radio" name="hm_xh" value='无' />无
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row extension" style="padding-top:15px;">
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><label
+                                                            class="label_cla">回访备注：</label></span>
+                                                    <textarea class="form-control" isnull="true" rows="6" id="hm_hfbz"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            <div class="row hand_button_div" style="padding-top:30px;">
+                                <div class="form-group">
+                                    <div class="" style="
+              height: 32px;
+              text-align:  left;
+              margin: 0px 30px;
+          ">
+                                        <input style="padding: 6px;padding: 0px 20px;border: 0px;text-align: center; line-height: 35px;background: rgba(72, 160, 220, 1);color: white;border-radius: 2px;"
+                                            class="btn btn-palegreen" onclick="submitCommit()" type="button" value="确定">                                        &nbsp;&nbsp;
+                                        <input style="padding: 6px;padding: 0px 20px;border: 0px;text-align: center; line-height: 35px;background: rgba(72, 160, 220, 1);color: white;border-radius: 2px;display: none;"
+                                            class="btn btn-palegreen" id="sqEdit" onclick="sqEdit()" type="button" value="申请资料变更">                                        &nbsp;&nbsp;
+                                        <input style="padding: 6px;padding: 0px 20px;border: 0px;text-align: center;line-height: 35px;background: rgb(156, 163, 169);color: white;border-radius: 2px;"
+                                            class="btn " onclick="clickClose()" type="button" value="关闭">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="problem-trajectory" id="problem-trajectory">
+                        <div style="width: 100%;height: 30px;">
+                            <em id="problem_back" class="reg-back-btn" name="0"></em>
+                            <div class="problem-tt-title" style="padding-left: 47px;">轨迹</div>
+                        </div>
+                        <div class="record item_box">
+                            <div class="dateConList" style="overflow-y: auto;overflow-x: hidden;left: 0px;right: 0px;bottom: 110px;top: 10px;">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <script type="application/javascript">
+                /*	$(function() {
+                                var config = {
+                                "type": "label",
+                                "idKey": "客户",
+                                "obj": $("#customerLabelObj")
+                                };
+                                var toolObj = new littleTool(config);
+                                toolObj.initConfig();
+                                });*/
+
+                function sqEdit() {
+                    var name = $("#name").val();
+                    var kfry = $("#owner").val();
+                    var kfry_id = $("#owner_id").val();
+                    var customer_id = $("#customer_id").val();
+
+                    putStorageValue("to_params_value", JSON.stringify({
+                        "名字": name,
+                        "开发人员id": kfry_id,
+                        "开发人员": kfry,
+                        "客人id": customer_id
+                    }));
+
+                    //弹窗后新窗口显示对象标签  &amp;customer_id="+cid+"&amp;showType=1"
+                    openWindow(ctx + "/new/menu/form.jsp?formId=1030623863702032384", function (json) {
+                        console.log("111：" + json);
+                        //<iframe width="100%" height="100%" scrolling="no" frameborder="0" src="./form.html?formId=1028925886671360000"></iframe>
+                    })
+                }
+
+                function openWindow(url, bakFun) {
+                    window.openWindowBanFun = bakFun;
+                    showRightPop("config_btn_panel");
+                    $("#config_btn_panel").html(
+                        '<div class="clearfix head-line"></div><iframe width="100%" height="100%" scrolling="no" frameborder="0" src="' +
+                        url + '"></iframe>');
+                }
+
+                function cloudOpenWindow(isSuccess) {
+                    hideRightPop("config_btn_panel");
+                    if (isSuccess) {
+                        if (window.openWindowBanFun) {
+                            window.openWindowBanFun();
+                        }
+                    }
+                }
+                //检索来源2  1023843598002556928
+                var info_source2Obj = $("#info_source2two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoSIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 1
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.name) {
+                            $("#info_source2").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                //检索来源3
+                var info_source3Obj = $("#info_source3two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoSIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 1
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.name) {
+                            $("#info_source3").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                //检索来源4 1023843598002556928
+                var info_source4Obj = $("#info_source4two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoSIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 1
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.name) {
+                            $("#info_source4").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                var infoSIsChildSetValue;
+                //检索来源
+                var info_source1Obj = $("#info_source1two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoSIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 1
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#info_source1id").val(data.id);
+                            $("#info_source1").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                $(info_source1Obj).on('selectionchange', function (e, m) {
+                    if (!infoSIsChildSetValue) {
+                        infoSIsChildSetValue = 0;
+                        kfqdIsChildSetValue = 0;
+                        $("#kfqdtwo").magicSuggest().clear();
+                        $("#qdmctwo").magicSuggest().clear();
+                        $("#kfqdid").val("");
+                    }
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#info_source1").val("");
+                        $("#info_source1id").val("");
+                    }
+                });
+                //检索渠道
+                var kfqdIsChildSetValue;
+                var kfqdObj = $("#kfqdtwo").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        kfqdIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 2,
+                            parent_id: $("#info_source1id").val()
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#kfqdid").val(data.id);
+                            $("#kfqd").val(data.name);
+                            var info_source1id = $("#info_source1id").val();
+                            if (!info_source1id && data.p_id && data.p_name) {
+                                infoSIsChildSetValue = 1;
+                                $("#info_source1two").magicSuggest().setValue([{
+                                    id: data.p_id,
+                                    name: data.p_name
+                                }]);
+                            }
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                $(kfqdObj).on('selectionchange', function (e, m) {
+                    if (!kfqdIsChildSetValue) {
+                        infoSIsChildSetValue = 0;
+                        kfqdIsChildSetValue = 0;
+                        $("#qdmctwo").magicSuggest().clear();
+                        $("#qdmcid").val("");
+                    }
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#kfqd").val("");
+                        $("#kfqdid").val("");
+                    }
+                });
+                //检索渠道名称
+                var qdmcObj = $("#qdmctwo").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        return {
+                            type: 'SYS_INFOSOURCE',
+                            level: 3,
+                            parent_id: $("#kfqdid").val()
+                        };
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#qdmcid").val(data.id);
+                            $("#qdmc").val(data.name);
+                            var kfqdid = $("#kfqdid").val();
+                            var info_source1id = $("#info_source1id").val();
+                            if (!(kfqdid && info_source1id) && data.p_id && data.p_name && data.pp_id &&
+                                data.pp_name) {
+                                infoSIsChildSetValue = 1;
+                                kfqdIsChildSetValue = 1;
+                                $("#kfqdtwo").magicSuggest().setValue([{
+                                    id: data.p_id,
+                                    name: data.p_name
+                                }]);
+                                $("#info_source1two").magicSuggest().clear();
+                                $("#info_source1two").magicSuggest().setValue([{
+                                    id: data.pp_id,
+                                    name: data.pp_name
+                                }]);
+                            }
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+
+                $(qdmcObj).on('selectionchange', function (e, m) {
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#qdmc").val("");
+                    }
+                });
+
+                //推广大类
+                var infoTgIsChildSetValue;
+                var info_tg1Obj = $("#info_tg1two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoTgIsChildSetValue = 0;
+                        return {
+                            type: 'SYS_TUIGUANG',
+                            level: 1
+                        }
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#info_tg1id").val(data.id);
+                            $("#info_tg1").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                $(info_tg1Obj).on('selectionchange', function (e, m) {
+                    if (!infoTgIsChildSetValue) {
+                        infoTgIsChildSetValue = 0;
+                        infoTg2IsChildSetValue = 0;
+                        $("#info_tg2two").magicSuggest().clear();
+                        $("#info_tg3two").magicSuggest().clear();
+                        $("#info_tg2id").val("");
+                    }
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#info_tg1").val("");
+                        $("#info_tg1id").val("");
+                    }
+                });
+                //推广分类
+                var infoTg2IsChildSetValue;
+                var info_tg2Obj = $("#info_tg2two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        infoTg2IsChildSetValue = 0;
+                        return {
+                            type: 'SYS_TUIGUANG',
+                            level: 2,
+                            parent_id: $("#info_tg1id").val()
+                        };
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#info_tg2id").val(data.id);
+                            $("#info_tg2").val(data.name);
+                            var info_tg1id = $("#info_tg1id").val();
+                            if (!info_tg1id && data.p_id && data.p_name) {
+                                infoTgIsChildSetValue = 1;
+                                $("#info_tg1two").magicSuggest().setValue([{
+                                    id: data.p_id,
+                                    name: data.p_name
+                                }]);
+                            }
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                $(info_tg2Obj).on('selectionchange', function (e, m) {
+                    if (!infoTg2IsChildSetValue) {
+                        infoTgIsChildSetValue = 0;
+                        infoTg2IsChildSetValue = 0;
+                        $("#info_tg3two").magicSuggest().clear();
+                        $("#info_tg3id").val("");
+                    }
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#info_tg2").val("");
+                        $("#info_tg2id").val("");
+                        infoTgIsChildSetValue = 0;
+                        infoTg2IsChildSetValue = 0;
+                    }
+
+                });
+                //推广项目
+                var info_tg3Obj = $("#info_tg3two").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1023843598002556928",
+                    allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                    value: [],
+                    maxSelection: 1, //设置选择个数
+                    valueField: 'name', //定义键值
+                    placeholder: "请选择",
+                    getParams: function () {
+                        return {
+                            type: 'SYS_TUIGUANG',
+                            level: 3,
+                            parent_id: $("#info_tg2id").val()
+                        };
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#info_tg3id").val(data.id);
+                            $("#info_tg3").val(data.name);
+                            var info_tg2id = $("#info_tg2id").val();
+                            var info_tg1id = $("#info_tg1id").val();
+                            if ((!info_tg1id || !info_tg2id) && data.p_id && data.p_name && data.pp_id &&
+                                data.pp_name) {
+                                infoTgIsChildSetValue = 1;
+                                infoTg2IsChildSetValue = 1;
+                                $("#info_tg2two").magicSuggest().setValue([{
+                                    id: data.p_id,
+                                    name: data.p_name
+                                }]);
+                                $("#info_tg1two").magicSuggest().clear();
+                                $("#info_tg1two").magicSuggest().setValue([{
+                                    id: data.pp_id,
+                                    name: data.pp_name
+                                }]);
+                            }
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+                $(info_tg3Obj).on('selectionchange', function (e, m) {
+                    if (!this.getValue() || this.getValue().length == 0) {
+                        $("#info_tg3").val("");
+                    }
+
+                });
+
+                /*	
+                //客户属性
+                $("#customer_attr").magicSuggest({
+                data: ctx + "/cloud/table/list/reader/wordbook/1049841570615922688",   
+                allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                value: [],
+                maxSelection: 1, //设置选择个数
+                valueField: 'name', //定义键值
+                placeholder: "请选择",
+                getParams: function() {
+                return {
+                  parent_id: '102818577037813760088'	
+                };
+                },
+                maxSelectionRenderer: function() {
+                return "";
+                },
+                selectionRenderer: function(data) {
+                if(data.name && data.type) {
+                  $("#customer_attr").val(data.name)
+                  $("#customer_attr_type").val(data.type)
+                }
+                return data.name;
+                },
+                renderer: function(data) {
+                return data.name;
+                }
+                });
+                */
+
+                //开发人员   1021943017331757056
+                $("#record_owner").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/999898295423733760",
+                    allowFreeEntries: true,
+                    autoSelect: true,
+                    value: [],
+                    valueField: "name",
+                    maxSelection: 1, //设置选择个数
+                    placeholder: "请选择",
+                    displayField: "name", //定义显示的字段
+                    getParams: function () {},
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        if (data.id && data.name) {
+                            $("#owner_id").val(data.id);
+                            $("#owner").val(data.name);
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+
+                function inittwo(data) {
+                    var sysparam = getSysParams();
+                    var ext = "";
+                    $("#extension2").val("0")
+                    if (sysparam.modelSetting != null && sysparam.modelSetting != '') {
+                        ext = JSON.parse(sysparam.modelSetting)["extension"];
+                    }
+                    $("#extension2").val(ext)
+                    var extension = $("#extension2").val();
+                    $(".extension").hide();
+                    console.log(extension)
+                    console.log(ext)
+                    if (ext == '1') {
+                        $(".extension").show();
+                        $(".extension3").hide();
+                    }
+
+                    if (data.label) {
+                        $("#customerLabelObj").val(data.label.value);
+
+                        var config = {
+                            "type": "label",
+                            "idKey": "关注问题",
+                            "obj": $("#customerLabelObj")
+                        };
+                        var toolObj = new littleTool(config);
+                        toolObj.initConfig();
+
+                    } else {
+                        var config = {
+                            "type": "label",
+                            "idKey": "关注问题",
+                            "obj": $("#customerLabelObj")
+                        };
+                        var toolObj = new littleTool(config);
+                        toolObj.initConfig();
+                    }
+
+                    $("#customer_id").val(data.customer_id); //编码
+                    $("#customer_id").attr("disabled", true);
+                    $("#name").val(data.name); //客户名称
+                    $("#phone").val(data.phone); //备用号码
+
+                    if (data.id_card) {
+                        $("#id_card").val(data.id_card); //身份证
+                    }
+
+                    $("#address").val(data.address);
+                    $("#qq").val(data.qq);
+                    $("#wx_number").val(data.wx_number);
+                    $("#car_number").val(data.car_number);
+                    $("#jsr_id").val(data.jsr_id);
+                    $("#jsr_name").val(data.jsr);
+                    $("#jsr_phone").val(data.jsr_phone);
+
+                    $("#hm_khdb").val(data.hm_khdb); //客户代表
+                    $("#hm_zfwzl").val(data.hm_zfwzl); //主服务助理
+                    $("#hm_kfzl").val(data.hm_kfzl); //客服助理
+                    $("#hm_sg").val(data.hm_sg); //身高cm
+                    $("#hm_tz").val(data.hm_tz); //体重kg
+                    $("#hm_xx").val(data.hm_xx); //血型
+                    $("#hm_hxzk").val(data.hm_hxzk); //婚姻状况
+                    if (data.hm_xh == '有') {
+                        $("#hm_xh").attr("checked", true); //是否有小孩
+                    } else {
+                        $("#hm_xh").attr("checked", true); //是否有小孩
+                    }
+                    if (data.hm_dd == '是') {
+                        $("#hm_dd").attr("checked", true); //是否有小孩
+                    } else {
+                        $("#hm_dd").attr("checked", true); //是否有小孩
+                    }
+                    $("#classification").val(data.classification)
+
+                    $("#hm_zy").val(data.hm_zy); //职业
+                    $("#hm_jjnl").val(data.hm_jjnl); //经济能力
+                    $("#hm_yylx").val(data.hm_yylx); //美容院类型
+                    $("#hm_yymc").val(data.hm_yymc); //美容院名称
+                    $("#hm_hfbz").val(data.hm_hfbz); //回访备注
+
+                    $("#file_number").val(data.file_number); //档案编号
+
+                    //检索出生日期
+                    laydate.render({
+                        type: "date",
+                        elem: '#birthday',
+                        done: function (value) {
+                            setTimeout(function () {
+                                countAge();
+                            }, 500);
+                        }
+                    });
+
+                    if (data.sex == '1') {
+                        $("#nan").attr("checked", true);
+                    } else if (data.sex == '2') {
+                        $("#nv").attr("checked", true);
+                    }
+                    $("#birthday").val(data.birthday); // 出生日期
+                    console.log(data.birthday)
+
+                    /*		if(data.customer_attr){
+                      
+                          $("#customer_attr").val(data.customer_attr)
+                          $("#customer_attr_type").val(data.customer_attr_type)
+                       $("#customer_attr").magicSuggest().setValue([{name:data.customer_attr}]); 
+                    } 		
+                    
+                    */
+                    $("#age").val(data.age); // 年龄
+
+                    if (data.info_source1) {
+                        $("#info_source1").val(data.info_source1);
+                        $("#info_source1two").magicSuggest().setValue([{
+                            name: data.info_source1
+                        }]); //市
+
+                    }
+                    if (data.kfqd) {
+                        $("#kfqd").val(data.kfqd);
+                        $("#kfqdtwo").magicSuggest().setValue([{
+                            name: data.kfqd
+                        }]); //市
+
+                    }
+                    if (data.qdmc) {
+                        $("#qdmc").val(data.qdmc);
+                        $("#qdmctwo").magicSuggest().setValue([{
+                            name: data.qdmc
+                        }]); //市
+
+                    }
+
+                    if (data.info_source2) {
+                        $("#info_source2").val(data.info_source2);
+                        $("#info_source2two").magicSuggest().setValue([{
+                            name: data.info_source2
+                        }]); //市
+
+                    }
+                    if (data.info_source4) {
+                        $("#info_source4").val(data.info_source4);
+                        $("#info_source4two").magicSuggest().setValue([{
+                            name: data.info_source4
+                        }]); //市
+
+                    }
+                    if (data.info_source3) {
+                        $("#info_source3").val(data.info_source3);
+                        $("#info_source3two").magicSuggest().setValue([{
+                            name: data.info_source3
+                        }]); //市
+
+                    }
+                    if (data.info_tg1) {
+                        $("#info_tg1").val(data.info_tg1);
+                        $("#info_tg1two").magicSuggest().setValue([{
+                            name: data.info_tg1
+                        }]); //市
+
+                    }
+                    if (data.info_tg2) {
+                        $("#info_tg2").val(data.info_tg2);
+                        $("#info_tg2two").magicSuggest().setValue([{
+                            name: data.info_tg2
+                        }]); //市
+
+                    }
+                    if (data.info_tg3) {
+                        $("#info_tg3").val(data.info_tg3);
+                        $("#info_tg3two").magicSuggest().setValue([{
+                            name: data.info_tg3
+                        }]); //市
+
+                    }
+
+                    if (data.owner_id && data.owner) {
+                        $("#record_owner").hide();
+                        $("#owner_id").val(data.owner_id);
+                        $("#owner").val(data.owner);
+                        $("#owner").show();
+                        $("#owner").attr("disabled", true);
+
+                        /* $("#record_owner").magicSuggest().setValue([{id:data.owner_id,name:data.owner}]); //意向项目*/
+                    }
+
+                }
+
+                //通过手机号码检索
+                function jsr_phoneBase(obj) {
+                    var obj = $(obj);
+                    var phone = obj.val();
+                    $.ajax({
+                        type: "post",
+                        url: ctx + "/cloud/table/list/reader/list",
+                        data: {
+                            tableId: "1027378400647450624",
+                            page: 1,
+                            rows: 1,
+                            mark: 1,
+                            phone: phone
+                        },
+                        async: false,
+                        success: function (json) {
+                            if (json.rows && json.rows.length > 0) {
+                                var data = json.rows[0];
+                                $("#jsr_name").val(data.name)
+                                $("#jsr_id").val(data.customer_id)
+                                $("#jsr_phone").val(phone)
+                            } else {
+                                tipsMsg("该电话的介绍人不存在", "FAIL");
+                                $("#jsr_phone").val("")
+                                $("#jsr_name").val("")
+                                $("#jsr_id").val("")
+                            }
+                        }
+                    });
+                }
+                //通过身份证检索
+                function countIdCard(me) {
+                    var me = $(me);
+                    var value = me.val();
+                    if (check.tool.valiIdCar(value)) {
+                        var date = (idcarObj.util.getYear(value) + "-" + idcarObj.util.getMonth(value) + "-" + idcarObj
+                            .util.getDay(value));
+                        var sex = idcarObj.util.getSex(value);
+                        var age = idcarObj.util.getAge(value);
+                        $("#birthday").val(date);
+                        $("#age").val(age);
+                        $("input[name=sex]").each(function (i, obj) {
+                            if ($(obj).val() == "1") {
+                                if (sex == "男") {
+                                    obj.checked = true;
+                                }
+                            } else {
+                                if (sex == "女") {
+                                    obj.checked = true;
+                                }
+                            }
+                        });
+
+                    }
+                }
+
+                //年龄的限制条件
+                function countBirthday(me) {
+                    var me = $(me);
+                    var value = me.val();
+                    if (validateObj(me) && value && (value * 1) > 0) {
+                        var myDate = new Date();
+                        var month = myDate.getMonth() + 1;
+                        var day = myDate.getDate();
+                        var year = myDate.getFullYear() - value;
+                        $("#birthday").val(year + "-" + month + "-" + day);
+                    }
+                }
+
+                //生日  检索
+                function countAge(me) {
+                    var birthday = $("#birthday").val();
+                    if (birthday) {
+                        var birthdayArray = birthday.split("-");
+                        var myDate = new Date();
+                        var month = myDate.getMonth() + 1;
+                        var day = myDate.getDate();
+                        var age = myDate.getFullYear() - (birthdayArray[0] * 1);
+                        if (age > 0) {
+                            if ((birthdayArray[1] * 1) < month || ((birthdayArray[1] * 1) == month && (birthdayArray[2] *
+                                    1) <= day)) {
+                                age++;
+                            }
+                        }
+                        $("#age").val(age);
+                    }
+                }
+
+                function validateObj(obj) {
+                    var id = obj.attr("id");
+                    var isnull = obj.attr("isnull");
+                    var regexp = obj.attr("regexp");
+                    var value = obj.val();
+                    if (isnull == "true") {
+                        if (!value) {
+                            obj.parent().find(".msg").html(obj.attr("isnull_text"));
+                            obj.parent().find(".msg").show();
+                            return false;
+                        }
+                        obj.parent().find(".msg").hide();
+                    } else {
+                        obj.parent().find(".msg").hide();
+                    }
+                    if (value) {
+                        if (id == "mobile") {
+                            var optionObj = $($("#mobile_dq").find("option[value='" + $("#mobile_dq").val() + "']")[0]);
+                            regexp = optionObj.attr("regexp");
+                        } else if (id == "contacts_mobile") {
+                            var optionObj = $($("#contacts_mobile_dq").find("option[value='" + $("#contacts_mobile_dq")
+                                .val() + "']")[0]);
+                            regexp = optionObj.attr("regexp");
+                        }
+
+                        if (regexp) {
+                            var patt1 = new RegExp(regexp);
+                            if (!patt1.test(obj.val()) && !/^([0-9]{3,4}-)?[0-9]{7,8}$/.test(obj.val())) {
+                                obj.parent().find(".msg").html(obj.attr("regexp_text"));
+                                obj.parent().find(".msg").show();
+                                return false;
+                            } else {
+                                obj.parent().find(".msg").hide();
+                            }
+                        }
+                        if (id == "id_card") {
+                            if (!check.tool.valiIdCar(value)) {
+                                obj.parent().find(".msg").html("请输入正确格式的身份证");
+                                obj.parent().find(".msg").show();
+                                return false;
+                            }
+                            obj.parent().find(".msg").hide();
+                        }
+                        if (id == "phone") {
+                            var valueArray = value.split(",");
+                            for (var i = 0; i < valueArray.length; i++) {
+                                if (!/^(((13[0-9])|(14[0-9])|(15[0-9])|(16[0-9])|(17[0-9])|(18[0-9])|(19[0-9]))\d{8})$/
+                                    .test(valueArray[i]) && !/^([0-9]{3,4}-)?[0-9]{7,8}$/.test(valueArray[i])) {
+                                    obj.parent().find(".msg").html("备用号码格式不正确[" + valueArray[i] + "]");
+                                    obj.parent().find(".msg").show();
+                                    return false;
+                                }
+                            }
+                            obj.parent().find(".msg").hide();
+                        }
+                    } else {
+                        obj.parent().find(".msg").hide();
+                    }
+                    return true;
+                }
+
+                function validateData(data) {
+                    var array = [];
+                    array.push($("#mobile"));
+                    array.push($("#name"));
+                    var ph = false;
+                    for (var i = 0; i < array.length; i++) {
+                        if (!validateObj(array[i])) {
+                            return false;
+                        }
+                    }
+
+                    if (data.mobile == data.phone) {
+                        $("#phone").parent().find(".msg").html("备用号码不能与主号码一样");
+                        $("#phone").parent().find(".msg").show();
+                        return false;
+                    }
+                    if (data.age) {
+                        if (data.age < 0) {
+                            $("#age").parent().find(".msg").html("年龄不能小于0岁");
+                            $("#age").parent().find(".msg").show();
+                            return false;
+
+                        } else if (data.age > 150) {
+                            $("#age").parent().find(".msg").html("年龄不能大于150岁");
+                            $("#age").parent().find(".msg").show();
+                            return false;
+                        } else {
+
+                        }
+                    }
+                    if (!data.customer_id) {
+                        tipsMsg("请校先查询客户是否存在", "FAIL");
+                        return false;
+                    }
+                    if (!(data.info_source1 || data.info_source2 || data.info_source3 || data.info_source4)) {
+                        $(".infosourceDiv").find(".msg").html("请选择来源").show();
+                        return false;
+                    } else {
+                        $(".infosourceDiv").find(".msg").hide();
+                    }
+                    if (!(data.info_source1)) {
+                        $(".infosourceDiv").find(".msg").html("请选择来源1").show();
+                        return false;
+                    } else {
+                        $(".infosourceDiv").find(".msg").hide();
+                    }
+                    if (!(data.kfqd)) {
+                        $(".infosourceDiv").find(".msg").html("请选择开发渠道").show();
+                        return false;
+                    } else {
+                        $(".infosourceDiv").find(".msg").hide();
+                    }
+                    if (!(data.qdmc)) {
+                        $(".infosourceDiv").find(".msg").html("请选择渠道名称").show();
+                        return false;
+                    } else {
+                        $(".infosourceDiv").find(".msg").hide();
+                    }
+
+                    var extension = $("#extension2").val();
+                    if (extension == '1' || extension == '8' || extension == '5292') {
+
+                    } else {
+                        if (!(data.info_tg1)) {
+                            $(".info_tg1Div").find(".msg").html("请选择推广大类").show();
+                            return false;
+                        } else {
+                            $(".info_tg1Div").find(".msg").hide();
+                        }
+                        if (!(data.info_tg2)) {
+                            $(".info_tg1Div").find(".msg").html("推广类别").show();
+                            return false;
+                        } else {
+                            $(".info_tg1Div").find(".msg").hide();
+                        }
+                        if (!(data.info_tg3)) {
+                            $(".info_tg1Div").find(".msg").html("推广项目").show();
+                            return false;
+                        } else {
+                            $(".info_tg1Div").find(".msg").hide();
+                        }
+
+                    }
+
+                    return true;
+                }
+                //关闭
+                function clickClose() {
+                    var params = getUrlParams();
+                    if (params.from_mark && params.from_mark == "form") {
+                        //window.parent.cloudOpenWindow(false);
+                        window.parent.closeFBWindow(false);
+                    } else {
+                        window.parent.cloudOpenWindow(false);
+                        //window.parent.closeFBWindow(false);				
+                    }
+                }
+
+                function submitCommit() {
+                    var name = $("#name").val();
+                    var mobile = $("#mobile").val();
+                    var phone = $("#phone").val();
+                    var id_card = $("#id_card").val();
+                    var customer_id = $("#customer_id").val();
+                    var birthday = $("#birthday").val();
+                    var sex = $("input[name=sex]:checked").val();
+                    var address = $("#address").val();
+                    var kfqd = $("#kfqd").val();
+                    var qq = $("#qq").val();
+                    var wx_number = $("#wx_number").val();
+                    var car_number = $("#car_number").val();
+                    var age = $("#age").val();
+                    var jsr = $("#jsr_name").val();
+                    var jsr_id = $("#jsr_id").val();
+                    var jsr_phone = $("#jsr_phone").val();
+                    var service_pid = $("#service_pid").val();
+                    /*	var customer_attr=$("#customer_attr").val();
+                    var customer_attr_type=$("#customer_attr_type").val();*/
+                    //var area=($('#area').magicSuggest().getValue() && $('#area').magicSuggest().getValue().length>0?$('#area').magicSuggest().getValue()[0]:"");
+                    //var area_jd=($('#area_jd').magicSuggest().getValue() && $('#area_jd').magicSuggest().getValue().length>0?$('#area_jd').magicSuggest().getValue()[0]:"");
+                    //var area_shi=($('#area_shi').magicSuggest().getValue() && $('#area_shi').magicSuggest().getValue().length>0?$('#area_shi').magicSuggest().getValue()[0]:"");
+
+                    var area = $("#area").val();
+                    var area_jd = $("#area_jd").val();
+                    var area_shi = $("#area_shi").val();
+
+                    var owner = $("#owner").val();
+                    var owner_id = $("#owner_id").val();
+                    var info_source1 = $("#info_source1").val();
+                    var info_source2 = $("#info_source2").val();
+                    var info_source3 = $("#info_source3").val();
+                    var info_source4 = $("#info_source4").val();
+                    var info_source = {};
+                    if (info_source1) {
+                        info_source["info_source1"] = info_source1;
+                    }
+                    if (info_source2) {
+                        info_source["info_source2"] = info_source2;
+                    }
+                    if (info_source3) {
+                        info_source["info_source3"] = info_source3;
+                    }
+                    if (info_source4) {
+                        info_source["info_source4"] = info_source4;
+                    }
+                    var mobileDqOptionObj = $($("#mobile_dq").find("option[value='" + $("#mobile_dq").val() + "']")[0]);
+                    var dq_name = mobileDqOptionObj.attr("name");
+                    var dq_code = mobileDqOptionObj.attr("code");
+
+                    var info_tg1 = $("#info_tg1").val();
+                    var info_tg2 = $("#info_tg2").val();
+                    var info_tg3 = $("#info_tg3").val();
+                    var kfqd = $("#kfqd").val();
+                    var qdmc = $("#qdmc").val();
+
+                    var hm_khdb = $("#hm_khdb").val();
+                    var hm_zfwzl = $("#hm_zfwzl").val();
+                    var hm_kfzl = $("#hm_kfzl").val();
+                    var hm_sg = $("#hm_sg").val();
+                    var hm_tz = $("#hm_tz").val();
+                    var hm_xx = $("#hm_xx").val();
+                    var hm_hxzk = $("#hm_hxzk").val();
+                    var hm_zy = $("#hm_zy").val();
+                    var hm_jjnl = $("#hm_jjnl").val();
+                    var hm_yylx = $("#hm_yylx").val();
+                    var hm_yymc = $("#hm_yymc").val();
+                    var hm_hfbz = $("#hm_hfbz").val();
+                    var hm_xh = $("input[name='hm_xh']:checked").val();
+                    var hm_dd = $("input[name='hm_dd']:checked").val();
+                    var file_number = $("#file_number").val();
+                    var extension = $("#extension2").val();
+
+                    var customerLabelObj = $("#customerLabelObj").val();
+                    var classification = $("#classification").val();
+                    var data = {
+                        classification: classification,
+                        info_source: JSON.stringify(info_source),
+                        customerLabelObj: customerLabelObj,
+                        extension: extension,
+                        file_number: file_number,
+                        hm_xh: hm_xh,
+                        hm_dd: hm_dd,
+                        hm_khdb: hm_khdb,
+                        hm_zfwzl: hm_zfwzl,
+                        hm_kfzl: hm_kfzl,
+                        hm_sg: hm_sg,
+                        hm_tz: hm_tz,
+                        hm_xx: hm_xx,
+                        hm_hxzk: hm_hxzk,
+                        hm_zy: hm_zy,
+                        hm_jjnl: hm_jjnl,
+                        hm_yylx: hm_yylx,
+                        hm_yymc: hm_yymc,
+                        hm_hfbz: hm_hfbz,
+
+                        dq_code: dq_code,
+                        dq_name: dq_name,
+                        qdmc: qdmc,
+                        kfqd: kfqd,
+                        info_tg3: info_tg3,
+                        info_tg2: info_tg2,
+                        info_tg1: info_tg1,
+                        info_source4: info_source4,
+                        info_source3: info_source3,
+                        info_source2: info_source2,
+                        info_source1: info_source1,
+                        owner: owner,
+                        owner_id: owner_id,
+                        name: name,
+                        mobile: mobile,
+                        phone: phone,
+                        flag: 1,
+                        customer_id: customer_id,
+                        birthday: birthday,
+                        id_card: id_card,
+                        sex: sex,
+                        address: address,
+                        kfqd: kfqd,
+                        qq: qq,
+                        area: area,
+                        area_jd: area_jd,
+                        area_shi: area_shi,
+                        wx_number: wx_number,
+                        car_number: car_number,
+                        age: age,
+                        jsr: jsr,
+                        jsr_id: jsr_id,
+                        jsr_phone: jsr_phone,
+
+                    };
+                    console.log(data)
+
+                    //数据验证
+                    if (!validateData(data)) {
+                        return;
+                    }
+                    var loadMsg = layer.msg("正在加载...", {
+                        icon: 16,
+                        shade: [0.1, '#393D49'],
+                        time: 60000
+                    });
+                    var url = ctx + "/cloud/form/handler/saveSqlSave/1021965916377714688";
+                    $.post(url, data, function (json) {
+                        layer.close(loadMsg);
+                        if (json.result == "SUCCESS") {
+                            tipsMsg("保存成功", "SUCCESS");
+                            //window.parent.cloudOpenWindow(true);
+                            window.parent.closeFBWindow(true);
+
+                        } else {
+                            tipsMsg(json.resultMsg, "FAIL");
+                        }
+                    });
+                }
+
+                function init(data, showType) {
+                    var sysparam = getSysParams();
+                    var ext = "";
+                    $("#extension2").val("0")
+                    if (sysparam.modelSetting != null && sysparam.modelSetting != '') {
+                        ext = JSON.parse(sysparam.modelSetting)["extension"];
+                    }
+                    $("#extension2").val(ext)
+                    var extension = $("#extension2").val();
+                    $(".extension").hide();
+                    console.log(extension)
+                    console.log(ext)
+                    if (ext == '1') {
+                        $(".extension").show();
+                        $(".extension3").hide();
+                    }
+                    if (data.label) {
+                        $("#customerLabelObj").val(data.label.value);
+
+                        var config = {
+                            "type": "label",
+                            "idKey": "客户",
+                            "obj": $("#customerLabelObj")
+                        };
+                        var toolObj = new littleTool(config);
+                        toolObj.initConfig();
+
+                    } else {
+                        var config = {
+                            "type": "label",
+                            "idKey": "客户",
+                            "obj": $("#customerLabelObj")
+                        };
+                        var toolObj = new littleTool(config);
+                        toolObj.initConfig();
+                    }
+                    /*	
+                    if(data.area_shi || data.area || data.area_jd) {
+                    $("#area_shi").val(data.area_shi);
+                    $("#area").val(data.area);
+                    $("#area_jd").val(data.area_jd);
+                    $("#area_shitwo").magicSuggest().setValue([{
+                    name: data.area_shi
+                    }]); //市
+                    $("#areatwo").magicSuggest().setValue([{
+                    name: data.area
+                    }]); //市
+                    $("#area_jdtwo").magicSuggest().setValue([{
+                    name: data.area_jd
+                    }]); //市
+                    } else {
+                    // $("#area_shi").magicSuggest().setValue([{id:city_id,name:city}]); //市
+                    }*/
+                    $("#customer_id").val(data.customer_id); //客户名称
+                    $("#name").val(data.name); //客户名称
+
+                    $("#phone").val(data.phone); //备用号码
+                    $("#customer_id").attr("disabled", true);
+
+                    if (data.id_card) {
+                        $("#id_card").val(data.id_card); //身份证
+                    }
+                    $("#classification").val(data.classification)
+                    $("#hm_khdb").val(data.hm_khdb); //客户代表
+                    $("#hm_zfwzl").val(data.hm_zfwzl); //主服务助理
+                    $("#hm_kfzl").val(data.hm_kfzl); //客服助理
+                    $("#hm_sg").val(data.hm_sg); //身高cm
+                    $("#hm_tz").val(data.hm_tz); //体重kg
+                    $("#hm_xx").val(data.hm_xx); //血型
+                    $("#hm_hxzk").val(data.hm_hxzk); //婚姻状况
+                    $("#hm_zy").val(data.hm_zy); //职业
+                    $("#hm_jjnl").val(data.hm_jjnl); //经济能力
+                    $("#hm_yylx").val(data.hm_yylx); //美容院类型
+                    $("#hm_yymc").val(data.hm_yymc); //美容院名称
+                    $("#hm_hfbz").val(data.hm_hfbz); //回访备注
+                    $("#file_number").val(data.file_number); //回访备注
+                    if (data.hm_xh == '有') {
+                        $("#hm_xh").attr("checked", true); //是否有小孩
+                    } else {
+                        $("#hm_xh").attr("checked", true); //是否有小孩
+                    }
+                    if (data.hm_dd == '是') {
+                        $("#hm_dd").attr("checked", true); //是否有小孩
+                    } else {
+                        $("#hm_dd").attr("checked", true); //是否有小孩
+                    }
+                    //检索出生日期
+                    laydate.render({
+                        type: "date",
+                        elem: '#birthday',
+                        done: function (value) {
+                            setTimeout(function () {
+                                countAge();
+                            }, 500);
+                        }
+                    });
+                    if (data.sex == '1') {
+                        $("#nan").attr("checked", true);
+                    } else if (data.sex == '2') {
+                        $("#nv").attr("checked", true);
+                    }
+                    $("#birthday").val(data.birthday); // 出生日期
+                    /*		if(data.customer_attr){
+                    $("#customer_attr").magicSuggest().setValue([{name:data.customer_attr}]); 
+                    } 	
+                    */
+                    $("#age").val(data.age); // 年龄
+
+                    $("#jsr_id").val(data.jsr_id);
+                    $("#jsr_name").val(data.jsr);
+
+                    $("#jsr_phone").val(data.jsr_phone);
+                    //$("#jsr_phone").attr("disabled",true);
+                    $("#service_pname").val(data.service_pname);
+                    $("#service_pid").val(data.service_pid);
+                    if (data.service_pname) {
+                        $("#service_pname").attr("disabled", true);
+                    }
+
+                    $("#address").val(data.address);
+                    $("#qq").val(data.qq);
+                    $("#wx_number").val(data.wx_number);
+                    $("#car_number").val(data.car_number);
+
+                    $("#record_owner").hide();
+                    $("#owner_id").val(data.owner_id);
+                    $("#owner").val(data.owner);
+                    $("#owner").show();
+                    $("#owner").attr("disabled", true);
+
+                    $("#info_source1two").hide();
+                    $("#info_source1").val(data.info_source1);
+                    $("#info_source1").show();
+                    if (data.info_source1) {
+                        $("#info_source1").attr("disabled", true);
+                    }
+
+                    $("#info_source2two").hide();
+                    $("#info_source2").val(data.info_source2);
+                    $("#info_source2").show();
+                    $("#info_source2").attr("disabled", true);
+
+                    $("#info_source3two").hide();
+                    $("#info_source3").val(data.info_source3);
+                    $("#info_source3").show();
+                    $("#info_source3").attr("disabled", true);
+
+                    $("#info_source4two").hide();
+                    $("#info_source4").val(data.info_source4);
+                    $("#info_source4").show();
+                    $("#info_source4").attr("disabled", true);
+
+                    $("#info_tg1two").hide();
+                    $("#info_tg1").val(data.info_tg1);
+                    $("#info_tg1").show();
+                    if (data.info_tg1) {
+                        $("#info_tg1").attr("disabled", true);
+                    }
+
+                    $("#info_tg2two").hide();
+                    $("#info_tg2").val(data.info_tg2);
+                    $("#info_tg2").show();
+                    if (data.info_tg2) {
+                        $("#info_tg2").attr("disabled", true);
+                    }
+
+                    $("#info_tg3two").hide();
+                    $("#info_tg3").val(data.info_tg3);
+                    $("#info_tg3").show();
+                    if (data.info_tg3) {
+                        $("#info_tg3").attr("disabled", true);
+                    }
+
+                    $("#kfqdtwo").hide();
+                    $("#kfqd").val(data.kfqd);
+                    $("#kfqd").show();
+                    $("#kfqd").attr("disabled", true);
+
+                    $("#qdmctwo").hide();
+                    $("#qdmc").val(data.qdmc);
+                    $("#qdmc").show();
+                    $("#qdmc").attr("disabled", true);
+
+                    if (ext == '1') {} else {
+                        if (sysparam.roleList && sysparam.roleList != null) {
+                            var sys = sysparam.roleList;
+                            for (var i = 0; i < sys.length; i++) {
+                                console.log("角色名是" + sys[i].roleName);
+                                if ('前台主管' == sys[i].roleName) {
+                                    $("#name").attr("disabled", false);
+                                    return
+                                } else {
+                                    $("#name").attr("disabled", true);
+                                }
+                            }
+                        } else {
+                            $("#name").attr("disabled", true);
+                        }
+                    }
+                }
+
+                function initone(data) {
+                    var sysparam = getSysParams();
+                    var province_id = "";
+                    var city = "";
+                    var city_id = "";
+                    if (sysparam.modelSetting != null && sysparam.modelSetting != '') {
+                        province_id = JSON.parse(sysparam.modelSetting)["province_id"];
+                        city = JSON.parse(sysparam.modelSetting)["city"];
+                        city_id = JSON.parse(sysparam.modelSetting)["city_id"];
+                    }
+                    /*	if(data.area_shi) {
+                      $("#area_shi").val(data.area_shi); 
+                          $("#area_shitwo").magicSuggest().setValue([{
+                          name: data.area_shi
+                      }]); //市
+                    }
+                    
+                    if(data.area) {
+                      $("#area").val(data.area); 
+                    $("#areatwo").magicSuggest().setValue([{
+                          name: data.area
+                      }]); //市
+                    }
+                    
+                    if(data.area_jd) {
+                      $("#area_jd").val(data.area_jd); 
+                      $("#area_jdtwo").magicSuggest().setValue([{
+                          name: data.area_jd
+                      }]); //市
+                    }*/
+
+                    console.log(sysparam)
+                    //市
+                    var area_shiChildSetValue;
+                    var area_shiObj = $("#area_shitwo").magicSuggest({
+                        data: ctx + "/cloud/table/list/reader/wordbook/1023121886336258048",
+                        allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个。
+                        //value:[],
+                        value: ([{
+                            id: city_id,
+                            name: city
+                        }]),
+                        maxSelection: 1, //设置选择个数
+                        valueField: 'name', //定义键值
+                        placeholder: "请选择",
+                        getParams: function () {
+                            area_shiChildSetValue = 0;
+                            return {
+                                level: 1,
+                                province_id: province_id
+                            }
+                        },
+                        maxSelectionRenderer: function () {
+                            return "";
+                        },
+                        selectionRenderer: function (data) {
+                            if (data.id && data.name) {
+                                $("#area_shi_id").val(data.id);
+                                $("#area_shi").val(data.name);
+                            }
+                            return data.name;
+                        },
+                        renderer: function (data) {
+                            return data.name;
+                        }
+                    });
+                    $(area_shiObj).on('selectionchange', function (e, m) {
+                        if (!area_shiChildSetValue) {
+                            area_shiChildSetValue = 0;
+                            areaChildSetValue = 0;
+                            $("#areatwo").magicSuggest().clear();
+                            $("#area_jdtwo").magicSuggest().clear();
+                        }
+                        if (!this.getValue() || this.getValue().length == 0) {
+                            $("#area_shi").val("");
+                            $("#area_shi_id").val("");
+
+                        }
+                    });
+                    //区
+                    var areaChildSetValue;
+                    var areaObj = $("#areatwo").magicSuggest({
+                        data: ctx + "/cloud/table/list/reader/wordbook/1023121886336258048",
+                        allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                        value: [],
+                        maxSelection: 1, //设置选择个数
+                        valueField: 'name', //定义键值
+                        placeholder: "请选择",
+                        getParams: function () {
+                            areaChildSetValue = 0;
+                            return {
+                                level: 2,
+                                parent_id: $("#area_shi_id").val(),
+                                province_id: province_id
+                            };
+                        },
+                        maxSelectionRenderer: function () {
+                            return "";
+                        },
+                        selectionRenderer: function (data) {
+                            if (data.id && data.name) {
+                                $("#area_id").val(data.id);
+                                $("#area").val(data.name);
+                                var area_shi_id = $("#area_shi_id").val();
+                                if (!area_shi_id && data.p_id && data.p_name) {
+                                    area_shiChildSetValue = 1;
+                                    $("#area_shitwo").magicSuggest().setValue([{
+                                        id: data.p_id,
+                                        name: data.p_name
+                                    }]);
+                                }
+                            }
+                            return data.name;
+                        },
+                        renderer: function (data) {
+                            return data.name;
+                        }
+                    });
+                    $(areaObj).on('selectionchange', function (e, m) {
+                        if (!areaChildSetValue) {
+                            area_shiChildSetValue = 0;
+                            areaChildSetValue = 0;
+                            $("#area_jdtwo").magicSuggest().clear();
+                            $("#area_jd_id").val("");
+                        }
+                        if (!this.getValue() || this.getValue().length == 0) {
+                            $("#area").val("");
+                            $("#area_id").val("");
+                            area_shiChildSetValue = 0;
+                            areaChildSetValue = 0;
+                        }
+
+                    });
+
+                    //街道
+                    var area_jdObj = $("#area_jdtwo").magicSuggest({
+                        data: ctx + "/cloud/table/list/reader/wordbook/1023121886336258048",
+                        allowFreeEntries: false, //如果你不需要用户自已创建标签，则用这个
+                        value: [],
+                        maxSelection: 1, //设置选择个数
+                        valueField: 'name', //定义键值
+                        placeholder: "请选择",
+                        getParams: function () {
+                            return {
+                                level: 3,
+                                parent_id: $("#area_id").val(),
+                                province_id: province_id
+                            };
+                        },
+                        maxSelectionRenderer: function () {
+                            return "";
+                        },
+                        selectionRenderer: function (data) {
+                            if (data.id && data.name) {
+                                $("#area_jd_id").val(data.id);
+                                $("#area_jd").val(data.name);
+                                var area_shi_id = $("#area_shi_id").val();
+                                var area_id = $("#area_id").val();
+                                if ((!area_id || !area_shi_id) && data.p_id && data.p_name && data.pp_id &&
+                                    data.pp_name) {
+                                    area_shiChildSetValue = 1;
+                                    areaChildSetValue = 1;
+                                    $("#areatwo").magicSuggest().setValue([{
+                                        id: data.p_id,
+                                        name: data.p_name
+                                    }]);
+                                    $("#area_shitwo").magicSuggest().clear();
+                                    $("#area_shitwo").magicSuggest().setValue([{
+                                        id: data.pp_id,
+                                        name: data.pp_name
+                                    }]);
+
+                                }
+                            }
+                            return data.name;
+                        },
+                        renderer: function (data) {
+                            return data.name;
+                        }
+                    });
+                    $(area_jdObj).on('selectionchange', function (e, m) {
+                        if (!this.getValue() || this.getValue().length == 0) {
+                            $("#area_jd").val("");
+                        }
+
+                    });
+
+                    if (data.area_shi || data.area || data.area_jd) {
+
+                        $("#area_shitwo").magicSuggest().setValue([{
+                            name: data.area_shi
+                        }]); //市
+                        $("#areatwo").magicSuggest().setValue([{
+                            name: data.area
+                        }]); //市
+                        $("#area_jdtwo").magicSuggest().setValue([{
+                            name: data.area_jd
+                        }]); //市
+
+                        $("#area_shi").val(data.area_shi);
+                        $("#area").val(data.area);
+                        $("#area_jd").val(data.area_jd);
+                    } else {
+                        // $("#area_shi").magicSuggest().setValue([{id:city_id,name:city}]); //市
+                    }
+
+                }
+
+                //检索渠道联系人
+                var channelObj = $("#channel_contact").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1065069004126687232",
+                    allowFreeEntries: false,
+                    autoSelect: true,
+                    value: [],
+                    valueField: "contact_name",
+                    maxSelection: 1, //设置选择个数
+                    placeholder: "请选择",
+                    displayField: "contact_name", //定义显示的字段
+                    getParams: function () {
+                        return {
+                            channelId: $("#channel_id").val()
+                        };
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        $("#channel_contact_id").parent().find(".msg").hide();
+                        $("#channel_contact_telephone").parent().find(".msg").hide();
+                        $("#channel_contact_id").val(data.contact_id);
+                        $("#channel_contact_name").val(data.contact_name);
+                        $("#channel_contact_telephone").val(data.telephone);
+                        if (!$("#channel_id").val()) {
+                            $("#channel").magicSuggest().setValue([{
+                                id: data.id,
+                                name: data.name,
+                                cascade: "cascade"
+                            }]);
+                        }
+                        return data.contact_name;
+                    },
+                    renderer: function (data) {
+                        return data.contact_name;
+                    }
+                });
+
+                //检索渠道
+                var channelObj = $("#channel").magicSuggest({
+                    data: ctx + "/cloud/table/list/reader/wordbook/1064332990395453440",
+                    allowFreeEntries: false,
+                    autoSelect: true,
+                    value: [],
+                    valueField: "name",
+                    maxSelection: 1, //设置选择个数
+                    placeholder: "请选择",
+                    displayField: "name", //定义显示的字段
+                    getParams: function () {
+                        return {
+                            "notFirst": "notFirst" //不需要显示一级渠道商
+                        };
+                    },
+                    maxSelectionRenderer: function () {
+                        return "";
+                    },
+                    selectionRenderer: function (data) {
+                        $("#channel_id").parent().find(".msg").hide();
+                        var oldChannelId = $("#channel_id").val();
+                        if (oldChannelId != data.id) {
+                            $("#channel_id").val(data.id);
+                            $("#channel_name").val(data.name);
+                            if (!data.cascade) {
+                                $("#channel_contact").magicSuggest().clear();
+                                $("#channel_contact_id").val("");
+                                $("#channel_contact_name").val("");
+                                $("#channel_contact_telephone").val("");
+                            }
+                        }
+                        return data.name;
+                    },
+                    renderer: function (data) {
+                        return data.name;
+                    }
+                });
+
+                $("input").bind("blur", function () {
+                    var obj = $(this);
+                    validateObj(obj);
+                });
+
+                function getChannel(db) {
+                    $(".jsr_class").hide()
+                    $(".channel_class").show()
+                    $(".info_source_one").hide()
+                    if (db.channel_name && db.channel_id) {
+                        $("#channel_name").val(db.channel_name)
+                        $("#channel_id").val(db.channel_id)
+                        $("#channel_name").show()
+                        $("#channel").hide()
+                        $("#channel_name").attr("disabled", true);
+                    }
+                    $("#channel_contact").magicSuggest().setValue([{
+                        contact_id: db.channel_contact_id,
+                        contact_name: db.channel_contact_name,
+                        telephone: db.channel_contact_telephone
+                    }])
+
+                }
+
+                $(function () {
+                    var sysparam = getSysParams();
+                    var ext = "";
+                    $("#extension2").val("0")
+                    if (sysparam.modelSetting != null && sysparam.modelSetting != '') {
+                        ext = JSON.parse(sysparam.modelSetting)["extension"];
+                    }
+                    if (ext != '1') {
+                        $("#sqEdit").show();
+                    }
+
+                    if (ext == '1' || ext == '8' || ext == '5292') {
+                        $(".info_g").hide();
+                    } else {
+                        $(".info_g").show();
+
+                    }
+
+                    var params = getUrlParams();
+                    $("#problem-trajectory").hide();
+                    if (params.customer_id) {
+                        var showType = params.showType;
+                        var data = {
+                            tableId: "1021703228821082112",
+                            id: params.customer_id,
+                            page: 1,
+                            rows: 5
+                        };
+                        var loadMsg = layer.msg("正在加载...", {
+                            icon: 16,
+                            shade: [0.1, '#393D49'],
+                            time: 60000
+                        });
+                        $.post(ctx + "/cloud/table/list/reader/list", data, function (json) {
+                            layer.close(loadMsg);
+                            if (json.rows && json.rows.length > 0) {
+                                var data = json.rows[0];
+                                initone(data)
+                                $("#mobile_dq").find("option[code='" + data.dq_code + "']").attr(
+                                    "selected", true);
+                                if (showType == "2" || ext == "3") {
+                                    var mob = data.mobile.replace(/^([0-9]{3})([0-9]{4})([0-9]*)$/,
+                                        '$1****$3')
+                                    $("#mobile").val(data.mobile); //电话号码
+                                    inittwo(data);
+                                    if (ext == "3") {
+                                        if (data.mobile) {
+                                            $("#mobile").attr("disabled", true);
+                                        }
+                                    }
+                                    if (ext == '3' && data.channel_id) {
+                                        getChannel(data)
+                                    }
+
+                                } else {
+                                    if (data.up_type == "1" && data.vaa01) {
+                                        if (data.mobile) {
+                                            var mob = data.mobile.replace(
+                                                /^([0-9]{3})([0-9]{4})([0-9]*)$/, '$1****$3')
+                                            $("#mobile").val(data.mobile); //电话号码
+                                            $("#mobile").attr("disabled", true);
+                                        }
+
+                                        init(data);
+
+                                    } else {
+                                        if (data.mobile) {
+                                            var mob = data.mobile.replace(
+                                                /^([0-9]{3})([0-9]{4})([0-9]*)$/, '$1****$3')
+                                            $("#mobile").val(data.mobile); //电话号码
+                                            $("#mobile").attr("disabled", true);
+                                        }
+
+                                        inittwo(data);
+                                    }
+                                }
+                                $("#queryCustomerBaseInfo").hide();
+                            } else {
+                                tipsMsg("数据不存在", "FAIL");
+                            }
+                        });
+                        $.post(ctx + "/cloud/table/list/reader/list", {
+                            tableId: "1019389174421131264",
+                            page: 1,
+                            rows: 10,
+                            id: params.customer_id
+                        }, function (json) {
+
+                            if (json.rows && json.rows.length > 0) {
+
+                                for (var i = 0; i < json.rows.length; i++) {
+                                    var data = json.rows[i];
+                                    var t = 1 + i;
+                                    var li1 = $(
+                                        '<div class="dateCon"><div class="datetime"></div><div class="point_finish"></div><div class="bdLeft"></div><div class="dateContent"><div class="itemTop"><div class="navTitle"><span class="statusDone" style="width:300px;display: flex;"></span><span class="status_con"></span><div class="personal" onclick="moreContentClick(this)" name="0" style="display: none;"><span class="more" >更多</span><img class="moreItem" src="../../../../src/img/select-down-arrow.png" style="width: 13px;" alt="更多"></div></div><div class="itemContent default_con_height"></div></div></div></div>'
+                                    );
+                                    $(".dateConList").append(li1);
+
+                                    if (data.handler_time != null && data.handler_time != "") {
+                                        var handler_time = (new Date(data.handler_time).format('MM/dd'));
+                                        li1.find(".datetime").html(handler_time);
+                                    }
+
+                                    var format = "yyyy-MM-dd HH:mm:ss";
+                                    var endTime = new Date().format(format)
+                                    var startTime = (new Date(data.handler_time).format(
+                                        'yyyy-MM-dd HH:mm:ss'));
+                                    var startTimes = startTime.substring(0, 10).split('-');
+                                    var endTimes = endTime.substring(0, 10).split('-');
+                                    startTime = startTimes[1] + '-' + startTimes[2] + '-' + startTimes[
+                                        0] + ' ' + startTime.substring(10, 19);
+                                    endTime = endTimes[1] + '-' + endTimes[2] + '-' + endTimes[0] + ' ' +
+                                        endTime.substring(10, 19);
+                                    //var thisResult = (Date.parse(endTime) - Date.parse(startTime));		时间戳
+                                    //单位为妙
+                                    var thisResult = (Date.parse(endTime) - Date.parse(startTime)) /
+                                        1000;
+                                    //console.log("初1000时间" + thisResult)
+                                    var th = "";
+                                    if (thisResult < 60) {
+                                        th = "刚刚";
+                                    } else if (thisResult < 1800) {
+                                        var th1 = parseInt(thisResult / 60);
+                                        th = "" + th1 + "分钟前";
+                                    } else if (thisResult < 3600) {
+                                        th = "半小时前";
+                                    } else if (thisResult < 86400) {
+                                        var th2 = parseInt(thisResult / 60 / 60);
+                                        th = "" + th2 + "小时前";
+                                    } else if (thisResult < 1296000) {
+                                        var th3 = parseInt(thisResult / 60 / 60 / 24);
+                                        th = "" + th3 + "天前";
+                                    } else if (thisResult => 1296000) {
+                                        th = startTime;
+                                    } else {
+                                        return '异常';
+                                    }
+
+                                    li1.find(".statusDone").html("" + th + "  由:  " + data.handler_by_name +
+                                        " : " + data.type);
+                                    var text = "";
+                                    text += data.remark;
+                                    li1.find(".itemContent").html("<div name='content_mark'>" + text +
+                                        "</div>");
+                                }
+
+                            } else {
+                                //tipsMsg("查询客户数据失败", "FAIL");
+                            }
+
+                            $("div[name=content_mark]").each(function (i, obj) {
+                                obj = $(obj);
+
+                                if (obj.height() > 21) {
+
+                                    obj.parent().parent().find("div[name=0]").show();
+
+                                } else {
+                                    obj.parent().parent().find("div[name=0]").hide();
+
+                                }
+                            });
+
+                        });
+                    } else {
+                        tipsMsg("客户id不存在", "FAIL");
+                    }
+
+                });
+            </script>
+            <!--<div class="defined_page_config" style="display: none;">
+                {"paramsValue":"","objectId":"","objectName":"","contentType":"HTML"}</div>-->
+            
+        </div>
+    </div>
+</div>

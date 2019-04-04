@@ -1,0 +1,52 @@
+.wizard {
+    margin-bottom: 8px;  
+}
+.wizard ul li:first-child {
+    background-clip: padding-box;
+    border-radius: 2px 0px 0px;
+}
+.wizard ul li {
+    float: left;
+    margin: 0;
+    line-height: 33px;
+    position: relative;
+    background: #f5f5f5;
+    color: #d0d0d0;
+    font-size: 12px;
+    cursor: default;
+    -webkit-transition: all .218s ease;
+    -moz-transition: all .218s ease;
+    -o-transition: all .218s ease;
+    transition: all .218s ease;
+    padding-left: 12px;
+    padding-right: 9px;
+}
+.wizard ul li .step {
+    border: 2px solid #e5e5e5;
+    color: #ccc;
+    font-size: 12px;
+    border-radius: 100%;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    text-align: center;
+    margin-right: 7px;
+    margin-left: 2px;
+}
+.jqgrid-rownum{
+}
+.search_field_comp{
+    display: inline-block;
+    margin: 0px 10px;
+    height: 35px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.right-wraps {
+    padding-right: 0px;
+    padding-left: 0px;
+}

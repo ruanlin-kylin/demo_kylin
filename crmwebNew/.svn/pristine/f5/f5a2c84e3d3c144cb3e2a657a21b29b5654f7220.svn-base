@@ -1,0 +1,145 @@
+body {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.common-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: cyan;
+    height: 40px;
+    background-color: #48a0dc;
+    border-bottom: none;
+}
+
+html {
+
+
+    color: #000;
+    background: #f1f5f8;
+    font-family: Arial, 'Microsoft YaHei';
+    font-size: 14px;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+strong {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body {
+    background-color: #f1f5f8;
+}
+
+li {
+    list-style: none;
+}
+
+em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+
+label {
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.right-wrap {
+    /*display: none;*/
+    position: fixed;
+    right: -788px;
+    height: 100%;
+    /*right: 0px;*/
+    top: 52px;
+    background: #fff;
+    width: 788px;
+    padding-right: 30px;
+    padding-left: 24px;
+    box-shadow: -3px 0px 9.5px 0.5px rgba(62, 62, 62, 0.25);
+    top: 40px;
+    right: -910px;
+    width: 632px;
+}
+
+.right-wrap .head-line {
+    padding-top: 12px;
+    border-bottom: 1px solid #d3d3d3;
+    padding-right: 4px;
+    padding-top: 0px;
+}
+
+.right-wrap .hospitalName {
+    font-size: 14px;
+    line-height: 50px;
+    letter-spacing: 0.3px;
+    color: #444444;
+}
+
+.right-wrap .back-btn {
+    float: right;
+    width: 18px;
+    height: 34px;
+    background: url("../../img/back.png") no-repeat center center;
+    cursor: pointer;
+}
+
+.right-wrap-show {
+    right: 0;
+}
+
+.wrapRight {
+    overflow-y: auto;
+    background-color: #fff;
+    width: 642px;
+    height: 100%;
+    padding-right: 20px;
+}
+

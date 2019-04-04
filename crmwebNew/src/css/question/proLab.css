@@ -1,0 +1,204 @@
+::-webkit-scrollbar-track-piece {
+    background-color: #FFF;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    background-clip: padding-box;
+    min-height: 28px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #A0A0A0;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #FFF;
+}
+html {
+    color: #000;
+    font-family: Arial, 'Microsoft YaHei';
+    font-size: 14px;
+}
+html,
+body {
+    height: 100%;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+strong {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+li {
+    list-style: none;
+}
+i,
+em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+label {
+    font-weight: normal;
+}
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+}
+h3 {
+    font-size: 14px;
+    font-weight: normal;
+}
+.wrapContent {
+    width: 882px;
+    height: 790px;
+    padding: 0px 20px 20px 20px;
+}
+.wrapContent .cusInfo {
+    border-bottom: 1px solid #d3d3d3;
+    width: 100%;
+    height: 15%;
+    padding: 15px 0;
+}
+.wrapContent .cusInfo .cusImg {
+    width: 14%;
+    float: left;
+    height: 100%;
+}
+.wrapContent .cusInfo ul {
+    height: 100%;
+}
+.wrapContent .cusInfo ul li {
+    width: 28%;
+    height: 100%;
+    float: left;
+}
+.wrapContent .cusInfo ul li div {
+    width: 100%;
+    height: 33%;
+}
+.wrapContent .cusInfo ul li div i {
+    float: left;
+    text-align: right;
+    width: 30%;
+    color: #444;
+}
+.wrapContent .cusInfo ul li div span {
+    width: 70%;
+    color: #4d6b8c;
+}
+.wrapContent .cuslable {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    font-size: 14px;
+}
+.wrapContent .cuslable ul {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+.wrapContent .cuslable ul li {
+    overflow: hidden;
+}
+.wrapContent .cuslable ul li .itemLable .nameLable {
+    width: 11%;
+    float: left;
+    text-align: right;
+    margin-right: 15px;
+}
+.wrapContent .cuslable ul li .itemLable .insLable {
+    float: left;
+    width: 83%;
+}
+.wrapContent .cuslable ul li .itemLable .insLable .topTitle span {
+    height: 27px;
+    padding: 0 28px 0 14px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    position: relative;
+    line-height: 27px;
+    background-color: #48a0dc;
+    border-radius: 15px 15px 15px 15px;
+    margin-bottom: 5px;
+}
+.wrapContent .cuslable ul li .itemLable .insLable .topTitle em {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url(../../../assetsv1/img/icon_delete.png) no-repeat center center;
+}
+.wrapContent .cuslable ul li .itemLable .insLable .showBox {
+    display: none;
+    padding: 10px 15px;
+    margin-top: 5px;
+    width: 97%;
+    border-radius: 4px 4px 4px 4px;
+    border: solid 1px#d4dee5;
+    min-height: 70px;
+}
+.wrapContent .cuslable ul li .itemLable .insLable .showBox span {
+    height: 27px;
+    padding: 0 14px 0 14px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    line-height: 27px;
+    border: solid 1px #bfcfdb;
+    border-radius: 15px 15px 15px 15px;
+    margin-bottom: 5px;
+}
+.wrapContent .cuslable ul li .itemLable .addItem {
+    float: left;
+    width: 18px;
+    height: 18px;
+    background: url(../../../assetsv1/img/icon_addIcon.png) no-repeat center center;
+}
+.wrapContent .cuslable ul li .itemLable .deleteItem {
+    float: left;
+    width: 18px;
+    height: 18px;
+    background: url(../../../assetsv1/img/icon_deleteRed.png) no-repeat center center;
+}
+.wrapContent .cusMessage {
+    font-size: 14px;
+    padding: 10px;
+    width: 97%;
+    border-radius: 5px;
+    border: solid 1px#d4dee5;
+    resize: none;
+    min-height: 100px;
+}

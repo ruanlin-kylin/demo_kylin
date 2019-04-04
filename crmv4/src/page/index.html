@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="../../src/css/style/index.css"/>  -->
+</head>
+<body>
+<div class="main_page">    
+<!--头部-->
+<!-- ${ require('html-loader!./components/head.html') } -->
+#include("./components/head.html")
+<div class="body-content">
+    <!--左侧导航栏-->
+<!-- ${ require('html-loader!./components/navbar.html') } -->
+#include("./components/navbar.html")
+<div class="right-container index-content">
+    <!-- 这是右侧主体部分 -->
+</div>
+</div>
+    <div id="addMenuContent" class="add-menu-content">
+        <div class="menu-content-head">
+            <span class="title">
+                <span class="icon iconfont icon-gengduo2" style="font-size: 12px;"></span>
+                添加菜单
+            </span>
+            <span class="menu-operate">
+                <button type="button" id="addContentEditBtn" class="edit-button-color" style="display: none;">
+                    <span class="icon iconfont icon-bianji"></span>
+                </button>
+                <button type="button" id="addContentSaveBtn" class="save-button-color">保存</button>
+                <button type="button" id="addContentCancelBtn" class="cancel-button-color">取消</button>
+            </span>
+        </div>
+        <div class="menu-list">
+            <ul class="main-menu" id="addMainMenuList"></ul>
+            <ul class="sub-menu"  id="addSubMenuList"></ul>
+        </div>
+    </div>
+
+    <div id="editMenuContent" class="edit-menu-content">
+        <div class="menu-content-head">
+             <span class="title">
+                <span class="icon iconfont icon-gengduo2" style="font-size: 12px;"></span>
+                编辑菜单
+            </span>
+            <span class="menu-operate">
+                <button type="button" id="editContentSaveBtn" class="save-button-color">保存</button>
+                <button type="button" id="editContentCancelBtn" class="cancel-button-color">取消</button>
+            </span>
+        </div>
+        <div>
+            <table class="custom-menu-list">
+                <thead>
+                <tr>
+                    <th class="per35" style="text-align:left;padding:0 0 0 20px;">名称</th>
+                    <th class="per35">自定义名称</th>
+                    <th class="per30">是否显示</th>
+                </tr>
+                </thead>
+            </table>
+            <div  style="overflow-y: scroll;height: 400px;">
+                <table class="custom-menu-list">
+                    <tbody id="editMenuTbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+#include("./components/common.html")
+<!-- <script type="text/javascript" src="../../src/scripts/js/cloud/index/index.js"></script> -->
+<!-- <script type="text/javascript" src="srcUrl/scripts/js/cloud/index/index.js"></script> -->
+<!-- <script type="text/javascript" src="../../scripts/js/cloud/index/index.js"></script>  -->
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>设置页面</title>
+	<link rel="stylesheel" href="../../../../src/css/cloud/menu/setting.css">
+	<link rel="stylesheel" href="../../../../src/css/cloud/zTreeStyle/zTreeStyle.css">
+	<link type="text/css" rel="stylesheet" href="../../../../src/css/cloud/menu/setting.css" />
+</head>
+<style>
+	.radiox em.select {
+		background: #48a0dc;
+		border: solid 1px #48a0dc;
+	}
+
+	.radiox em.select {
+		padding-top: 5px;
+		border: solid 1px #48a0dc;
+	}
+
+	.radiox em {
+		display: inline-block;
+		vertical-align: top;
+		width: 20px;
+		height: 20px;
+		cursor: pointer;
+		margin-right: 12px;
+		border-radius: 50%;
+		border: solid 1px rgba(152, 166, 175, 1);
+	}
+
+	#field_show_setting {
+		/*	height: 500px;*/
+		overflow-y: auto;
+
+	}
+
+	.form-set-wrap {
+		border: 1px solid #d4dee5;
+		padding: 16px;
+	}
+
+	/***************************视图显示部分样式************************/
+
+	.page-layout {
+		display: flex;
+		width: 100%;
+	}
+
+	/*左侧样式*/
+
+	.show-content {
+		width: 75%;
+	}
+
+	.show-content-header {
+		border-bottom: 1px dashed #eee;
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.show-content-header .show-content-header-operate {
+		float: right;
+		color: #428bca;
+		cursor: pointer;
+	}
+
+	.show-content-header .show-content-header-title {
+		font-size: 18px;
+	}
+
+	.show-content-body {
+		height: 80%;
+	}
+
+	.show-content-body .item {
+		height: 100%;
+	}
+
+	.show-content-body .item .item-title {
+		height: 30px;
+		line-height: 30px;
+		border-bottom: 1px dashed #eee;
+		color: #428bca;
+	}
+
+	.item-title-info {
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.show-content-body .item .item-content {
+		height: 100%;
+		min-height: 40px;
+		padding: 20px 0;
+		overflow: hidden;
+		/*清除子元素浮动导致父元素塌陷的问题*/
+	}
+
+	.show-content-body .item .item-content .left-style {
+		float: left;
+		/*width: 50%;
+				border: 1px dashed rgb(205, 197, 211);*/
+		margin-bottom: 10px;
+		/*border: 1px dashed #CDC5D3;*/
+		position: relative;
+		/*margin-left: 5px;*/
+		/*margin-right: 1px;*/
+		cursor: pointer;
+		display: inline;
+		/*padding: 9px;*/
+		/*border-radius: 2px;*/
+	}
+
+	.left-style .left-content {
+		border: 1px dashed rgb(205, 197, 211);
+		background: #FDFDFD;
+		height: 35px;
+		line-height: 35px;
+		margin-right: 10px;
+		padding-left: 10px;
+	}
+
+	.left-content .flied-name {
+		display: inline-block;
+	}
+
+
+	/*右侧样式*/
+
+	.field-content {
+		flex: 1;
+		border: 1px solid #eee;
+	}
+
+	.field-select-content {
+		padding: 20px;
+		/*box-shadow: 5px 5px 5px #eee;*/
+		/*border: 1px solid #eee;*/
+	}
+
+	.field-content-header .title {
+		height: 30px;
+		line-height: 30px;
+		font-size: 18px;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 20px;
+	}
+
+	.field-list {
+		/*设置右侧字段区域最小高度 */
+		height: 620px;
+		overflow-y: scroll;
+	}
+
+	.field-list .field-list-item {
+		height: 30px;
+		line-height: 30px;
+		border-bottom: 1px solid #eee;
+		cursor: move;
+	}
+
+	.field-list .field-list-item:hover {
+		color: #428bca;
+	}
+
+	.right-style {
+		position: relative;
+		display: block;
+		/*padding: .75rem 1.25rem;*/
+		margin-bottom: -1px;
+		background-color: #fff;
+		/*border: 1px solid rgba(0,0,0,.125);*/
+		cursor: move;
+	}
+
+	.right-style .left-content {
+		border: 1px solid rgba(0, 0, 0, .125);
+		height: 35px;
+		line-height: 35px;
+		margin-right: 10px;
+		padding-left: 10px;
+	}
+
+	.lp3 {
+		padding-left: 3px;
+		;
+	}
+
+	.field-list::-webkit-scrollbar {
+		width: 6px;
+		/*滚动条宽度*/
+		height: 16px;
+		/*滚动条高度*/
+	}
+
+	/*菜单左侧滚动条 自定义 修改颜色*/
+
+	/*定义滚动条轨道 内阴影+圆角*/
+
+	.field-list::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		border-radius: 10px;
+		/*滚动条的背景区域的圆角*/
+		background-color: #fff;
+		/*滚动条的背景颜色*/
+	}
+
+	/*定义滑块 内阴影+圆角*/
+
+	.field-list::-webkit-scrollbar-thumb {
+		width: 6px;
+		height: 10px;
+		background-color: #C2C2C2;
+		border-radius: 3px;
+	}
+
+	.red {
+		color: #ff0000;
+		padding-right: 3px;
+	}
+
+	.per96 {
+		width: 96%;
+	}
+
+	.opeateBtn {
+		float: right;
+		margin-right: 40px;
+		color: #428bca;
+		cursor: pointer;
+	}
+
+	.pl12 {
+		padding-left: 12px;
+		;
+	}
+
+	.lineBarName {
+		padding-left: 12px;
+	}
+
+	.field-hide {
+		opacity: 0.5;
+	}
+
+	.col-12 {
+		width: 100%;
+	}
+
+	.col-6 {
+		width: 50%;
+	}
+
+	.col-4 {
+		width: 33.3%;
+	}
+
+	.col-3 {
+		width: 25%;
+	}
+</style>
+<style type="text/css">
+	/***************************相关项设置部分样式************************/
+
+	#content-wrapper-dialog {
+		padding: 24px;
+	}
+
+	.list {
+		overflow-y: auto;
+	}
+
+	.list-head {
+		height: 30px;
+		line-height: 30px;
+		border-bottom: thin solid #ccc;
+		margin-bottom: 10px;
+	}
+
+	.list-head label:first-child {
+		width: 50px;
+		float: left;
+	}
+
+	.optinal-warp .list-head font {
+		display: inline-block;
+		text-align: center;
+		color: #999999;
+		height: 28px;
+		line-height: 28px;
+		padding: 0 5px;
+		cursor: pointer;
+	}
+
+	.optinal-warp .list-head .active {
+		color: black;
+		border-bottom: 3px solid #0099FF;
+	}
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.bg-optinal,
+	.bg-selected {
+		display: inline-block;
+		/*触发 hasLayout*/
+		background-color: #FFFFFF;
+		margin-right: 2px;
+		margin-bottom: 6px;
+		/*float会导致margin-bottom无效*/
+		border: thin solid #999;
+		border-radius: 4px;
+		float: left;
+	}
+
+	#selectedList {
+		height: 114px;
+		/*overflow-y: auto;*/
+	}
+
+	#selectedList li {
+		color: black;
+		margin: 0 3px 6px;
+	}
+
+	#optinalList {
+		height: 150px;
+		/*overflow-y: auto;*/
+	}
+
+	#optinalList li {
+		color: #999;
+		margin: 0 3px 6px;
+	}
+
+	.ui-sortable-placeholder {
+		width: 60px;
+		height: 30px;
+	}
+
+	.assignUser {
+		color: #999;
+	}
+
+	.footer-warp button.btn {
+		min-width: 80px;
+	}
+
+	.assign-warp {
+		height: 30px;
+		padding-left: 0;
+	}
+
+	.assign-warp #applyToAll {
+		display: inline;
+	}
+
+	.applyDiv-warp {
+		height: 30px;
+		overflow-y: auto;
+	}
+
+	.assign-warp .assign-input {
+		display: none;
+	}
+
+	.assign-warp .backApply-warp {
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.assign-warp .backApply-warp #backApply {
+		color: #0099FF;
+		cursor: pointer;
+	}
+
+	.settingBtn {
+		display: inline-block;
+		margin-bottom: 0;
+		font-weight: normal;
+		text-align: center;
+		vertical-align: middle;
+		cursor: pointer;
+		background-image: none;
+		/*border: 1px solid transparent;*/
+		white-space: nowrap;
+		padding: 6px 12px;
+		font-size: 12px;
+		line-height: 1.42857143;
+		border-radius: 2px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+</style>
+
+<body class="body-padding-top" style="background: #fff;">
+	<div class="config-c">
+		<div class="list-title" style="padding-top: 14px;">
+			<span key="showField" class="def">字段设置</span>
+			<span key="showLayout" style="display:none;">视图显示</span>
+			<span key="aboutItem" style="display:none;">相关项</span>
+		</div>
+		<div class="config-content">
+			<!--显示设置-->
+			<div class="cbox def">
+				<div class="form-set-wrap">
+					<div>
+						<div class="form-set-tit">
+							<span style="width: 15%;" class="fs-tit-t">所有字段</span>
+							<span style="width: 10%;">显示</span>
+							<span style="width: 10%;">搜索</span>
+							<span style="width: 10%;">排序</span>
+							<span style="width: 10%;">固定</span>
+							<span style="width: 15%;">自定义标题</span>
+							<span style="width: 10%;" title="desc or asc">默认排序</span>
+							<span style="width: 10%;">列宽</span>
+							<span style="width: 8%;">快速检索</span>
+						</div>
+						<div id="field_show_setting">
+						</div>
+					</div>
+				</div>
+				<h2 class="arrow-label panel-sm-tit table_button_setting_show_title">按鈕/超链接</h2>
+				<div class="checkbox-mine-wrap table_button_setting_show" style="padding: 8px 0 8px 18px;overflow-y: auto;">
+				</div>
+					<h2 class="arrow-label panel-sm-tit table_setting_show_title">显示设置</h2>
+				<div class="checkbox-mine-wrap table_setting_show" style="padding: 8px 0 8px 18px">
+				</div>
+				<div style="margin-bottom:10px;">
+					<h2 class="arrow-label panel-sm-tit" style="display:inline-block;">单页显示条数</h2>
+					<input name="pageSize" type="text" class="input" value="20" maxlength="6"
+					oninput = "value=value.replace(/[^\d]/g,'')" style="width:100px;height:25px;margin:8px 0px 0px 10px;">
+				</div>
+				<span class="default-btn" style="color:#444;text-align:center;" onclick="javascript:configSubmit(true);">保存</span>
+				<!--<span class="default-btn" style="color:#444;text-align:center;" onclick="javascript:configSubmit(true);">保存&退出</span>-->
+			</div>
+				<!-- **********************************************************视图显示********************************************************** -->
+			<div class="cbox">
+				<div class="page-layout">
+					<div class="show-content">
+						<div class="show-content-header">
+							<div class="show-content-header-operate editLineBarBtn">新建分线栏</div>
+						</div>
+						<div class="show-content-body">
+							<input type="hidden" id="table_list_view_id"/>
+							<div class="item">
+								<ul class="item-content" id="right">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="field-content">
+						<div class="field-select-content">
+							<div class="field-content-header">
+								<div class="title">备选字段</div>
+								<div class="field-list-content">
+									<ul class="field-list" id="left"></ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<span class="default-btn" id="saveLayout">保存布局</span>
+				<!--修改分线栏 -->
+				<div class="modal fade" id="editLineBarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" style="width:600px;">
+						<div class="modal-content">
+							<div class="modal-header" style="color: #fff;height: 54px;overflow: hidden;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title no-icons" id="editLineBarModalTitle">修改分线栏</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-xs-3 form-label">名称</label>
+										<div class="col-xs-8">
+											<input type="text" class="form-control" name="name" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-xs-3"><input name="is_show" value="0" type="checkbox" /></label>
+										<div class="col-xs-8">
+											<label class="checkbox-inline" style="padding-left: 0px;"> 是否默认收起 </label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer" style="text-align:right;">
+								<button type="button" class="btn btn-primary">保存</button>
+								<button class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="margin-right:10px;">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+				<!-- **********************************************************相关项********************************************************** -->
+			<div class="cbox">
+				<div id="content-wrapper-dialog">
+					<div class="select-warp">
+						<input type="hidden" id="table_list_about_item_id"/>
+						<div class="col-xs-12 list-head">
+							<label>已显示</label>
+							<span class="introMsg text-muted">点击设置显示或隐藏，左右拖动设置排列顺序</span>
+						</div>
+						<div class="col-xs-12 column">
+							<ul id="selectedList" class="connectedSortable list ui-sortable">
+							</ul>
+						</div>
+					</div>
+					<div class="optinal-warp">
+						<div class="col-xs-12 list-head">
+							<label>未显示</label>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-xs-12 column">
+							<ul id="optinalList" class="connectedSortable list ui-sortable">
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<span class="default-btn" id="saveAboutItem">保存相关项</span>
+				<!-- 修改相关项设置 选中字段名称模态框 -->
+				<div class="modal fade" id="editAboutItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog" style="width:600px;">
+						<div class="modal-content">
+							<div class="modal-header" style="color: #fff;height: 54px;overflow: hidden;">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title no-icons" id="editAboutItemModalTitle">编辑相关项名称</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-xs-3 form-label">新名称</label>
+										<div class="col-xs-8">
+											<input type="text" class="form-control" name="name" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer" style="text-align:right;">
+								<button type="button" class="btn btn-primary">保存</button>
+								<button class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="margin-right:10px;">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+#include("../../components/common.html")
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.core.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.excheck.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/ztree/jquery.ztree.exedit.min.js"></script>
+<script src="../../../../src/scripts/js/common/common.js"></script>
+<script src="../../../../src/scripts/js/plug-in/drag/Sortable.min.js"></script>
+<script src="../../../../src/scripts/js/cloud/menu/setting.js"></script>
+
+
+</html>

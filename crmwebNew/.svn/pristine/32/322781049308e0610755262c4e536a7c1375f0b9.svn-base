@@ -1,0 +1,104 @@
+<div class="head-container">
+    <span class="logo">
+        <img class="logo-lg back_logo" src="../../images/common/head/logo.png" alt="">
+    </span>
+    <span class="head-operate slide-nav">
+        <span class="icon iconfont icon-caidan" style="display:inline-block;width: 24px;font-size:24px;"></span>
+    </span>
+    <div class="index-menu"></div>
+    <span class="head-operate headMenu" style="display: none;">
+        <span class="icon iconfont icon-jiahao2" style="display:inline-block;width: 20px;font-size:20px;"></span>
+    </span>
+
+    <div class="user-seting">
+        <div class="head-operate appointment">
+            <span class="icon iconfont icon-trans-copy-copy"></span>
+        </div>
+        <div class="head-operate hospital" style="border: 0;">
+            <span class="icon iconfont icon-yiyuan" style="font-size: 20px;"></span>
+        </div>
+        <div class="hospital-content" style="min-width: 158px;position: relative;display: inline-block;">
+            <div class="hospital-name">
+                <a href="javascript:void(0)" onclick="return false;" class="select2-choice" tabindex="-1">
+                    <span class="select2-chosen"></span>
+                </a>
+                <em class="slide-child"></em>
+            </div>
+            <div  class="select-hospital-content" style="display:none;position: absolute;top: 54px;left: -36px;background:#fff;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);z-index: 9;">
+                <div class="hospital-search-content" style="position: relative;">
+                    <input type="text" id="searchHospital" style="display: inline-block;margin: 10px;width: 173px;background-color: #eef2f3;border-radius: 15px;padding-left: 20px;height: 30px;outline: 0;border: 0;"/>
+                    <em class="query-hospital" onclick="searchHospital()"></em>
+                </div>
+                <ul class="hospital-list">
+                    <!--<li style="text-align: left;height: 30px;line-height: 30px;padding-left: 15px;">龙虎山药业</li>-->
+                    <!--<li style="text-align: left;height: 30px;line-height: 30px;padding-left: 15px;">云南婴吉利妇</li>-->
+                    <!--<li style="text-align: left;height: 30px;line-height: 30px;padding-left: 15px;">广州市中山大</li>-->
+                    <!--<li style="text-align: left;height: 30px;background-color: #d1d1d1;line-height: 30px;padding-left: 15px;">哈尔滨和美妇产医院</li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="account-content" style="display: inline-block;position: relative;min-width: 180px;border-left:1px solid #5fa0fb;height: 53px;">
+            <span class="user-name" title="">
+                <img src="../../images/common/icon_admin.png" alt="">
+                <span class="account-name" style="padding-left: 0;"></span>
+            </span>
+            <span class="icon iconfont icon-gengduo1" style="font-size: 20px;padding: 0;"></span>
+            <ul class="dropdown-content accountMenu" style="position: absolute;top: 54px;left: 38px;">
+                <li class="version">
+                    <span class="icon iconfont icon-banbenjiance" style="color: #3d84c6;padding-right:0;"></span>
+                    <span class="text pl9">版本检测</span>
+                </li>
+                <li class="editPassword" onclick="showUpdatePwdModal()">
+                    <span class="icon iconfont icon-xiugaimima"  style="color: #3d84c6;padding-right:0;"></span>
+                    <span class="text pl9">修改密码</span>
+                </li>
+                <li>
+                    <div class="" id="batchFollowUpDiv">
+                        <span class="icon iconfont icon-tuichu" style="color: #ff4646;padding-right:0;"></span>
+                        <span class="text batchFollowUp pl9" id="batchFollowUp">注销</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+  <!--修改密码模态框-->
+<div class="modal fade" id="myModal30" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">修改</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form30">
+                    <input  type="reset" name="reset" style="display:none" />
+                    <input  type="hidden" name="id" />
+                    <div class="form-group">
+                        <label for="xsinput">原密码</label>
+                        <input type="password" class="form-control input-sm"  name="pwd" />
+                    </div>
+                    <div class="form-group">
+                        <label for="xsinput">新密码</label>
+                        <input class="form-control input-sm"  name="pwd1" type="password"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="xsinput">确认密码</label>
+                        <input class="form-control input-sm"  name="pwd2" type="password"/>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="updatePwd();">
+                    <span class="glyphicon glyphicon-floppy-disk"></span>保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

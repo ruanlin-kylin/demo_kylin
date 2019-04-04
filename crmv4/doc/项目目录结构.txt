@@ -1,0 +1,32 @@
+﻿1.项目下载后用node或nginx开启本地服务
+2.编写当前页面的jquery时，统一用严格模式 即 "use strict"
+3.前端ui框架bootstrap、layui
+4.index:入口页面
+
+5.src文件目录结构：
+      assets:存放静态文件
+      page:存放静态页面  index.html首页
+            components:公共页面
+            behind：后台页面
+            cloud:前台页面
+      js目录：
+            behind：后台页面的js
+            cloud:前台页面的js
+            jquery:公用框架js
+            plug-in:插件js
+            request:封装ajax请求
+            common:公共方法
+      css目录：
+            behind：后台页面的css
+            cloud:前台页面的css
+            common:公共样式
+            style:公用框架css
+            plug-in:公用插件css
+      images目录：
+            button-icon:按钮图标
+            common:公共图标
+      components:公共UI框架
+
+
+
+      ${ require('html-loader!../../components/common.html') }  改为  #include("../../components/common.html")

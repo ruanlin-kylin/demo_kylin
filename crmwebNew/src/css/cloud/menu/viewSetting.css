@@ -1,0 +1,186 @@
+.page-layout{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/*左侧样式*/
+.show-content{
+    width: 75%;
+    padding: 20px;
+}
+.show-content-header{
+    border-bottom: 1px dashed #eee;
+    height: 30px;
+    line-height: 30px;
+}
+.show-content-header .show-content-header-operate{
+    float: right;
+    color: #428bca;
+    cursor: pointer;
+}
+
+.show-content-header .show-content-header-title{
+    font-size: 18px;
+}
+
+.show-content-body{
+    height:85%;
+    padding: 20px 0;
+}
+.show-content-body .item {
+    height:100%;
+}
+.show-content-body .item .item-title{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed #eee;
+    color: #428bca;
+}
+.item-title-info{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.show-content-body .item .item-content{
+    height:100%;
+    min-height:40px;
+    padding: 20px 0;
+    overflow:hidden;    /*清除子元素浮动导致父元素塌陷的问题*/
+}
+
+.show-content-body .item .item-content .left-style{
+    float: left;
+    /*width: 50%;
+    border: 1px dashed rgb(205, 197, 211);*/
+    margin-bottom: 10px;
+    /*border: 1px dashed #CDC5D3;*/
+    position: relative;
+    /*margin-left: 5px;*/
+    /*margin-right: 1px;*/
+    cursor: pointer;
+    display: inline;
+    /*padding: 9px;*/
+    /*border-radius: 2px;*/
+}
+
+.left-style .left-content{
+    border: 1px dashed rgb(205, 197, 211);
+    background: #FDFDFD;
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+    padding-left:10px ;
+}
+
+.left-content .flied-name{
+    display: inline-block;
+}
+
+
+/*右侧样式*/
+.field-content{
+    flex: 1;
+    border: 1px solid #eee;
+    box-shadow: 5px 5px 5px #eee;
+}
+.field-select-content{
+    padding: 20px;
+    /*box-shadow: 5px 5px 5px #eee;*/
+    /*border: 1px solid #eee;*/
+}
+.field-content-header .title{
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+.field-list{
+    /*设置右侧字段区域最小高度 */
+    height: 700px;
+    overflow-y: scroll;
+}
+.field-list .field-list-item{
+    height: 30px;
+    line-height:30px;
+    border-bottom: 1px solid #eee;
+    cursor:move;
+}
+.field-list .field-list-item:hover{
+    color: #428bca;
+}
+
+.right-style {
+    position: relative;
+    display: block;
+    /*padding: .75rem 1.25rem;*/
+    margin-bottom: -1px;
+    background-color: #fff;
+    /*border: 1px solid rgba(0,0,0,.125);*/
+    cursor: move;
+}
+.right-style .left-content{
+    border: 1px solid rgba(0,0,0,.125);
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+    padding-left:10px ;
+}
+.lp3{
+    padding-left: 3px;;
+}
+
+.field-list::-webkit-scrollbar
+{
+    width: 6px;  /*滚动条宽度*/
+    height: 16px;  /*滚动条高度*/
+}
+/*菜单左侧滚动条 自定义 修改颜色*/
+/*定义滚动条轨道 内阴影+圆角*/
+.field-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;    /*滚动条的背景区域的圆角*/
+    background-color: #fff; /*滚动条的背景颜色*/
+}
+
+/*定义滑块 内阴影+圆角*/
+.field-list::-webkit-scrollbar-thumb
+{
+    width: 6px;
+    height: 10px;
+    background-color: #C2C2C2;
+    border-radius: 3px;
+}
+.red{
+    color: #ff0000;
+    padding-right: 3px;
+}
+.per96{
+    width: 96%;
+}
+.opeateBtn{
+    float: right;
+    margin-right: 40px;
+    color: #428bca;
+    cursor: pointer;
+}
+.pl12{
+    padding-left: 12px;;
+}
+.lineBarName{
+    padding-left: 12px;
+}
+.col-12{
+    width:100%;
+}
+.col-6{
+    width:50%;
+}
+.col-4{
+    width:33.3%;
+}
+.col-3{
+    width:25%;
+}

@@ -1,0 +1,410 @@
+.float_window_pop {
+    position: absolute;
+    background: #7fbce6;
+    z-index: 1000;
+    left: 0px;
+    top: 0px;
+    width: 40px;
+    height: 230px;
+}
+
+.conditin_classification {
+    color: white;
+    font-size: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: solid 1px rgba(212, 222, 229, 1);
+}
+
+.float_window_pop .all_reservation {
+    background: #f6ff8c;
+    color: #000;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 13px 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 25px;
+    margin: 0px auto;
+    margin-top: 13px;
+}
+
+.l_float_pop .float_pop_list {
+    background: rgba(127, 188, 230, 0.6);
+    width: 105px;
+    height: 230px;
+    position: absolute;
+    z-index: 10001;
+    text-align: center;
+    transform: translate(-110px, 0px);
+    transition-duration: .5s;
+}
+
+.float_pop_list .pop_list_item {
+    background: #48a0dc;
+    color: #ffffff;
+    padding: 5px 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+.time-before {
+    display: none;
+}
+
+/* .time-date {
+   display: none;
+} */
+
+.table>tbody>tr>td {
+    padding: 1px;
+    line-height: 30px;
+}
+
+.search_field_comp {
+    display: inline-block;
+    margin: 0px 10px;
+    height: 35px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ui-jqgrid-pager .ui-paging-info {
+    margin-right: 20px !important;
+}
+
+table td {
+    border: 0px;
+}
+
+.float_window_pop {
+    position: absolute;
+    background: #7fbce6;
+    z-index: 1000;
+    left: 0px;
+    top: 0px;
+    width: 40px;
+    height: 230px;
+}
+
+.conditin_classification {
+    color: white;
+    font-size: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: solid 1px rgba(212, 222, 229, 1);
+}
+
+.float_window_pop .all_reservation {
+    background: #f6ff8c;
+    color: #000;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    padding: 13px 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 25px;
+    margin: 0px auto;
+    margin-top: 13px;
+}
+
+.l_float_pop .float_pop_list {
+    background: rgba(127, 188, 230, 0.6);
+    width: 105px;
+    height: 230px;
+    position: absolute;
+    z-index: 10001;
+    text-align: center;
+    transform: translate(-110px, 0px);
+    transition-duration: .5s;
+}
+
+.float_pop_list .pop_list_item {
+    background: #48a0dc;
+    color: #ffffff;
+    padding: 5px 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#profile-field {
+    width: 100%;
+    height: 60%;
+    padding: 0px;
+    margin: 0px;
+}
+
+#profile-field .main {
+    width: 99%;
+    height: 100%;
+    position: relative;
+    margin: 0px 5px;
+}
+
+#profile-field .btns {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+}
+
+#profile-field .tab_btn {
+    width: 80px;
+    padding: 5px 8px;
+    background-color: rgba(68, 202, 203, 1);
+    border: 0;
+    float: left;
+    text-align: center;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -mz-border-radius: 5px;
+    cursor: pointer;
+}
+
+#profile-field .tab_btn:hover {
+    background-color: rgba(68, 202, 203, 0.8);
+}
+
+#profile-field .tablediv {
+    top: 0px;
+    bottom: 176px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
+}
+
+#profile-field .tables {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    top: 50px;
+    border: 1px solid #cccccc
+}
+
+#profile-field .tables .table {
+    width: 800px;
+    border-bottom: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+}
+
+#profile-field table,
+table td,
+table th {
+    /*border: 1px solid #cccccc;*/
+    border-collapse: collapse;
+}
+
+.tables thead {
+    background: #f6f6f6;
+}
+
+#profile-field .tables thead th:not(:first-child) {
+    border-left: 1px solid #ccc;
+    height: 35px;
+    line-height: 35px;
+}
+
+#profile-field .tablse tbody {
+    width: 100%;
+}
+
+#profile-field .tables tbody td {
+    padding: 5px;
+}
+
+#profile-field .key_class {
+    width: 90%;
+    height: 30px;
+    border: 1px solid #f6f6f6;
+    font-size: 14px;
+}
+
+#profile-field .key_name_td {
+    width: 150px;
+}
+
+#profile-field .key_type_td {
+    width: 150px;
+}
+
+#profile-field .key_length_td {
+    width: 100px;
+}
+
+#profile-field .decimal_point_td {
+    width: 100px;
+}
+
+#profile-field .is_null {
+    width: 150px;
+}
+
+#profile-field .is_open {
+    width: 150px;
+}
+
+#profile-field .trBg {
+    background: #f6f6f6;
+}
+
+#profile-field .showTableInfo {
+    width: 100%;
+    height: 170px;
+    border-top: 1px solid #CCCCCC;
+    margin: 5px 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+#profile-field .show_tab_tr {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+#profile-field .default_title {
+    width: 120px;
+    float: left;
+    padding-left: 10px;
+}
+
+#profile-field .default_txt {
+    float: left;
+    width: 380px;
+}
+
+#profile-field .default_txt .input_txt {
+    width: 100%;
+    padding: 5px 8px;
+}
+
+#tab-main .ztree * {
+    font-family: "微软雅黑", "宋体", Arial, "Times New Roman", Times, serif;
+}
+
+#tab-main .ztree {
+    padding: 0;
+    border-left: 1px solid #E3E3E3;
+    border-right: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+}
+
+#tab-main .ztree li a {
+    vertical-align: middle;
+    height: 32px;
+    padding: 0px;
+}
+
+#tab-main .ztree li>a {
+    width: 100%;
+}
+
+#tab-main .ztree li a.curSelectedNode {
+    padding-top: 0px;
+    background-color: #FFE6B0;
+    border: 1px #FFB951 solid;
+    opacity: 1;
+    height: 32px;
+}
+
+#tab-main .ztree li ul {
+    padding-left: 0px
+}
+
+#tab-main .ztree div.divTd span {
+    /*line-height: 30px;*/
+    line-height: 28px;
+    vertical-align: middle;
+}
+
+#tab-main .ztree div.divTd {
+    height: 100%;
+    line-height: 30px;
+    border-top: 1px solid #E3E3E3;
+    border-left: 1px solid #E3E3E3;
+    text-align: center;
+    display: inline-block;
+    color: #6c6c6c;
+    overflow: hidden;
+}
+
+#tab-main .ztree div.divTd:first-child {
+    text-align: left;
+    text-indent: 10px;
+    border-left: none;
+}
+
+#tab-main .ztree .head {
+    background: #E8EFF5;
+}
+
+#tab-main .ztree .head div.divTd {
+    color: #393939;
+    font-weight: bold;
+}
+
+#tab-main .ztree .ck {
+    padding: 0 5px;
+    margin: 2px 3px 7px 3px;
+}
+
+#tab-main li:nth-child(odd) {
+    background-color: #F5FAFA;
+}
+
+#tab-main li:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
+#tab-main #list_grid {
+    width: 100% !important;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#tab-main .ui-jqgrid-hdiv .ui-jqgrid-hbox {
+    width: 100% !important;
+}
+
+#tab-main .ui-jqgrid-hbox .table {
+    width: 100% !important;
+}
+
+#tab-main .ui-jqgrid .ui-jqgrid-hbox {
+    padding-right: 0px !important;
+}
+
+#list_gridPager table td {
+    border: 0px;
+}

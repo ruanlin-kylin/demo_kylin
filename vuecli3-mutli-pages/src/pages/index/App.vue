@@ -9,18 +9,18 @@
       <el-button @click="toUser">Go To User</el-button>
       <el-button @click="toCustomer">Go To Customer</el-button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
     <!-- 基础用法 -->
-    <v-icon name="beer"/>
+    <v-icon name="beer" />
     <!-- 添加选项 -->
-    <v-icon name="sync" scale="2" spin/>
-    <v-icon name="comment" flip="horizontal"/>
-    <v-icon name="code-branch" label="Forked Repository"/>
+    <v-icon name="sync" scale="2" spin />
+    <v-icon name="comment" flip="horizontal" />
+    <v-icon name="code-branch" label="Forked Repository" />
 
     <!-- 堆叠图标 -->
     <v-icon label="No Photos">
-      <v-icon name="camera"/>
-      <v-icon name="ban" scale="2" class="alert"/>
+      <v-icon name="camera" />
+      <v-icon name="ban" scale="2" class="alert" />
     </v-icon>
   </div>
 </template>

@@ -6,7 +6,7 @@
       </p>
       <el-button @click="toIndex">返回首页</el-button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 

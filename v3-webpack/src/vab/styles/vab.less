@@ -1,0 +1,27 @@
+@import './normalize.less';
+
+html {
+  body {
+    * {
+      box-sizing: border-box;
+    }
+    #app {
+      height: 100%;
+    }
+    /* ant-input-search搜索框 */
+    .ant-input-search {
+      max-width: 250px;
+    }
+
+    /* ant-pagination分页 */
+    .ant-pagination {
+      margin-top: 20;
+      text-align: center;
+
+      &.ant-table-pagination {
+        float: none !important;
+        margin-top: 20;
+      }
+    }
+  }
+}
